@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#32A5B4"
+    tools:context=".Login.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        >
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/doctor"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/otheraccountLy"
+        android:layout_width="match_parent"
+        android:layout_marginTop="55dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:orientation="vertical"
+        android:background="#12FFFFFF"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:hint="@string/user_name_hint"
+            android:textColorHint="#000"
+            android:layout_marginLeft="10dp"
+            android:drawableRight="@drawable/email"
+            android:singleLine="true"
+            android:layout_marginRight="10dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:maxLines="1"
+            android:textColor="#000"
+            android:textDirection="rtl"
+            />
+        <EditText
+            android:id="@+id/paasword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:hint="@string/password"
+            android:drawableRight="@drawable/password"
+            android:textColorHint="#000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:phoneNumber="true"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:gravity="right"
+            android:textColor="#000"
+            android:textDirection="rtl"
+            android:layout_marginBottom="10dp"
+            />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/LogBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="bottom|center"
+        android:background="@drawable/button_round_bookingg"
+        android:textColor="#0D6472"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/login" />
+
+</LinearLayout>

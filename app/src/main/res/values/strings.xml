@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name" translatable="false">Clinics</string>
+    <string name="user_name_hint">رقم الموبايل أو الإيميل</string>
+    <string name="password">كلمة المرور</string>
+    <string name="registration">تسجيل مستخدم جديد</string>
+    <string name="patientRegist">تسجيل حجز جديد</string>
+    <string name="newRequest"> حجز جديد</string>
+    <string name="oldRequest">الحجوزات السابقه</string>
+    <string name="login">تسجيل دخول</string>
+    <string name="login_as_visitor">الدخــــول كزائـــر</string>
+    <string name="forget_password">استعادة كلمة المرور</string>
+    <string name="Medical_tourrism_fullname_txt">الإسم الثلاثى</string>
+    <string name="Secondname">الاسم الثاني</string>
+    <string name="SurName">لقب العائلة</string>
+    <string name="mobilenumber">رقم الموبايل</string>
+    <string name="user_name_error">الإيميل لا يمكن أن يكون فارغ</string>
+    <string name="password_error">الرقم السري لا يمكن أن يكون فارغ</string>
+    <string name="id">رقم البطاقة</string>
+    <string name="confirmpasswrod">تأكيد  كلمة  المرور</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="DateOfBirth">تاريخ  الميلاد</string>
+    <string name="DateOfBooking">تاريخ  الحجز</string>
+    <string name="male">ذكر</string>
+    <string name="Female">أنثى</string>
+    <string name="title_activity_home" translatable="false">HomeActivity</string>
+    <string name="title_home" translatable="false">Home</string>
+    <!--<string name="title_dashboard">Dashboard</string>-->
+    <string name="title_dashboard" translatable="false">profile</string>
+    <!--<string name="title_notifications">Notifications</string>-->
+    <string name="title_notifications">Menu</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="otherAccount">حساب الغير</string>
+    <string name="otherAccountBooking">الحجز لحساب الغير</string>
+    <string name="Name">الاسم</string>
+    <string name="Service">الخدمة</string>
+    <string name="SendBook">تاكيد الحجز</string>
+    <string name="SendBooking">ارسال الحجز</string>
+    <string name="patientName">اسم الحالة المرضية</string>
+    <string name="age">العمر</string>
+    <string name="RadioButton_Male">ذكر</string>
+    <string name="RadioButton_Female">انثى</string>
+    <string name="BookingStatus">حاله الحجز</string>
+    <string name="doctorName">اسم الدكتور</string>
+</resources>

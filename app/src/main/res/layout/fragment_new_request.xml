@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#32A5B4"
+    tools:context=".newRequest.newRequestFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/Booking_Toolbar"
+            layout="@layout/app_bar_layout_booking"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/img_booking"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical"
+            android:background="#12FFFFFF"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/patientName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:hint="@string/patientName"
+                android:textColorHint="#0D6472"
+                android:layout_marginLeft="10dp"
+                android:drawableRight="@drawable/user"
+                android:singleLine="true"
+                android:layout_marginRight="10dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:maxLines="1"
+                android:textSize="24sp"
+                android:textColor="#0D6472"
+                android:textDirection="rtl"
+                />
+
+            <EditText
+                android:id="@+id/patientMobail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:hint="@string/mobilenumber"
+                android:drawableRight="@drawable/mobile"
+                android:textColorHint="#0D6472"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:phoneNumber="true"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:gravity="right"
+                android:textColor="#0D6472"
+                android:textDirection="rtl"
+                android:textSize="24sp"
+                />
+
+            <EditText
+                android:id="@+id/patientAge"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:hint="@string/age"
+                android:drawableRight="@drawable/age"
+                android:textColorHint="#0D6472"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:phoneNumber="true"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:gravity="right"
+                android:textSize="24sp"
+                android:textColor="#0D6472"
+                android:textDirection="rtl"
+                />
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/radioSex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:dividerPadding="30dp"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radioFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/Withe"
+                android:checked="true"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="@string/RadioButton_Male"
+                android:textColor="#FFF" />
+            <RadioButton
+                android:id="@+id/radioMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"
+                android:buttonTint="@color/Withe"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="@string/RadioButton_Female"
+                android:textColor="#FFF" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/dateobooking"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="#000"
+                android:drawableRight="@mipmap/date_logo"
+                android:gravity="center_vertical"
+                android:hint="@string/DateOfBooking"
+                android:maxLines="1"
+                android:textColor="#000"
+                android:textColorHint="#000"
+                android:textDirection="rtl" />
+
+
+            <LinearLayout
+
+                android:id="@+id/DateBooking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:orientation="vertical">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip1"
+                    android:layout_marginTop="5dp"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10:30 to 11:30" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip2"
+                    android:layout_marginTop="3dp"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10:30 to 11:30" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip3"
+                    android:layout_marginTop="3dp"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10:30 to 11:30" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip4"
+                    android:layout_marginTop="3dp"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10:30 to 11:30" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/sendbook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="bottom|center"
+                android:background="@drawable/button_round_bookingg"
+                android:textColor="#0D6472"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:text="@string/patientRegist" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

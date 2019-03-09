@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#32A5B4"
+    android:layoutDirection="rtl"
+    tools:context=".booking.BookingActivity">
+
+    <include
+        android:id="@+id/Booking_Toolbar"
+        layout="@layout/app_bar_layout_booking"
+        />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/pation2"
+                    />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <RadioGroup
+                    android:id="@+id/radioBookingType"
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    android:layoutDirection="rtl"
+                    android:layout_gravity="right"
+                    android:dividerPadding="30dp"
+                    >
+                    <CheckBox
+                        android:id="@+id/radiotheraccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/otherAccountBooking"
+                        android:textColor="#000"
+                        android:button="@drawable/check_box_selector"
+                        />
+                </RadioGroup>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/otheraccountLy"
+                android:layout_width="match_parent"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#12FFFFFF"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/otherpersonName"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:hint="@string/Name"
+                    android:textColorHint="#000"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:maxLines="1"
+                    android:textColor="#000"
+                    android:textDirection="rtl"
+                    />
+                <EditText
+                    android:id="@+id/otherpersonmobilenumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:hint="@string/mobilenumber"
+                    android:textColorHint="#000"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:phoneNumber="true"
+                    android:maxLines="1"
+                    android:gravity="right"
+                    android:textColor="#000"
+                    android:textDirection="rtl"
+                    android:layout_marginBottom="10dp"
+                    />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/Service"
+                android:textSize="20sp"
+                android:visibility="gone"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:weightSum="2">
+                <Button
+                    android:id="@+id/add_service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="إضافة خدمة"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:background="@color/Withe"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/dateobooking"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:backgroundTint="#000"
+                    android:drawableRight="@mipmap/date_logo"
+                    android:gravity="center_vertical"
+                    android:hint="@string/DateOfBooking"
+                    android:maxLines="1"
+                    android:textColor="#000"
+                    android:textColorHint="#000"
+                    android:textDirection="rtl" />
+
+
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/DateBooking"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="vertical">-->
+
+                    <!--<com.google.android.material.chip.Chip-->
+                        <!--android:id="@+id/chip1"-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--style="@style/Widget.MaterialComponents.Chip.Filter"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="10:30 to 11:30" />-->
+
+                    <!--<com.google.android.material.chip.Chip-->
+                        <!--android:id="@+id/chip2"-->
+                        <!--android:layout_marginTop="3dp"-->
+                        <!--style="@style/Widget.MaterialComponents.Chip.Filter"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="10:30 to 11:30" />-->
+
+                    <!--<com.google.android.material.chip.Chip-->
+                        <!--android:id="@+id/chip3"-->
+                        <!--android:layout_marginTop="3dp"-->
+                        <!--style="@style/Widget.MaterialComponents.Chip.Filter"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="10:30 to 11:30" />-->
+
+                    <!--<com.google.android.material.chip.Chip-->
+                        <!--android:id="@+id/chip4"-->
+                        <!--android:layout_marginTop="3dp"-->
+                        <!--style="@style/Widget.MaterialComponents.Chip.Filter"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="10:30 to 11:30" />-->
+                <!--</LinearLayout>-->
+
+
+                <RadioGroup
+                    android:id="@+id/DateBooking"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                    android:id="@+id/RadioButton_1"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="10:00 to 10:30"
+                    android:textColor="#000"
+                    android:button="@drawable/check_box_selector"/>
+
+                    <RadioButton
+                        android:id="@+id/RadioButton_3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@drawable/check_box_selector"
+                        android:text="10:00 to 10:30"
+                        android:textColor="#000" />
+
+                    <RadioButton
+                    android:id="@+id/RadioButton_2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="10:00 to 10:30"
+                    android:textColor="#000"
+                    android:button="@drawable/check_box_selector"/>
+
+                    <RadioButton
+                    android:id="@+id/RadioButton_4"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="10:00 to 10:30"
+                    android:textColor="#000"
+                    android:button="@drawable/check_box_selector"/>
+
+                </RadioGroup>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/sendbook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:layout_gravity="bottom|center"
+                    android:background="@drawable/button_round_bookingg"
+                    android:textColor="#0D6472"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/SendBooking" />
+            </LinearLayout>
+        </LinearLayout>
+</LinearLayout>
