@@ -7,14 +7,19 @@
         android:title="الرئيسية" />
 
     <item
-        android:id="@+id/dashboard"
-        android:icon="@drawable/profilee"
-        android:title="الشخصية"
+        android:id="@+id/newReqMenu"
+        android:icon="@drawable/doctor2"
+        android:title="حجز جديد"
         />
 
     <item
-        android:id="@+id/notifications"
-        android:icon="@drawable/menuu"
-        android:title="القائمة"
+        android:id="@+id/oldReqMenu"
+        android:icon="@drawable/doctor3"
+        android:title="الحجوزات السابقه"
+        />
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/logout"
+        android:title="خروج"
         />
 </menu>

@@ -1,4 +1,4 @@
-package com.example.ragab.clinics.detailsClinic;
+package com.example.ragab.clinics.Home;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 
 import com.example.ragab.clinics.R;
 import com.example.ragab.clinics.newRequest.newRequestActivity;
+import com.example.ragab.clinics.oldRequest.oldRequestActivity;
 import com.squareup.picasso.Picasso;
 
 public class DetailsClinicFragment extends Fragment {
@@ -44,7 +45,7 @@ public class DetailsClinicFragment extends Fragment {
         oldReq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), newRequestActivity.class));
+                startActivity(new Intent(getActivity(), oldRequestActivity.class));
             }
         });
 

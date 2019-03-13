@@ -29,8 +29,13 @@ public class OldRequestAdapter extends RecyclerView.Adapter<OldRequestAdapter.Ol
     public void onBindViewHolder(OldRequestHolder holder, int position) {
         final BookingAll_Items bookingAllItems = bookingAll_items.get(position);
         holder.requestName.setText("الدكتور احمد الجعلى");
-        holder.RequestDate.setText(bookingAllItems.getAppointmentDate());
-        holder.Requeststatues.setText("Cost:- " + String.valueOf(bookingAllItems.getCost()));
+        String string = bookingAllItems.getAppointmentDate();
+        String[] parts = string.split("T", 2);
+        String part1 = parts[0];
+        String part2 = parts[1];
+        holder.RequestDate.setText("التاريخ:- "+part1);
+        holder.RequestTime.setText("التوقيت:- " + part2);
+        holder.Requeststatues.setText("تكلفه الحجز:- " +String.valueOf(bookingAllItems.getCost()));
     }
 
     @Override
@@ -40,6 +45,7 @@ public class OldRequestAdapter extends RecyclerView.Adapter<OldRequestAdapter.Ol
 
     public class OldRequestHolder extends RecyclerView.ViewHolder {
         protected TextView RequestDate;
+        protected TextView RequestTime;
         protected TextView Requeststatues;
         protected TextView requestName;
 
@@ -47,6 +53,7 @@ public class OldRequestAdapter extends RecyclerView.Adapter<OldRequestAdapter.Ol
             super(view);
             this.requestName = view.findViewById(R.id.requestname);
             this.RequestDate = view.findViewById(R.id.oldrequestdate);
+            this.RequestTime = view.findViewById(R.id.oldrequestTime);
             this.Requeststatues = view.findViewById(R.id.requeststatues);
         }
     }

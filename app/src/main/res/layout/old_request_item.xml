@@ -39,6 +39,24 @@
                 android:layout_marginRight="15dp"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/oldrequestTime"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/serviceproivdertitle"
+                android:maxLines="1"
+                android:text="gjhbhbhbh"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="#fff"
+                android:padding="8dp"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:drawableRight="@drawable/clock"
+                />
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -76,9 +94,9 @@
                 android:padding="8dp"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                android:drawableRight="@drawable/clock"
+                android:drawableRight="@drawable/date"
                 />
         </LinearLayout>
     </LinearLayout>

@@ -9,6 +9,8 @@ import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.example.ragab.clinics.Login.LoginActivity;
+import com.example.ragab.clinics.newRequest.newRequestActivity;
+import com.example.ragab.clinics.oldRequest.oldRequestActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -17,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.example.ragab.clinics.ProfileFragment;
 import com.example.ragab.clinics.R;
 import java.util.Locale;
@@ -43,7 +44,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         Local();
         controlToolbar();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        loadingFragment(new HomeFragment());
+        loadingFragment(new DetailsClinicFragment());
         BottomNavigationView navigationView = findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
         if (Build.VERSION.SDK_INT >= M) {
@@ -88,17 +89,17 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
     @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment fragment ;
+        final Fragment[] fragment = new Fragment[1];
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     toolbar_title.setText("الرئيسية");
-                    fragment = new HomeFragment();
-                    loadingFragment(fragment);
+                    fragment[0] = new DetailsClinicFragment();
+                    loadingFragment(fragment[0]);
                     return true;
                 case R.id.navigation_profile:
                     toolbar_title.setText("الشخصية");
-                    fragment = new ProfileFragment();
-                    loadingFragment(fragment);
+                    fragment[0] = new ProfileFragment();
+                    loadingFragment(fragment[0]);
 //                    startActivity(new Intent(HomeActivity.this, newRequestActivity.class));
                     return true;
                 case R.id.navigation_logout:
@@ -106,8 +107,8 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                     return true;
                 case R.id.navigation_menu:
                     toolbar_title.setText("الرئيسية");
-                    fragment = new HomeFragment();
-                    loadingFragment(fragment);
+                    fragment[0] = new DetailsClinicFragment();
+                    loadingFragment(fragment[0]);
                     SheetMenu.with(this)
                             .setTitle("اختار")
                             .setMenu(R.menu.menu)
@@ -117,19 +118,23 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                                 public boolean onMenuItemClick(MenuItem item) {
                                     switch (item.getItemId()) {
                                         case R.id.home:
-                                            Toast.makeText(HomeActivity.this, "الرئيسية", Toast.LENGTH_SHORT).show();
+                                            fragment[0] = new DetailsClinicFragment();
+                                            loadingFragment(fragment[0]);
                                             break;
-                                        case R.id.dashboard:
-                                            Toast.makeText(HomeActivity.this, "الشخصية", Toast.LENGTH_SHORT).show();
+                                        case R.id.newReqMenu:
+                                            startActivity(new Intent(HomeActivity.this, newRequestActivity.class));
                                             break;
-                                        case R.id.notifications:
-                                            Toast.makeText(HomeActivity.this, "القائمة", Toast.LENGTH_SHORT).show();
+                                        case R.id.oldReqMenu:
+                                            startActivity(new Intent(HomeActivity.this, oldRequestActivity.class));
+                                            break;
+                                        case R.id.logout:
+                                            logoutMessage();
                                             break;
                                     }
                                     return true;
                                 }
                             }).show();
-            }
+            } 
             return true;
         }
 
