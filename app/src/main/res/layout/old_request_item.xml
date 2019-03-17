@@ -2,22 +2,24 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
-    android:layout_width="400dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="5dp"
     cardview:cardCornerRadius="2dp"
     cardview:cardElevation="3dp"
     android:id="@+id/cardItem"
-    android:background="#fff"
+    android:background="@drawable/background_row"
     cardview:cardUseCompatPadding="true">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layoutDirection="rtl"
-        android:background="#fff"
+        android:background="@drawable/background_row"
         android:weightSum="2"
         android:baselineAligned="false">
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -26,9 +28,10 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:weightSum="3">
+
             <TextView
                 android:id="@+id/requestname"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/serviceproivdertitle"
                 android:maxLines="1"
@@ -36,10 +39,11 @@
                 android:text="الدكتور احمد الجعلى"
                 android:padding="8dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="#615959"
+                android:textColor="#32A5B4"
                 android:layout_marginRight="15dp"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
+
             <TextView
                 android:id="@+id/oldrequestTime"
                 android:layout_weight="1"
@@ -50,7 +54,7 @@
                 android:text="gjhbhbhbh"
                 android:gravity="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="#615959"
+                android:textColor="#32A5B4"
                 android:padding="8dp"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
@@ -59,15 +63,17 @@
                 android:drawableRight="@drawable/clock"
                 />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
             android:weightSum="2"
             android:layout_height="wrap_content">
+
             <TextView
                 android:id="@+id/requeststatues"
-                android:layout_width="182dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/serviceproivdertitle"
                 android:layout_gravity="center_vertical"
@@ -78,9 +84,10 @@
                 android:padding="8dp"
                 android:text="@string/BookingStatus"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="#615959"
+                android:textColor="#32A5B4"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/oldrequestdate"
                 android:layout_weight="1"
@@ -91,7 +98,7 @@
                 android:gravity="center"
                 android:text="dd-mm-yyyy"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="#615959"
+                android:textColor="#32A5B4"
                 android:padding="8dp"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
@@ -100,5 +107,7 @@
                 android:drawableRight="@drawable/date"
                 />
         </LinearLayout>
+
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>

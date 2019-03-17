@@ -5,9 +5,7 @@ import android.widget.Toast;
 import com.example.ragab.clinics.Home.HomeActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.Map;
-
 import APIClient.ApiInterface;
 import APIClient.ServicesConnection;
 import Model.ResponseBookingItem;

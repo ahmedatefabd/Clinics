@@ -9,8 +9,11 @@ import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.example.ragab.clinics.Login.LoginActivity;
+import com.example.ragab.clinics.labs.labsFragment;
+import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionFragment;
 import com.example.ragab.clinics.newRequest.newRequestActivity;
 import com.example.ragab.clinics.oldRequest.oldRequestActivity;
+import com.example.ragab.clinics.x_Ray.x_RayFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -89,7 +92,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
     @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        final Fragment[] fragment = new Fragment[1];
+        final Fragment[] fragment = {new Fragment()};
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     toolbar_title.setText("الرئيسية");
@@ -119,6 +122,21 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                                     switch (item.getItemId()) {
                                         case R.id.home:
                                             fragment[0] = new DetailsClinicFragment();
+                                            loadingFragment(fragment[0]);
+                                            break;
+                                        case R.id.reportMenu:
+                                            toolbar_title.setText("روشته");
+                                            fragment[0] = new medicalPrescreptionFragment();
+                                            loadingFragment(fragment[0]);
+                                            break;
+                                        case R.id.xRayMenu:
+                                            toolbar_title.setText("أشعة");
+                                            fragment[0] = new x_RayFragment();
+                                            loadingFragment(fragment[0]);
+                                            break;
+                                        case R.id.labsMenu:
+                                            toolbar_title.setText("تحاليل");
+                                            fragment[0] = new labsFragment();
                                             loadingFragment(fragment[0]);
                                             break;
                                         case R.id.newReqMenu:

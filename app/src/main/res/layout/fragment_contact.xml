@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    tools:context=".contact.ContactFragment">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal"
+        android:layout_alignParentLeft="true"
+        android:padding="5dp"
+        android:background="#32A5B4">
+
+        <ImageView
+            android:id="@+id/select_image"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/camera"
+            android:padding="5dp"/>
+
+        <EditText
+            android:id="@+id/message_ET"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="Write a message..."
+            android:textColorHint="#fff"
+            android:textColor="#fff"
+            android:padding="10dp"/>
+
+        <ImageView
+            android:id="@+id/send_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/send"
+            android:padding="5dp"/>
+    </LinearLayout>
+
+
+</LinearLayout>

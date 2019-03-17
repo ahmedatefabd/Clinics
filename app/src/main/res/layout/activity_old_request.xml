@@ -15,11 +15,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="15dp">
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/old1" />
+            android:layout_height="wrap_content"
+            android:src="@drawable/book3" />
     </RelativeLayout>
     <com.cooltechworks.views.shimmer.ShimmerRecyclerView
         android:layout_width="match_parent"
@@ -27,6 +27,7 @@
         android:id="@+id/recyclerOldRequest"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="4dp"
+        android:background="#32A5B4"
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"/>
 

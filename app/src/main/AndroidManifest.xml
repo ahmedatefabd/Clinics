@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +16,12 @@
         android:roundIcon="@drawable/doctor"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".detailsClinic.DetailsClinicActivity"></activity>
+        <activity android:name=".medical_PrescreptionDetails.medical_PrescreptionDetailsActivity"></activity>
+        <activity android:name=".x_Ray.X_RayActivity" />
+        <activity android:name=".labs.LabsActivity" />
+        <activity android:name=".medical_Prescreption.medicalPrescreptionActivity" />
+        <activity android:name=".contact.ContactActivity" />
+        <activity android:name=".detailsClinic.DetailsClinicActivity" />
         <activity android:name=".newRequest.newRequestActivity" />
         <activity android:name=".oldRequest.oldRequestActivity" />
         <activity android:name=".booking.BookingActivity" />

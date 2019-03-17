@@ -7,6 +7,22 @@
         android:title="الرئيسية" />
 
     <item
+        android:id="@+id/reportMenu"
+        android:icon="@drawable/doctor3"
+        android:title="روشته"
+        />
+    <item
+        android:id="@+id/xRayMenu"
+        android:icon="@drawable/doctor3"
+        android:title="أشعة "
+        />
+    <item
+        android:id="@+id/labsMenu"
+        android:icon="@drawable/doctor3"
+        android:title="تحاليل"
+        />
+
+    <item
         android:id="@+id/newReqMenu"
         android:icon="@drawable/doctor2"
         android:title="حجز جديد"
@@ -17,6 +33,7 @@
         android:icon="@drawable/doctor3"
         android:title="الحجوزات السابقه"
         />
+
     <item
         android:id="@+id/logout"
         android:icon="@drawable/logout"

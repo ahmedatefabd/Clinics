@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.ragab.clinics.R;
+import com.example.ragab.clinics.contact.ContactActivity;
+import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionActivity;
 import com.example.ragab.clinics.newRequest.newRequestActivity;
 import com.example.ragab.clinics.oldRequest.oldRequestActivity;
 import com.squareup.picasso.Picasso;
@@ -38,7 +40,8 @@ public class DetailsClinicFragment extends Fragment {
         newReq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), newRequestActivity.class));
+//                startActivity(new Intent(getActivity(), newRequestActivity.class));
+                startActivity(new Intent(getActivity(), medicalPrescreptionActivity.class));
             }
         });
 

@@ -35,4 +35,8 @@
     <string name="RadioButton_Female">انثى</string>
     <string name="BookingStatus">حاله الحجز</string>
     <string name="doctorName">اسم الدكتور</string>
+    <string name="add_photo">اضافه صورة</string>
+    <string name="choose_photo">اختر صورة</string>
+    <string name="take_photo">التقاط صورة</string>
+    <string name="cancle_photo">خروج</string>
 </resources>
