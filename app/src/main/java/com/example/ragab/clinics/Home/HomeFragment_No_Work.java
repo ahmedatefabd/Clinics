@@ -17,19 +17,19 @@ import ir.mirrajabi.searchdialog.SimpleSearchDialogCompat;
 import ir.mirrajabi.searchdialog.core.BaseSearchDialogCompat;
 import ir.mirrajabi.searchdialog.core.SearchResultListener;
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment_No_Work extends BaseFragment {
     private RecyclerView recycler;
     private RecyclerView.LayoutManager mLayoutManager;
     private DoctorsAdapter adapter;
     private LinearLayout linearLayout;
 
-    public HomeFragment() {
+    public HomeFragment_No_Work() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home_no_work, container, false);
         recycler = view.findViewById(R.id.recycler);
         linearLayout = view.findViewById(R.id.search_home_fragment);
         mLayoutManager = new LinearLayoutManager(getActivity());

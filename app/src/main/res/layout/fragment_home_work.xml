@@ -4,13 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home.DetailsClinicFragment"
+    tools:context=".Home.HomeFragment_Work"
     android:orientation="vertical"
     android:background="#32A5B4">
     <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/image_page_slider_home"
+            android:layout_width="400dp"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true" />
+        <LinearLayout
+            android:id="@+id/image_page_dots_home"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="horizontal" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="5dp">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="150dp"
@@ -21,7 +38,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:orientation="vertical"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="#12FFFFFF"
         android:layout_height="wrap_content">
         <TextView
@@ -37,7 +54,7 @@
             android:background="@android:drawable/editbox_background_normal"
             android:maxLines="1"
             android:textSize="24sp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:textColor="#0D6472"
             android:textDirection="rtl" />
         <TextView
@@ -51,7 +68,7 @@
             android:background="@android:drawable/editbox_background_normal"
             android:phoneNumber="true"
             android:maxLines="1"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:singleLine="true"
             android:gravity="right"
             android:textColor="#0D6472"
@@ -61,7 +78,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:orientation="horizontal">

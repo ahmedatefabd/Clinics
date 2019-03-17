@@ -3,22 +3,22 @@
 
     <item
         android:id="@+id/home"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/home1"
         android:title="الرئيسية" />
 
     <item
         android:id="@+id/reportMenu"
-        android:icon="@drawable/doctor3"
+        android:icon="@drawable/report1"
         android:title="روشته"
         />
     <item
         android:id="@+id/xRayMenu"
-        android:icon="@drawable/doctor3"
+        android:icon="@drawable/xray1"
         android:title="أشعة "
         />
     <item
         android:id="@+id/labsMenu"
-        android:icon="@drawable/doctor3"
+        android:icon="@drawable/lab1"
         android:title="تحاليل"
         />
 

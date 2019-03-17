@@ -47,7 +47,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         Local();
         controlToolbar();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        loadingFragment(new DetailsClinicFragment());
+        loadingFragment(new HomeFragment_Work());
         BottomNavigationView navigationView = findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
         if (Build.VERSION.SDK_INT >= M) {
@@ -96,7 +96,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     toolbar_title.setText("الرئيسية");
-                    fragment[0] = new DetailsClinicFragment();
+                    fragment[0] = new HomeFragment_Work();
                     loadingFragment(fragment[0]);
                     return true;
                 case R.id.navigation_profile:
@@ -109,9 +109,9 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                     logoutMessage();
                     return true;
                 case R.id.navigation_menu:
-                    toolbar_title.setText("الرئيسية");
-                    fragment[0] = new DetailsClinicFragment();
-                    loadingFragment(fragment[0]);
+//                    toolbar_title.setText("الرئيسية");
+//                    fragment[0] = new HomeFragment_Work();
+//                    loadingFragment(fragment[0]);
                     SheetMenu.with(this)
                             .setTitle("اختار")
                             .setMenu(R.menu.menu)
@@ -121,7 +121,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                                 public boolean onMenuItemClick(MenuItem item) {
                                     switch (item.getItemId()) {
                                         case R.id.home:
-                                            fragment[0] = new DetailsClinicFragment();
+                                            fragment[0] = new HomeFragment_Work();
                                             loadingFragment(fragment[0]);
                                             break;
                                         case R.id.reportMenu:
