@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -16,6 +17,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
+import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
 import java.util.List;
 import java.util.Locale;
@@ -102,7 +104,6 @@ public class oldRequestActivity extends AppCompatActivity implements oldRequestV
         } else {
             error();
         }
-
     }
 
     private void error() {
@@ -122,5 +123,11 @@ public class oldRequestActivity extends AppCompatActivity implements oldRequestV
         } catch (Exception e) {
             Toast.makeText(this, "لا توجد أى طلبات سابقة ..", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(oldRequestActivity.this, HomeActivity.class));
+        finish();
     }
 }

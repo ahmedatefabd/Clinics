@@ -15,12 +15,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.Login.LoginActivity;
 import com.example.ragab.clinics.R;
+import com.squareup.picasso.Picasso;
+
 import java.util.Locale;
 
+import Util.RoundedTransformation;
 import Util.Utils;
 
 public class SplashActivity extends Activity {
@@ -34,16 +36,36 @@ public class SplashActivity extends Activity {
         window.setFormat(PixelFormat.RGBA_8888);
     }
 
+    public ImageView spalsh1, spalsh2 ;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        spalsh1 = findViewById(R.id.spalsh1);
+        spalsh2 = findViewById(R.id.spalsh2);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Local();
         StartAnimations();
         sharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
+        Picasso.get()
+                .load(R.drawable.doc2)
+                .transform(new RoundedTransformation())
+                .resize(500, 500)
+                .into(spalsh1);
+
+        Picasso.get()
+                .load(R.drawable.doc1)
+                .transform(new RoundedTransformation())
+                .resize(500, 500)
+                .into(spalsh2);
+
+
+
     }
 
     private void Local() {
@@ -67,7 +89,7 @@ public class SplashActivity extends Activity {
         l.startAnimation(anim);
         anim = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
         anim.reset();
-        ImageView iv = findViewById(R.id.logo);
+        ImageView iv = findViewById(R.id.spalsh1);
         iv.clearAnimation();
         iv.startAnimation(anim);
         anim.setAnimationListener(new Animation.AnimationListener() {

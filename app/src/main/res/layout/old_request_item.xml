@@ -8,68 +8,26 @@
     cardview:cardCornerRadius="2dp"
     cardview:cardElevation="3dp"
     android:id="@+id/cardItem"
+    android:layoutDirection="rtl"
     android:background="@drawable/background_row"
     cardview:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:layoutDirection="rtl"
-        android:background="@drawable/background_row"
-        android:weightSum="2"
-        android:baselineAligned="false">
-
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageAllUser"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_gravity="center"
+            android:src="@drawable/report2"/>
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layoutDirection="rtl"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:weightSum="3">
-
-            <TextView
-                android:id="@+id/requestname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/serviceproivdertitle"
-                android:maxLines="1"
-                android:layout_weight="1"
-                android:text="الدكتور احمد الجعلى"
-                android:padding="8dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="#32A5B4"
-                android:layout_marginRight="15dp"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/oldrequestTime"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/serviceproivdertitle"
-                android:maxLines="1"
-                android:text="gjhbhbhbh"
-                android:gravity="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="#32A5B4"
-                android:padding="8dp"
-                android:layout_marginLeft="5dp"
-                android:layout_gravity="center_vertical"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:drawableRight="@drawable/clock"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:weightSum="2"
-            android:layout_height="wrap_content">
+            android:layout_margin="5dp">
 
             <TextView
                 android:id="@+id/requeststatues"
@@ -79,9 +37,9 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:drawableRight="@drawable/greencircle"
-                android:gravity="center"
+                android:gravity="right"
                 android:maxLines="1"
-                android:padding="8dp"
+                android:layout_marginStart="20dp"
                 android:text="@string/BookingStatus"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:textColor="#32A5B4"
@@ -89,25 +47,43 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/oldrequestTime"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="gjhbhbhbh"
+                android:gravity="right"
+                android:layout_marginTop="5dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="#32A5B4"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:layout_marginStart="30dp"
+                android:textStyle="bold"
+                android:drawableRight="@drawable/clock"
+            />
+            <TextView
                 android:id="@+id/oldrequestdate"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/serviceproivdertitle"
                 android:maxLines="1"
-                android:gravity="center"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="5dp"
+                android:gravity="right"
                 android:text="dd-mm-yyyy"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:textColor="#32A5B4"
-                android:padding="8dp"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:drawableRight="@drawable/date"
-                />
+            />
         </LinearLayout>
-
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

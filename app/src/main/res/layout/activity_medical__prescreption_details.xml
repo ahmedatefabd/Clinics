@@ -15,10 +15,21 @@
         android:orientation="vertical"
         android:background="#32A5B4">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/old1"
+                android:backgroundTint="#32A5B4"/>
+        </RelativeLayout>
+
     <LinearLayout
         android:id="@+id/otheraccountLy"
         android:layout_width="match_parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:orientation="vertical"

@@ -26,7 +26,7 @@ import java.util.TimerTask;
 public class HomeFragment_Work extends Fragment {
 
     private RelativeLayout oldReq, newReq;
-    private ImageView doctor2, doctor3;
+    private ImageView doctor2, doctor3 ,doc;
     Slider_Pager_Adapter_Home sliderPagerAdapter;
     ArrayList<Integer> slider_image_list = new ArrayList<>();
     int page_position = 0;
@@ -51,6 +51,7 @@ public class HomeFragment_Work extends Fragment {
         newReq = view.findViewById(R.id.newReq);
         doctor2 = view.findViewById(R.id.doctor2);
         doctor3 = view.findViewById(R.id.doctor3);
+        doc = view.findViewById(R.id.doc);
 
 
         newReq.setOnClickListener(new View.OnClickListener() {
@@ -69,16 +70,21 @@ public class HomeFragment_Work extends Fragment {
         });
 
         Picasso.get()
-                .load(R.drawable.doctor2)
+                .load(R.drawable.doc6)
                 .transform(new RoundedTransformation())
                 .resize(150, 150)
                 .into(doctor2);
 
         Picasso.get()
-                .load(R.drawable.doctor3)
+                .load(R.drawable.report1)
                 .transform(new RoundedTransformation())
                 .resize(150, 150)
                 .into(doctor3);
+        Picasso.get()
+                .load(R.drawable.doc2)
+                .transform(new RoundedTransformation())
+                .resize(300, 300)
+                .into(doc);
         return view;
     }
 

@@ -11,6 +11,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+
+import Util.RoundedTransformation;
 import androidx.fragment.app.Fragment;
 import android.provider.MediaStore;
 import android.util.Base64;
@@ -24,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.ragab.clinics.R;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -40,6 +43,7 @@ public class x_RayFragment extends Fragment implements View.OnClickListener {
 
     private Button addPicturee;
     private LinearLayout selectedImagess;
+    private ImageView xrayImg;
     private String filePath;
     private static final int REQUEST_PERMISSIONS_READ_EXTERNAL_STORAGE = 600, REQUEST_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 601;
     DialogInterface.OnClickListener onDialogClickWithImagee;
@@ -83,6 +87,12 @@ public class x_RayFragment extends Fragment implements View.OnClickListener {
     private void Declare_controls(View view) {
         addPicturee = view.findViewById(R.id.addpicture);
         selectedImagess = view.findViewById(R.id.show_selected_photo);
+        xrayImg = view.findViewById(R.id.xrayImg);
+        Picasso.get()
+                .load(R.drawable.xray12)
+                .transform(new RoundedTransformation())
+                .resize(500, 500)
+                .into(xrayImg);
     }
 
     @Override

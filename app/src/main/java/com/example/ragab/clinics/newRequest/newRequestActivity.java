@@ -3,11 +3,14 @@ import Util.Utils;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
 import com.google.android.material.chip.Chip;
 import java.text.SimpleDateFormat;
@@ -90,4 +93,10 @@ public class newRequestActivity extends AppCompatActivity {
         SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
         dateOfBirthTV.setText(format1.format(ca.getTime()));
     }
+
+    @Override
+    public void onBackPressed() {
+            startActivity(new Intent(newRequestActivity.this, HomeActivity.class));
+            finish();
+        }
 }

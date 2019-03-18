@@ -48,6 +48,7 @@ dependencies {
     implementation 'com.github.mirrajabi:search-dialog:1.2.3'
 //    implementation 'com.github.mirrajabi:search-dialog:1.2.3'
     implementation 'com.taishi-y:flipprogressdialog:0.1.0'
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 
     //Testing
     implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'

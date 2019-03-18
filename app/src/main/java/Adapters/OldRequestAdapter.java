@@ -28,7 +28,6 @@ public class OldRequestAdapter extends RecyclerView.Adapter<OldRequestAdapter.Ol
     @Override
     public void onBindViewHolder(OldRequestHolder holder, int position) {
         final BookingAll_Items bookingAllItems = bookingAll_items.get(position);
-        holder.requestName.setText("الدكتور احمد الجعلى");
         String string = bookingAllItems.getAppointmentDate();
         String[] parts = string.split("T", 2);
         String part1 = parts[0];
@@ -47,11 +46,9 @@ public class OldRequestAdapter extends RecyclerView.Adapter<OldRequestAdapter.Ol
         protected TextView RequestDate;
         protected TextView RequestTime;
         protected TextView Requeststatues;
-        protected TextView requestName;
 
         public OldRequestHolder(View view) {
             super(view);
-            this.requestName = view.findViewById(R.id.requestname);
             this.RequestDate = view.findViewById(R.id.oldrequestdate);
             this.RequestTime = view.findViewById(R.id.oldrequestTime);
             this.Requeststatues = view.findViewById(R.id.requeststatues);

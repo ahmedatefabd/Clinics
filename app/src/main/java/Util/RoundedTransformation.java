@@ -1,16 +1,18 @@
 package Util;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
+import com.example.ragab.clinics.R;
 import com.squareup.picasso.Transformation;
 
 public class RoundedTransformation implements Transformation {
     private final int BORDER_COLOR = Color.WHITE;
-    private final int BORDER_RADIUS = 5;
+    private final int BORDER_RADIUS = 0;
     @Override
     public Bitmap transform (Bitmap source) {
         int size = Math.min (source.getWidth (), source.getHeight ());

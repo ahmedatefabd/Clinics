@@ -11,6 +11,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+
+import Util.RoundedTransformation;
 import androidx.fragment.app.Fragment;
 import android.provider.MediaStore;
 import android.util.Base64;
@@ -24,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.ragab.clinics.R;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -41,6 +44,7 @@ public class labsFragment extends Fragment implements View.OnClickListener{
     private Button addPicturee;
     private LinearLayout selectedImagess;
     private String filePath;
+    private ImageView labImg;
     private static final int REQUEST_PERMISSIONS_READ_EXTERNAL_STORAGE = 600, REQUEST_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 601;
     DialogInterface.OnClickListener onDialogClickWithImagee;
     public static ArrayList<String> bookingPhotos = new ArrayList<>();
@@ -84,7 +88,15 @@ public class labsFragment extends Fragment implements View.OnClickListener{
     private void Declare_controls(View view) {
         addPicturee = view.findViewById(R.id.addpictureLabs);
         selectedImagess = view.findViewById(R.id.show_selected_photo);
+        labImg = view.findViewById(R.id.labImg);
+        Picasso.get()
+                .load(R.drawable.lab28)
+                .transform(new RoundedTransformation())
+                .resize(500, 500)
+                .into(labImg);
     }
+
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
