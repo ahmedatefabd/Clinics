@@ -1,6 +1,7 @@
 package com.example.ragab.clinics.Login;
 import android.content.Intent;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 import com.example.ragab.clinics.Home.HomeActivity;
 import org.json.JSONException;
@@ -13,6 +14,8 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.example.ragab.clinics.Login.LoginActivity.progressBar;
 
 public class LoginPresenterImp implements LoginPresenter, ApiInterface {
 
@@ -66,16 +69,19 @@ public class LoginPresenterImp implements LoginPresenter, ApiInterface {
                                         }).show();
                             }
                         } else {
+                            progressBar.setVisibility(View.GONE);
                             Toast.makeText(loginView, "تم تسجيل الدخول بنجاح", Toast.LENGTH_SHORT).show();
                             loginView.startActivity(new Intent(loginView, HomeActivity.class));
                         }
                     } catch (JSONException e) {
+                        progressBar.setVisibility(View.GONE);
                         loginView.showalert("حدث خطأ في الاتصال , من فضلك أعد المحاولة");
                     }
                 }
             }
             @Override
             public void onFailure(Call<String> call, Throwable t) {
+                progressBar.setVisibility(View.GONE);
                 System.out.print(toString());
                 loginView.showalert("حدث خطأ في الاتصال , من فضلك أعد المحاولة وتأكد من الاتصال بالانترنت");
             }

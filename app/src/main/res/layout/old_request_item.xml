@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="5dp"
-    cardview:cardCornerRadius="2dp"
-    cardview:cardElevation="3dp"
+    cardview:cardCornerRadius="10dp"
+    cardview:cardElevation="5dp"
     android:id="@+id/cardItem"
     android:layoutDirection="rtl"
     android:background="@drawable/background_row"
@@ -19,8 +19,8 @@
         android:layout_margin="4dp">
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageAllUser"
-            android:layout_width="95dp"
-            android:layout_height="95dp"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
             android:layout_gravity="center"
             android:src="@drawable/report2"/>
         <LinearLayout

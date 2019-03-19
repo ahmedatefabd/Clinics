@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.example.ragab.clinics.R;
+import com.example.ragab.clinics.aboutDoctor.AboutDoctorActivity;
 import com.example.ragab.clinics.newRequest.newRequestActivity;
 import com.example.ragab.clinics.oldRequest.oldRequestActivity;
 import com.squareup.picasso.Picasso;
@@ -37,10 +38,8 @@ public class HomeFragment_Work extends Fragment {
     public HomeFragment_Work() {
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_home_work, container, false);
         images_slider = view.findViewById(R.id.image_page_slider_home);
         pages_dots = view.findViewById(R.id.image_page_dots_home);
@@ -53,12 +52,11 @@ public class HomeFragment_Work extends Fragment {
         doctor3 = view.findViewById(R.id.doctor3);
         doc = view.findViewById(R.id.doc);
 
-
         newReq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), newRequestActivity.class));
-//                startActivity(new Intent(getActivity(), medicalPrescreptionActivity.class));
+//                startActivity(new Intent(getActivity(), AboutDoctorActivity.class));
             }
         });
 
@@ -72,13 +70,13 @@ public class HomeFragment_Work extends Fragment {
         Picasso.get()
                 .load(R.drawable.doc6)
                 .transform(new RoundedTransformation())
-                .resize(150, 150)
+                .resize(100, 100)
                 .into(doctor2);
 
         Picasso.get()
                 .load(R.drawable.report1)
                 .transform(new RoundedTransformation())
-                .resize(150, 150)
+                .resize(100, 100)
                 .into(doctor3);
         Picasso.get()
                 .load(R.drawable.doc2)
@@ -90,9 +88,7 @@ public class HomeFragment_Work extends Fragment {
 
     private void initSlider() {
         addBottomDots(0);
-
         slider_image_list = new ArrayList<>();
-
         slider_image_list.add(R.drawable.slider1);
         slider_image_list.add(R.drawable.slider2);
         slider_image_list.add(R.drawable.slider3);

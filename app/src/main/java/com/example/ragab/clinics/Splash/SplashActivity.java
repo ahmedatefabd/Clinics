@@ -14,14 +14,12 @@ import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.Login.LoginActivity;
 import com.example.ragab.clinics.R;
 import com.squareup.picasso.Picasso;
-
 import java.util.Locale;
-
 import Util.RoundedTransformation;
 import Util.Utils;
 
@@ -29,24 +27,21 @@ public class SplashActivity extends Activity {
     public static SharedPreferences sharedPreferences;
     public static SharedPreferences.Editor editor;
     public static final String PREF_NAME = "prefs";
+    ImageView splash, spalsh2;
 
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         Window window = getWindow();
         window.setFormat(PixelFormat.RGBA_8888);
     }
-
-    public ImageView spalsh1, spalsh2 ;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        spalsh1 = findViewById(R.id.spalsh1);
+         splash = findViewById(R.id.spalsh1);
         spalsh2 = findViewById(R.id.spalsh2);
-
+        TextView textView = findViewById(R.id.spname);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Local();
         StartAnimations();
@@ -56,16 +51,20 @@ public class SplashActivity extends Activity {
                 .load(R.drawable.doc2)
                 .transform(new RoundedTransformation())
                 .resize(500, 500)
-                .into(spalsh1);
+                .into(splash);
 
         Picasso.get()
                 .load(R.drawable.doc1)
                 .transform(new RoundedTransformation())
                 .resize(500, 500)
                 .into(spalsh2);
+    }
 
-
-
+    private void RefreshHome() {
+            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+            startActivity(intent);
+            finish();
+            Utils.makeAlertToast(getApplicationContext(), ("\uD83D\uDC49") + "  " + "   " + "  " + "يمكنك تغيير الخدمة من هنا", 3000);
     }
 
     private void Local() {
@@ -81,18 +80,10 @@ public class SplashActivity extends Activity {
     }
 
     private void StartAnimations() {
-
-        Animation anim = AnimationUtils.loadAnimation(this, R.anim.alpha);
-        anim.reset();
-        LinearLayout l = findViewById(R.id.lin_lay);
-        l.clearAnimation();
-        l.startAnimation(anim);
-        anim = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
-        anim.reset();
-        ImageView iv = findViewById(R.id.spalsh1);
-        iv.clearAnimation();
-        iv.startAnimation(anim);
-        anim.setAnimationListener(new Animation.AnimationListener() {
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.splash_animate);
+        splash.setAnimation(animation);
+        spalsh2.setAnimation(animation);
+        animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
             }
@@ -109,6 +100,7 @@ public class SplashActivity extends Activity {
                             } else {
                                 i = new Intent(SplashActivity.this, HomeActivity.class);
                                 finish();
+                                RefreshHome();
                             }
                             startActivity(i);
                             finish();
@@ -117,7 +109,8 @@ public class SplashActivity extends Activity {
                         } catch (Exception e) {
                         }
                     }
-                }, 2000);
+                }, 3000);
+
             }
             @Override
             public void onAnimationRepeat(Animation animation) {

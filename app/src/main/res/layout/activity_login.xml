@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -28,7 +28,7 @@
     <LinearLayout
         android:id="@+id/otheraccountLy"
         android:layout_width="match_parent"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="300dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:orientation="vertical"
@@ -77,12 +77,19 @@
         android:id="@+id/LogBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_gravity="bottom|center"
         android:background="@drawable/button_round_bookingg"
         android:textColor="#0D6472"
         android:textSize="20sp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="150dp"
         android:text="@string/login" />
 
-</LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+</FrameLayout>

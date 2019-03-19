@@ -6,6 +6,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,7 +19,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class newRequestActivity extends AppCompatActivity {
-    private TextView dateOfBirthTV;
+    private TextView dateOfBirthTV, check;
     int year, month, day;
     private LinearLayout DateBooking;
     public static Toolbar toolbar;
@@ -38,6 +39,8 @@ public class newRequestActivity extends AppCompatActivity {
         chip_2 = findViewById(R.id.chip2);
         chip_3 = findViewById(R.id.chip3);
         chip_4 = findViewById(R.id.chip4);
+        check = findViewById(R.id.check);
+
         DateBooking = findViewById(R.id.DateBooking);
         viewTime(DateBooking);
         dateOfBirthTV = findViewById(R.id.dateobooking);
@@ -63,6 +66,31 @@ public class newRequestActivity extends AppCompatActivity {
                 new DatePickerDialog(newRequestActivity.this, date, calendar
                         .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
                         calendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        chip_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                check.setText("10.30 to 11.30");
+            }
+        });
+        chip_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                check.setText("11.30 to 12.30");
+            }
+        });
+        chip_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                check.setText("12.30 to 01.30");
+            }
+        });
+        chip_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                check.setText("01.30 to 02.30");
             }
         });
     }

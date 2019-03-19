@@ -1,6 +1,7 @@
 package com.example.ragab.clinics.oldRequest;
 import Adapters.OldRequestAdapter;
 import Model.BookingAll_Items;
+import Util.RoundedTransformation;
 import Util.Utils;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -14,11 +15,14 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
+import android.widget.ImageView;
 import android.os.Bundle;
 import android.widget.Toast;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 import java.util.Locale;
 import static android.os.Build.VERSION_CODES.M;
@@ -27,6 +31,7 @@ public class oldRequestActivity extends AppCompatActivity implements oldRequestV
     public static Toolbar toolbar;
     public static ShimmerRecyclerView shimmerRecyclerView;
     private RecyclerView recyclerView;
+    private ImageView oldReqImg;
     private OldRequestAdapter adapter;
     oldRequestPresenter oldRequestPresenter;
 
@@ -36,6 +41,12 @@ public class oldRequestActivity extends AppCompatActivity implements oldRequestV
 
         setContentView(R.layout.activity_old_request);
         recyclerView = findViewById(R.id.recyclerOldRequest);
+        oldReqImg = findViewById(R.id.oldReqImg);
+        Picasso.get()
+                .load(R.drawable.book5)
+                .transform(new RoundedTransformation())
+                .resize(500, 500)
+                .into(oldReqImg);
         Local();
         controlToolbar();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);

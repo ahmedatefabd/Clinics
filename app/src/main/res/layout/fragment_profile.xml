@@ -7,20 +7,20 @@
     android:background="#32A5B4"
     android:orientation="vertical"
     android:gravity="center"
+    android:layoutDirection="rtl"
     tools:context=".ProfileFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
+
         <ImageView
             android:id="@+id/logo"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginBottom="10dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/user2"
-            />
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/user2" />
 
     </RelativeLayout>
 
@@ -35,21 +35,26 @@
             android:layout_marginTop="20dp"
             >
 
-            <EditText
+            <TextView
                 android:id="@+id/edit_firstname"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
                 android:hint="@string/Medical_tourrism_fullname_txt"
                 android:textColorHint="#000"
                 android:maxLines="1"
+                android:textColor="#32A5B4"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:drawableRight="@drawable/user"
                 android:background="@android:drawable/editbox_background_normal"
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:textCursorDrawable="@drawable/cursoercolor"
                 />
+
             <EditText
                 android:id="@+id/edit_secondname"
                 android:layout_width="match_parent"
@@ -59,6 +64,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:hint="@string/Secondname"
+                android:gravity="center"
                 android:focusable="true"
                 android:drawableRight="@drawable/user"
                 android:drawableTint="@color/colorPrimary"
@@ -72,6 +78,7 @@
                 android:visibility="gone"
                 />
         </LinearLayout>
+
         <EditText
             android:id="@+id/edit_surname"
             android:layout_width="match_parent"
@@ -91,27 +98,31 @@
             android:textCursorDrawable="@drawable/cursoercolor"
             android:visibility="gone"
             />
-        <EditText
+
+        <TextView
             android:id="@+id/edit_mobilenumber"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="15dp"
             android:hint="@string/mobilenumber"
             android:maxLines="1"
-            android:gravity="right"
+            android:gravity="center"
             android:maxLength="11"
             android:drawableRight="@drawable/mobile"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:phoneNumber="true"
+            android:textColor="#32A5B4"
             android:singleLine="true"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:textColorHint="#000"
             android:textCursorDrawable="@drawable/cursoercolor"
             android:background="@android:drawable/editbox_background_normal"
             />
 
-        <EditText
+        <TextView
             android:id="@+id/edit_password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -132,6 +143,7 @@
             android:textColorHint="@color/colorPrimary"
             android:textColor="@color/colorPrimary"
             />
+
         <EditText
             android:id="@+id/edit_confirmpassword"
             android:layout_width="match_parent"
@@ -153,24 +165,30 @@
             android:textColorHint="@color/colorPrimary"
             android:textColor="@color/colorPrimary"
             />
-        <EditText
+
+        <TextView
             android:id="@+id/edit_email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="15dp"
             android:hint="@string/email"
             android:drawableRight="@drawable/email"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:maxLines="1"
+            android:gravity="center"
             android:textColorHint="#000"
             android:textDirection="rtl"
             android:singleLine="true"
+            android:textColor="#32A5B4"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:inputType="textEmailAddress"
             android:textCursorDrawable="@drawable/cursoercolor"
             android:background="@android:drawable/editbox_background_normal"
             />
+
         <Button
             android:id="@+id/edit_RegesrationBtn"
             android:layout_width="wrap_content"

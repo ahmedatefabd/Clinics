@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
@@ -33,6 +34,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     public static final String KEY_PASS = "password";
     private static long back_pressed;
     private static final int TIME_DELAY = 2000;
+    public static ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         setContentView(R.layout.activity_login);
         usernameET = findViewById(R.id.username);
         passwordET = findViewById(R.id.paasword);
+        progressBar = findViewById(R.id.progress_bar);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         final Locale locale = new Locale("en");
         final Resources resources = this.getResources();
@@ -59,6 +62,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         LogBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 email = usernameET.getText().toString().trim();
                 password = passwordET.getText().toString().trim();
                 if (!edEmail().isEmpty() && !edPassword().isEmpty()) {
@@ -69,6 +73,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
                 if (CheckEmpty(email, password)) {
                     CheckInternetConnection();
                 } else {
+                    progressBar.setVisibility(View.GONE);
                     Toast.makeText(LoginActivity.this, "تأكد من كتابة البيانات بطريقة صحيحة", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -102,10 +107,12 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
             try {
                 loginPresenter.RequestLogin(email, password);
             } catch (NumberFormatException e) {
+                progressBar.setVisibility(View.GONE);
                 Log.w("NumberException", e.getMessage());
                 passwordET.setError("تأكد من ادخال القيمة بطريقة صحيحةً");
             }
         } else {
+            progressBar.setVisibility(View.GONE);
             showErrorMessage("من فضلك تأكد من الإتصال بالإنترنت");
         }
     }

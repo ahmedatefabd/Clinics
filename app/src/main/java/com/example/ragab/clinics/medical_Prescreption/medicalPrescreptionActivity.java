@@ -6,11 +6,17 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
+
+import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
+import com.example.ragab.clinics.oldRequest.oldRequestActivity;
+
 import java.util.ArrayList;
 import java.util.Locale;
 import static android.os.Build.VERSION_CODES.M;
@@ -58,5 +64,11 @@ public class medicalPrescreptionActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             configuration.setLayoutDirection(locale);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(medicalPrescreptionActivity.this, HomeActivity.class));
+        finish();
     }
 }

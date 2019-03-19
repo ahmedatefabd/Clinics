@@ -54,7 +54,7 @@ public class Utils {
         t.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 10);
         View view = t.getView();
         view.setBackgroundColor(Color.WHITE);
-        new CountDownTimer(Math.max(durationInMillis - SHORT_TOAST_DURATION, 1000), 1000) {
+        new CountDownTimer(Math.max(durationInMillis - SHORT_TOAST_DURATION, 2000), 2000) {
             @Override
             public void onFinish() {
                 t.show();

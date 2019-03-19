@@ -10,6 +10,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.example.ragab.clinics.Login.LoginActivity;
 import com.example.ragab.clinics.labs.labsFragment;
+import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionActivity;
 import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionFragment;
 import com.example.ragab.clinics.newRequest.newRequestActivity;
 import com.example.ragab.clinics.oldRequest.oldRequestActivity;
@@ -125,9 +126,10 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                                             loadingFragment(fragment[0]);
                                             break;
                                         case R.id.reportMenu:
-                                            toolbar_title.setText("روشته");
-                                            fragment[0] = new medicalPrescreptionFragment();
-                                            loadingFragment(fragment[0]);
+//                                            toolbar_title.setText("روشته");
+//                                            fragment[0] = new medicalPrescreptionFragment();
+//                                            loadingFragment(fragment[0]);
+                                            startActivity(new Intent(HomeActivity.this, medicalPrescreptionActivity.class));
                                             break;
                                         case R.id.xRayMenu:
                                             toolbar_title.setText("أشعة");
