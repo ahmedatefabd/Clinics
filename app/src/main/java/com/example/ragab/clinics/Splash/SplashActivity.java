@@ -15,6 +15,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.Login.LoginActivity;
 import com.example.ragab.clinics.R;
@@ -103,13 +105,15 @@ public class SplashActivity extends Activity {
                                 RefreshHome();
                             }
                             startActivity(i);
+
                             finish();
                             startActivity(i);
+
                             finish();
                         } catch (Exception e) {
                         }
                     }
-                }, 3000);
+                }, 1000);
 
             }
             @Override

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#32A5B4"
-    android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
-    >
+    android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar">
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,4 +14,12 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#fff" />
+
+    <ImageView
+        android:id="@+id/imgbarOldRequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="20dp"
+        app:srcCompat="@drawable/back"/>
 </androidx.appcompat.widget.Toolbar>

@@ -8,11 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
+import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionActivity;
+import com.example.ragab.clinics.oldRequest.oldRequestActivity;
 import com.google.android.material.chip.Chip;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -29,12 +33,25 @@ public class newRequestActivity extends AppCompatActivity {
     private Chip chip_3;
     private Chip chip_4;
 
+    private ImageView imgbarBooking;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_new_request);
         controlToolbar();
+        imgbarBooking = findViewById(R.id.imgbarBooking);
+
+        imgbarBooking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(newRequestActivity.this, HomeActivity.class));
+                Animatoo.animateSlideUp(newRequestActivity.this);
+                finish();
+            }
+        });
+
         chip_1 = findViewById(R.id.chip1);
         chip_2 = findViewById(R.id.chip2);
         chip_3 = findViewById(R.id.chip3);
@@ -125,6 +142,7 @@ public class newRequestActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
             startActivity(new Intent(newRequestActivity.this, HomeActivity.class));
+        Animatoo.animateSlideDown(newRequestActivity.this);
             finish();
         }
 }

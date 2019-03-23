@@ -15,12 +15,16 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
+import android.view.View;
 import android.widget.ImageView;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
+import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -34,6 +38,7 @@ public class oldRequestActivity extends AppCompatActivity implements oldRequestV
     private ImageView oldReqImg;
     private OldRequestAdapter adapter;
     oldRequestPresenter oldRequestPresenter;
+    private ImageView imgbarOldRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,17 @@ public class oldRequestActivity extends AppCompatActivity implements oldRequestV
         setContentView(R.layout.activity_old_request);
         recyclerView = findViewById(R.id.recyclerOldRequest);
         oldReqImg = findViewById(R.id.oldReqImg);
+        imgbarOldRequest = findViewById(R.id.imgbarOldRequest);
+
+        imgbarOldRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(oldRequestActivity.this, HomeActivity.class));
+                Animatoo.animateSlideUp(oldRequestActivity.this);
+                finish();
+            }
+        });
+
         Picasso.get()
                 .load(R.drawable.book5)
                 .transform(new RoundedTransformation())
@@ -139,6 +155,7 @@ public class oldRequestActivity extends AppCompatActivity implements oldRequestV
     @Override
     public void onBackPressed() {
         startActivity(new Intent(oldRequestActivity.this, HomeActivity.class));
+        Animatoo.animateSlideUp(oldRequestActivity.this);
         finish();
     }
 }

@@ -8,13 +8,15 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.Login.LoginActivity;
+import com.example.ragab.clinics.contact.ContactActivity;
+import com.example.ragab.clinics.labs.LabsActivity;
 import com.example.ragab.clinics.labs.labsFragment;
 import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionActivity;
-import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionFragment;
 import com.example.ragab.clinics.newRequest.newRequestActivity;
 import com.example.ragab.clinics.oldRequest.oldRequestActivity;
-import com.example.ragab.clinics.x_Ray.x_RayFragment;
+import com.example.ragab.clinics.x_Ray.X_RayActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -57,6 +59,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         sharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
     }
+
     private void Local() {
         Locale locale = new Locale("ar");
         Locale.setDefault(locale);
@@ -99,20 +102,17 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                     toolbar_title.setText("الرئيسية");
                     fragment[0] = new HomeFragment_Work();
                     loadingFragment(fragment[0]);
+                    Animatoo.animateZoom(HomeActivity.this);
                     return true;
                 case R.id.navigation_profile:
                     toolbar_title.setText("الشخصية");
                     fragment[0] = new ProfileFragment();
                     loadingFragment(fragment[0]);
-//                    startActivity(new Intent(HomeActivity.this, newRequestActivity.class));
                     return true;
                 case R.id.navigation_logout:
                     logoutMessage();
                     return true;
                 case R.id.navigation_menu:
-//                    toolbar_title.setText("الرئيسية");
-//                    fragment[0] = new HomeFragment_Work();
-//                    loadingFragment(fragment[0]);
                     SheetMenu.with(this)
                             .setTitle("اختار")
                             .setMenu(R.menu.menu)
@@ -126,26 +126,28 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                                             loadingFragment(fragment[0]);
                                             break;
                                         case R.id.reportMenu:
-//                                            toolbar_title.setText("روشته");
-//                                            fragment[0] = new medicalPrescreptionFragment();
-//                                            loadingFragment(fragment[0]);
                                             startActivity(new Intent(HomeActivity.this, medicalPrescreptionActivity.class));
+                                            Animatoo.animateZoom(HomeActivity.this);
                                             break;
                                         case R.id.xRayMenu:
-                                            toolbar_title.setText("أشعة");
-                                            fragment[0] = new x_RayFragment();
-                                            loadingFragment(fragment[0]);
+                                            startActivity(new Intent(HomeActivity.this, X_RayActivity.class));
+                                            Animatoo.animateZoom(HomeActivity.this);
                                             break;
                                         case R.id.labsMenu:
-                                            toolbar_title.setText("تحاليل");
-                                            fragment[0] = new labsFragment();
-                                            loadingFragment(fragment[0]);
+                                            startActivity(new Intent(HomeActivity.this, LabsActivity.class));
+                                            Animatoo.animateZoom(HomeActivity.this);
+                                            break;
+                                        case R.id.contactmenu:
+                                            startActivity(new Intent(HomeActivity.this, ContactActivity.class));
+                                            Animatoo.animateZoom(HomeActivity.this);
                                             break;
                                         case R.id.newReqMenu:
                                             startActivity(new Intent(HomeActivity.this, newRequestActivity.class));
+                                            Animatoo.animateZoom(HomeActivity.this);
                                             break;
                                         case R.id.oldReqMenu:
                                             startActivity(new Intent(HomeActivity.this, oldRequestActivity.class));
+                                            Animatoo.animateZoom(HomeActivity.this);
                                             break;
                                         case R.id.logout:
                                             logoutMessage();

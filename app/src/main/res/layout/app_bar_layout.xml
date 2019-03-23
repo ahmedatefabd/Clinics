@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:textColor="#fff"
         android:id="@+id/toolbar_title" />
 

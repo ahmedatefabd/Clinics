@@ -1,4 +1,5 @@
 package Adapters;
+import android.app.Activity;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,8 +7,12 @@ import android.view.ViewGroup;
 import android.content.Context;
 import android.widget.TextView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.R;
+import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionActivity;
 import com.example.ragab.clinics.medical_PrescreptionDetails.medical_PrescreptionDetailsActivity;
+import com.hzn.lib.EasyTransition;
+import com.hzn.lib.EasyTransitionOptions;
 
 import java.util.List;
 import Model.medical_Prescreption;
@@ -18,9 +23,11 @@ public class medical_PrescreptionAdapter extends RecyclerView.Adapter<medical_Pr
     private Context mContext;
     private List<medical_Prescreption> bookingAll_items;
 
+
     public medical_PrescreptionAdapter(Context mContext, List<medical_Prescreption> bookingAll_items) {
         this.mContext = mContext;
         this.bookingAll_items = bookingAll_items;
+
     }
 
     @NonNull
@@ -40,7 +47,12 @@ public class medical_PrescreptionAdapter extends RecyclerView.Adapter<medical_Pr
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 mContext.startActivity(new Intent(mContext, medical_PrescreptionDetailsActivity.class));
+                Animatoo.animateZoom(mContext);
+
+
+//                mContext.startActivity(new Intent(mContext, medical_PrescreptionDetailsActivity.class));
             }
         });
     }

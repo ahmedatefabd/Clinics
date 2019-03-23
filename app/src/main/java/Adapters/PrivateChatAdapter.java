@@ -22,7 +22,7 @@ public class PrivateChatAdapter extends RecyclerView.Adapter<PrivateChatAdapter.
 
     @Override
     public PrivateChatHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == MSG_TYPE_RIGHT) {
+        if (viewType == MSG_TYPE_LEFT) {
             View row = LayoutInflater.from(context).inflate(R.layout.chat_item_right, parent, false);
             PrivateChatHolder holder = new PrivateChatHolder(row);
             return holder;

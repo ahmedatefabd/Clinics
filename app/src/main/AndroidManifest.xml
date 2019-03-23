@@ -17,7 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".aboutDoctor.AboutDoctorActivity"></activity>
+
         <activity android:name=".medical_PrescreptionDetails.medical_PrescreptionDetailsActivity" />
+
         <activity android:name=".x_Ray.X_RayActivity" />
         <activity android:name=".labs.LabsActivity" />
         <activity android:name=".medical_Prescreption.medicalPrescreptionActivity" />

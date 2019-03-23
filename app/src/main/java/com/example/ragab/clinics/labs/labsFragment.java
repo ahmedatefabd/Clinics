@@ -44,7 +44,6 @@ public class labsFragment extends Fragment implements View.OnClickListener{
     private Button addPicturee;
     private LinearLayout selectedImagess;
     private String filePath;
-//    private ImageView labImg;
     private static final int REQUEST_PERMISSIONS_READ_EXTERNAL_STORAGE = 600, REQUEST_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 601;
     DialogInterface.OnClickListener onDialogClickWithImagee;
     public static ArrayList<String> bookingPhotos = new ArrayList<>();
@@ -306,14 +305,14 @@ public class labsFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.addpictureLabs:
-                if (bookingPhotos.size() < 3) {
+                if (bookingPhotos.size() < 5) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setTitle(getString(R.string.add_photo));
                     builder.setItems(new CharSequence[]{getString(R.string.choose_photo), getString(R.string.take_photo), getString(R.string.cancle_photo)}, onDialogClickWithImagee);
                     AlertDialog alert = builder.create();
                     alert.show();
                 } else {
-                    errorMessage("لا يمكن إضافة أكثر من 3 صور");
+                    errorMessage("لا يمكن إضافة أكثر من 5 صور");
                 }
                 break;
         }

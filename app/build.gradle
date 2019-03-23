@@ -38,6 +38,10 @@ dependencies {
     implementation 'com.taishi-y:flipprogressdialog:0.1.0'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
 
+    //animation
+    implementation 'com.github.huzenan:EasyTransition:v1.0.0'
+    implementation 'com.github.mohammadatif:Animatoo:master'
+
     //Testing
     implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
     testImplementation 'junit:junit:4.12'

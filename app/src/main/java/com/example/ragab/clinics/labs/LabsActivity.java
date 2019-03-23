@@ -24,7 +24,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
+import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionActivity;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,8 +37,10 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class LabsActivity extends AppCompatActivity implements View.OnClickListener {
+
     private Button addPicturee;
     private LinearLayout selectedImagess;
+    private ImageView imgbar_labs;
     private String filePath;
     private static final int REQUEST_PERMISSIONS_READ_EXTERNAL_STORAGE = 600, REQUEST_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 601;
     DialogInterface.OnClickListener onDialogClickWithImagee;
@@ -74,8 +81,19 @@ public class LabsActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void Declare_controls() {
-        addPicturee = findViewById(R.id.addpicture);
+        addPicturee = findViewById(R.id.addpictureLabs);
         selectedImagess = findViewById(R.id.show_selected_photo);
+        imgbar_labs = findViewById(R.id.imgbar_labs);
+
+
+        imgbar_labs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LabsActivity.this, HomeActivity.class));
+                Animatoo.animateSlideUp(LabsActivity.this);
+                finish();
+            }
+        });
     }
 
     @Override
@@ -285,18 +303,25 @@ public class LabsActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.addpicture:
-                if (bookingPhotos.size() < 3) {
+            case R.id.addpictureLabs:
+                if (bookingPhotos.size() < 5) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(LabsActivity.this);
                     builder.setTitle(getString(R.string.add_photo));
                     builder.setItems(new CharSequence[]{getString(R.string.choose_photo), getString(R.string.take_photo), getString(R.string.cancle_photo)}, onDialogClickWithImagee);
                     AlertDialog alert = builder.create();
                     alert.show();
                 } else {
-                    errorMessage("لا يمكن إضافة أكثر من 3 صور");
+                    errorMessage("لا يمكن إضافة أكثر من 5 صور");
                 }
                 break;
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(LabsActivity.this, HomeActivity.class));
+        Animatoo.animateSlideDown(LabsActivity.this);
+        finish();
     }
 }
