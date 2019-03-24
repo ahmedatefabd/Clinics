@@ -67,6 +67,7 @@ public class SplashActivity extends Activity {
             startActivity(intent);
             finish();
             Utils.makeAlertToast(getApplicationContext(), ("\uD83D\uDC49") + "  " + "   " + "  " + "يمكنك تغيير الخدمة من هنا", 3000);
+
     }
 
     private void Local() {

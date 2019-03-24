@@ -2,9 +2,10 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#32A5B4</color>
     <color name="sky">#b5e3ff</color>
     <color name="booking">#32A5B4</color>
     <color name="statusbar">#b5e3ff</color>
     <color name="Withe">#fff</color>
+    <color name="red">#FA2727</color>
 </resources>

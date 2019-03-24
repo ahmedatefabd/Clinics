@@ -12,7 +12,6 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.Login.LoginActivity;
 import com.example.ragab.clinics.contact.ContactActivity;
 import com.example.ragab.clinics.labs.LabsActivity;
-import com.example.ragab.clinics.labs.labsFragment;
 import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionActivity;
 import com.example.ragab.clinics.newRequest.newRequestActivity;
 import com.example.ragab.clinics.oldRequest.oldRequestActivity;

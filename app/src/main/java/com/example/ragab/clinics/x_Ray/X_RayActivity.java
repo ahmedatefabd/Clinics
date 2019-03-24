@@ -1,4 +1,5 @@
 package com.example.ragab.clinics.x_Ray;
+import Util.Utils;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -24,13 +25,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
-import com.example.ragab.clinics.labs.LabsActivity;
-import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionActivity;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -41,6 +38,7 @@ public class X_RayActivity extends AppCompatActivity implements View.OnClickList
 
     private Button addPicturee;
     private ImageView imgbar_xray;
+    private ImageView image_Delet;
     private LinearLayout selectedImagess;
     private String filePath;
     private static final int REQUEST_PERMISSIONS_READ_EXTERNAL_STORAGE = 600, REQUEST_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 601;
@@ -83,6 +81,7 @@ public class X_RayActivity extends AppCompatActivity implements View.OnClickList
         addPicturee = findViewById(R.id.addpicture);
         selectedImagess = findViewById(R.id.show_selected_photo);
         imgbar_xray = findViewById(R.id.imgbar_xray);
+        image_Delet = findViewById(R.id.image_Delet);
 
         imgbar_xray.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +89,31 @@ public class X_RayActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(X_RayActivity.this, HomeActivity.class));
                 Animatoo.animateSlideUp(X_RayActivity.this);
                 finish();
+            }
+        });
+
+        image_Delet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AlertDialog.Builder builder =   new AlertDialog.Builder(X_RayActivity.this);
+                builder.setMessage("اذا كنت تريد مسح صوره بيتم الضغط على الصوره التى قمت بختيارها")
+                        .setCancelable(false)
+                        .setPositiveButton("نعم", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Utils.makeAlertToastEmotions(getApplicationContext(), ("\uD83D\uDC4D"), 3000);
+                                dialog.cancel();
+                            }
+                        }).setNegativeButton("لا", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Utils.makeAlertToastEmotions(getApplicationContext(), ("\uD83D\uDC4D") , 3000);
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alert = builder.create();
+                alert.setTitle("مسح الصوره");
+                alert.setIcon(R.drawable.deletee_icon);
+                alert.show();
             }
         });
     }
@@ -182,7 +206,6 @@ public class X_RayActivity extends AppCompatActivity implements View.OnClickList
                                     .setCancelable(false)
                                     .setPositiveButton("نعم", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
-
                                             if (bookingPhotos.size() == 1) {
                                                 imageView.setVisibility(View.GONE);
                                                 bookingPhotos.remove(bookingPhotos.get(0));
@@ -231,7 +254,6 @@ public class X_RayActivity extends AppCompatActivity implements View.OnClickList
                                 .setCancelable(false)
                                 .setPositiveButton("نعم", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-
                                         if (bookingPhotos.size() == 1) {
                                             imageView.setVisibility(View.GONE);
                                             bookingPhotos.remove(bookingPhotos.get(0));
@@ -302,7 +324,9 @@ public class X_RayActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.addpicture:
-                if (bookingPhotos.size() < 5) {
+                image_Delet.setVisibility(View.VISIBLE);
+                if (bookingPhotos.size() > 0) {
+                }else if (bookingPhotos.size() < 5) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(X_RayActivity.this);
                     builder.setTitle(getString(R.string.add_photo));
                     builder.setItems(new CharSequence[]{getString(R.string.choose_photo), getString(R.string.take_photo), getString(R.string.cancle_photo)}, onDialogClickWithImagee);
@@ -313,7 +337,6 @@ public class X_RayActivity extends AppCompatActivity implements View.OnClickList
                 }
                 break;
         }
-
     }
 
     @Override

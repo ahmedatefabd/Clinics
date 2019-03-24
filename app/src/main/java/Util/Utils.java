@@ -65,6 +65,22 @@ public class Utils {
             }
         }.start();
     }
+    public static void makeAlertToastEmotions(Context context, String text, long durationInMillis) {
+        final Toast t = Toast.makeText(context, text, Toast.LENGTH_LONG);
+        t.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 10);
+        View view = t.getView();
+        view.setBackgroundColor(Color.BLACK);
+        new CountDownTimer(Math.max(durationInMillis - SHORT_TOAST_DURATION, 2000), 2000) {
+            @Override
+            public void onFinish() {
+                t.show();
+            }
+            @Override
+            public void onTick(long millisUntilFinished) {
+                t.show();
+            }
+        }.start();
+    }
 
     public static void slide_down(Context ctx, View v) {
         Animation a = AnimationUtils.loadAnimation(ctx, R.anim.slide_down);

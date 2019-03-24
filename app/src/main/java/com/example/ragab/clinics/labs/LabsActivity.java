@@ -1,4 +1,5 @@
 package com.example.ragab.clinics.labs;
+import Util.Utils;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -24,12 +25,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
-import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionActivity;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -41,6 +39,7 @@ public class LabsActivity extends AppCompatActivity implements View.OnClickListe
     private Button addPicturee;
     private LinearLayout selectedImagess;
     private ImageView imgbar_labs;
+    private ImageView image_Delet_lab;
     private String filePath;
     private static final int REQUEST_PERMISSIONS_READ_EXTERNAL_STORAGE = 600, REQUEST_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 601;
     DialogInterface.OnClickListener onDialogClickWithImagee;
@@ -84,6 +83,7 @@ public class LabsActivity extends AppCompatActivity implements View.OnClickListe
         addPicturee = findViewById(R.id.addpictureLabs);
         selectedImagess = findViewById(R.id.show_selected_photo);
         imgbar_labs = findViewById(R.id.imgbar_labs);
+        image_Delet_lab = findViewById(R.id.image_Delet_lab);
 
 
         imgbar_labs.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +92,31 @@ public class LabsActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(LabsActivity.this, HomeActivity.class));
                 Animatoo.animateSlideUp(LabsActivity.this);
                 finish();
+            }
+        });
+
+        image_Delet_lab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AlertDialog.Builder builder =   new AlertDialog.Builder(LabsActivity.this);
+                builder.setMessage("اذا كنت تريد مسح صوره بيتم الضغط على الصوره التى قمت بختيارها")
+                        .setCancelable(false)
+                        .setPositiveButton("نعم", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Utils.makeAlertToastEmotions(getApplicationContext(), ("\uD83D\uDC4D"), 3000);
+                                dialog.cancel();
+                            }
+                        }).setNegativeButton("لا", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Utils.makeAlertToastEmotions(getApplicationContext(), ("\uD83D\uDC4D") , 3000);
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alert = builder.create();
+                alert.setTitle("مسح الصوره");
+                alert.setIcon(R.drawable.deletee_icon);
+                alert.show();
             }
         });
     }
@@ -304,6 +329,7 @@ public class LabsActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.addpictureLabs:
+                image_Delet_lab.setVisibility(View.VISIBLE);
                 if (bookingPhotos.size() < 5) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(LabsActivity.this);
                     builder.setTitle(getString(R.string.add_photo));
