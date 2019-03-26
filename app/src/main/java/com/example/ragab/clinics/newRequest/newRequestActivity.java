@@ -6,17 +6,13 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
-import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionActivity;
-import com.example.ragab.clinics.oldRequest.oldRequestActivity;
 import com.google.android.material.chip.Chip;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

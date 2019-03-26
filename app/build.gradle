@@ -22,22 +22,52 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    //Design
-    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
-    implementation 'com.google.android.material:material:1.0.0-beta01'
+    //Design_appcompat
+    implementation "androidx.appcompat:appcompat:$last_version"
+
+    //Design_material
+    implementation "com.google.android.material:material:$last_version"
+
+    //constraintlayout
     implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0-beta01'
-    implementation 'androidx.cardview:cardview:1.0.0-beta01'
+
+    //Design_
+    implementation "androidx.recyclerview:recyclerview:$last_version"
+
+    //recyclerview
+    implementation "androidx.cardview:cardview:$last_version"
+
+    //picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //sweetalert
     implementation 'com.github.f0ris.sweetalert:library:1.5.6'
+
+    //ShimmerRecyclerView
     implementation 'com.github.sharish:ShimmerRecyclerView:v1.3'
-    implementation 'androidx.vectordrawable:vectordrawable:1.0.0-beta01'
+
+    //vectordrawable
+    implementation "androidx.vectordrawable:vectordrawable:$last_version"
+
+    //SimpleRatingBar
     implementation 'com.github.ome450901:SimpleRatingBar:1.4.2'
+
+    //sheetmenu
     implementation 'com.github.whalemare:sheetmenu:1.3.6'
+
+    //search-dialog
     implementation 'com.github.mirrajabi:search-dialog:1.2.3'
+
+    //Design
     implementation 'com.taishi-y:flipprogressdialog:0.1.0'
+
+    //flipprogressdialog
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    //DialogSheet
     implementation 'com.github.marcoscgdev:DialogSheet:2.0.3'
+
+    //dialog
     implementation 'com.yarolegovich:lovely-dialog:1.1.0'
 
     //animation
@@ -45,23 +75,19 @@ dependencies {
     implementation 'com.github.mohammadatif:Animatoo:master'
 
     //Testing
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
+    implementation "androidx.legacy:legacy-support-v4:$last_version"
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+    androidTestImplementation "androidx.test:runner:$testImplementationRunner_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$testImplementationEspresso_version"
 
     //Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
-    implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+    implementation "com.google.code.gson:gson:$gson_version"
 
     //RoomDataBase
-    implementation "androidx.room:room-runtime:2.0.0-rc01"
-    annotationProcessor "androidx.room:room-compiler:2.0.0-rc01"
-    implementation "androidx.lifecycle:lifecycle-viewmodel:2.0.0-rc01"
-
-
-//    implementation "android.arch.persistence.room:runtime:1.1.1"
-//    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
 }

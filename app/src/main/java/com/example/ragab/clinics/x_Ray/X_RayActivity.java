@@ -320,8 +320,7 @@ public class X_RayActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.addpicture:
                 image_Delet.setVisibility(View.VISIBLE);
-                if (bookingPhotos.size() > 0) {
-                }else if (bookingPhotos.size() < 5) {
+                if (bookingPhotos.size() < 5) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(X_RayActivity.this);
                     builder.setTitle(getString(R.string.add_photo));
                     builder.setItems(new CharSequence[]{getString(R.string.choose_photo), getString(R.string.take_photo), getString(R.string.cancle_photo)}, onDialogClickWithImagee);
