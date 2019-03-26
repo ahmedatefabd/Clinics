@@ -7,10 +7,13 @@ import APIClient.ApiInterface;
 import APIClient.ServicesConnection;
 import Model.BookingAll_Items;
 import Model.ResponseBookingItem;
+import ModelDB.BookingAll_ItemsDB;
 import Util.Constant;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.example.ragab.clinics.oldRequest.oldRequestActivity.roomDataBase;
 
 public class oldRequestPresentImp implements oldRequestPresenter, ApiInterface {
     oldRequestView oldRequestView;
@@ -29,6 +32,26 @@ public class oldRequestPresentImp implements oldRequestPresenter, ApiInterface {
             public void onResponse(Call<ResponseBookingItem> call, Response<ResponseBookingItem> response) {
                 List<BookingAll_Items> bookingAll_items = response.body().getItems();
                 if (response.isSuccessful()) {
+                    roomDataBase.oper().deleteBookingItems();
+                    for (int i = 0; i < bookingAll_items.size(); i++) {
+                        //SingleTon
+                        BookingAll_ItemsDB bookingAllItemsDB =
+                                BookingAll_ItemsDB.getInstance(bookingAll_items.get(i).getId()
+                                        , bookingAll_items.get(i).getBranchId()
+                                        ,bookingAll_items.get(i).getAppointmentDate()
+                                        ,bookingAll_items.get(i).getCost()
+                                        ,bookingAll_items.get(i).getStatusId()
+                                        ,bookingAll_items.get(i).getTypeId());
+
+                        bookingAllItemsDB.setId(bookingAll_items.get(i).getId());
+                        bookingAllItemsDB.setBranchId(bookingAll_items.get(i).getBranchId());
+                        bookingAllItemsDB.setAppointmentDate(bookingAll_items.get(i).getAppointmentDate());
+                        bookingAllItemsDB.setCost(bookingAll_items.get(i).getCost());
+                        bookingAllItemsDB.setStatusId(bookingAll_items.get(i).getStatusId());
+                        bookingAllItemsDB.setTypeId(bookingAll_items.get(i).getTypeId());
+
+                        roomDataBase.oper().addBookingItems(bookingAllItemsDB);
+                    }
                     oldRequestActivity.shimmerRecyclerView.hideShimmerAdapter();
                     oldRequestView.setBookingRequestsHistoryList(bookingAll_items);
                 }

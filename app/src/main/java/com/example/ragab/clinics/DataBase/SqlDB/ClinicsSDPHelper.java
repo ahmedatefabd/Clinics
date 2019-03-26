@@ -1,4 +1,4 @@
-package com.example.ragab.clinics.DataBase;
+package com.example.ragab.clinics.DataBase.SqlDB;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;

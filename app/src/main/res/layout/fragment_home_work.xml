@@ -100,11 +100,14 @@
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:orientation="horizontal">
+
+
         <RelativeLayout
             android:id="@+id/newReq"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="#32A5B4"
             android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -114,22 +117,25 @@
                     android:id="@+id/doctor2"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/doctor2" />
+                    android:src="@drawable/doc3" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/newRequest"
                     android:padding="10dp"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="#fff"
                     android:gravity="center" />
             </LinearLayout>
         </RelativeLayout>
+
+
         <RelativeLayout
             android:id="@+id/oldReq"
             android:layout_width="0dp"
             android:gravity="center"
+            android:background="#32A5B4"
             android:layout_weight="1"
             android:layout_height="wrap_content">
             <LinearLayout
@@ -140,7 +146,7 @@
                     android:id="@+id/doctor3"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/doctor3" />
+                    android:src="@drawable/report6" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

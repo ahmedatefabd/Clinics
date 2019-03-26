@@ -32,7 +32,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 import ru.whalemare.sheetmenu.SheetMenu;
 import static android.os.Build.VERSION_CODES.M;
 
-public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, HomeView {
     public static Toolbar toolbar;
     public static TextView toolbar_title;
     private static final int TIME_DELAY = 2000;
@@ -180,11 +180,41 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 })
                 .show();
     }
+    private void Message() {
+        new SweetAlertDialog(HomeActivity.this, SweetAlertDialog.BUTTON_CONFIRM)
+                .setContentText("هل أنت متأكدأنك تريد تسجيل الخروج؟")
+                .setConfirmText("خروج")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.dismiss();
+                        editor.remove("username");
+                        editor.apply();
+                        editor.remove("password");
+                        editor.apply();
+                        editor.remove("id");
+                        editor.apply();
+                        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                        finish();
+                    }
+                })
+                .show();
+    }
 
     private void loadingFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.message, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        RefreshHome();
+    }
+
+    public void RefreshHome() {
+        Utils.makeAlertToast(getApplicationContext(), ("\uD83D\uDC49") + "  " + "   " + "  " + "يمكنك تغيير الخدمة من هنا", 3000);
     }
 }

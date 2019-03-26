@@ -1,14 +1,17 @@
 package com.example.ragab.clinics.oldRequest;
 import Adapters.OldRequestAdapter;
+import AdaptersOfflin.OldRequestAdapterOfflin;
 import Model.BookingAll_Items;
+import ModelDB.BookingAll_ItemsDB;
+import Util.NetworkChangeReceiver;
 import Util.RoundedTransformation;
-import Util.Utils;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -19,14 +22,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
+import com.example.ragab.clinics.DataBase.RoomDB.RoomDataBase;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
-import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionActivity;
 import com.squareup.picasso.Picasso;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import static android.os.Build.VERSION_CODES.M;
@@ -37,17 +39,39 @@ public class oldRequestActivity extends AppCompatActivity implements oldRequestV
     private RecyclerView recyclerView;
     private ImageView oldReqImg;
     private OldRequestAdapter adapter;
+    private OldRequestAdapterOfflin adapterOfflin;
     oldRequestPresenter oldRequestPresenter;
     private ImageView imgbarOldRequest;
+    public static RoomDataBase roomDataBase;
+    public static List<BookingAll_ItemsDB> bookingAllItemsDBList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_old_request);
-        recyclerView = findViewById(R.id.recyclerOldRequest);
-        oldReqImg = findViewById(R.id.oldReqImg);
-        imgbarOldRequest = findViewById(R.id.imgbarOldRequest);
+        control();
+        Local();
+        controlToolbar();
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        if (Build.VERSION.SDK_INT >= M) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.booking));
+        }
+
+        oldRequestPresenter = new oldRequestPresentImp();
+        oldRequestPresenter.setView(this);
+        ShimmerRecycler();
+
+        roomDataBase = Room.databaseBuilder(getApplicationContext(), RoomDataBase.class, "postsdb").allowMainThreadQueries().build();
+        bookingAllItemsDBList = new ArrayList<>();
+
+        if(NetworkChangeReceiver.isNetworkAvailable(this)) {
+            LoadData();
+        }else {
+            errorMessage();
+            LoadDataOfflineRoom();
+        }
 
         imgbarOldRequest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,25 +85,19 @@ public class oldRequestActivity extends AppCompatActivity implements oldRequestV
         Picasso.get()
                 .load(R.drawable.book5)
                 .transform(new RoundedTransformation())
-                .resize(500, 500)
+                .resize(1000, 1000)
                 .into(oldReqImg);
-        Local();
-        controlToolbar();
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        if (Build.VERSION.SDK_INT >= M) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.booking));
-        }
-        oldRequestPresenter = new oldRequestPresentImp();
-        oldRequestPresenter.setView(this);
-        ShimmerRecycler();
-        if(Utils.isInternetOn(this)) {
-            oldRequestPresenter.getBookingHistory();
-        }else {
-            errorMessage();
-        }
     }
 
-    private void errorMessage() {
+    @Override
+    public void control() {
+        recyclerView = findViewById(R.id.recyclerOldRequest);
+        oldReqImg = findViewById(R.id.oldReqImg);
+        imgbarOldRequest = findViewById(R.id.imgbarOldRequest);
+    }
+
+    @Override
+    public void errorMessage() {
         try {
             new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("عفواًً")
@@ -97,14 +115,16 @@ public class oldRequestActivity extends AppCompatActivity implements oldRequestV
         }
     }
 
-    private void ShimmerRecycler() {
+    @Override
+    public void ShimmerRecycler() {
         shimmerRecyclerView = findViewById(R.id.recyclerOldRequest);
         shimmerRecyclerView.showShimmerAdapter();
         shimmerRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         shimmerRecyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 
-    private void Local() {
+    @Override
+    public void Local() {
         Locale locale = new Locale("ar");
         Locale.setDefault(locale);
         String en = Locale.getDefault().getDisplayLanguage();
@@ -116,7 +136,8 @@ public class oldRequestActivity extends AppCompatActivity implements oldRequestV
         }
     }
 
-    private void controlToolbar() {
+    @Override
+    public void controlToolbar() {
         toolbar = findViewById(R.id.oldreq_Toolbar);
         setSupportActionBar(toolbar);
         toolbar.setBackgroundColor(getResources().getColor(R.color.booking));
@@ -133,12 +154,34 @@ public class oldRequestActivity extends AppCompatActivity implements oldRequestV
         }
     }
 
-    private void error() {
-        shimmerRecyclerView.hideShimmerAdapter();
+    @Override
+    public void LoadData() {
+        oldRequestPresenter.getBookingHistory();
+    }
+
+    @Override
+    public void LoadDataOfflineRoom() {
+        bookingAllItemsDBList = roomDataBase.oper().getAllBookingItems();
+        recyclerOfflineRoom(bookingAllItemsDBList);
+    }
+
+    @Override
+    public void recyclerOfflineRoom(List<BookingAll_ItemsDB> bookingAllItemsDBS) {
+
+        adapterOfflin = new OldRequestAdapterOfflin(this,  bookingAllItemsDBS);
+        if (bookingAllItemsDBS.size() > 0) {
+            shimmerRecyclerView.setAdapter(adapterOfflin);
+        } else {
+            error();
+        }
+    }
+
+    @Override
+    public void error() {
         try {
             new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("عفواًً")
-                    .setContentText("لا توجد أى طلبات سابقة")
+                    .setContentText("لا توجد أى حجوزات سابقة")
                     .setConfirmText("تم")
                     .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                         @Override
@@ -148,7 +191,7 @@ public class oldRequestActivity extends AppCompatActivity implements oldRequestV
                     })
                     .show();
         } catch (Exception e) {
-            Toast.makeText(this, "لا توجد أى طلبات سابقة ..", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "لا توجد أى حجوزات سابقة ..", Toast.LENGTH_SHORT).show();
         }
     }
 

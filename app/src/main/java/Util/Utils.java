@@ -66,11 +66,11 @@ public class Utils {
         }.start();
     }
     public static void makeAlertToastEmotions(Context context, String text, long durationInMillis) {
-        final Toast t = Toast.makeText(context, text, Toast.LENGTH_LONG);
+        final Toast t = Toast.makeText(context, text, Toast.LENGTH_SHORT);
         t.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 10);
         View view = t.getView();
         view.setBackgroundColor(Color.BLACK);
-        new CountDownTimer(Math.max(durationInMillis - SHORT_TOAST_DURATION, 2000), 2000) {
+        new CountDownTimer(Math.max(durationInMillis - SHORT_TOAST_DURATION, 1000), 1000) {
             @Override
             public void onFinish() {
                 t.show();
@@ -105,8 +105,7 @@ public class Utils {
     }
 
     public static final boolean isInternetOn(Context context) {
-            final ConnectivityManager connectivityManager
-                    = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
+            final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
             return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
         }
 

@@ -43,9 +43,9 @@ public class OldRequestAdapter extends RecyclerView.Adapter<OldRequestAdapter.Ol
     }
 
     public class OldRequestHolder extends RecyclerView.ViewHolder {
-        protected TextView RequestDate;
-        protected TextView RequestTime;
-        protected TextView Requeststatues;
+        public TextView RequestDate;
+        public TextView RequestTime;
+        public TextView Requeststatues;
 
         public OldRequestHolder(View view) {
             super(view);

@@ -49,20 +49,20 @@ public class HomeFragment_Work extends Fragment {
         });
 
         Picasso.get()
-                .load(R.drawable.doc6)
+                .load(R.drawable.doc3)
                 .transform(new RoundedTransformation())
-                .resize(100, 100)
+                .resize(1000, 1000)
                 .into(doctor2);
 
         Picasso.get()
                 .load(R.drawable.report1)
                 .transform(new RoundedTransformation())
-                .resize(100, 100)
+                .resize(1000, 1000)
                 .into(doctor3);
         Picasso.get()
                 .load(R.drawable.doc2)
                 .transform(new RoundedTransformation())
-                .resize(300, 300)
+                .resize(500, 500)
                 .into(doc);
         return view;
     }

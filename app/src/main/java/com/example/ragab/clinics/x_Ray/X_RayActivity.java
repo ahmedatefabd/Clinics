@@ -44,6 +44,7 @@ public class X_RayActivity extends AppCompatActivity implements View.OnClickList
     private static final int REQUEST_PERMISSIONS_READ_EXTERNAL_STORAGE = 600, REQUEST_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 601;
     DialogInterface.OnClickListener onDialogClickWithImagee;
     public static ArrayList<String> bookingPhotos = new ArrayList<>();
+
     {
         onDialogClickWithImagee = new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int item) {
@@ -95,25 +96,19 @@ public class X_RayActivity extends AppCompatActivity implements View.OnClickList
         image_Delet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                AlertDialog.Builder builder =   new AlertDialog.Builder(X_RayActivity.this);
-                builder.setMessage("اذا كنت تريد مسح صوره بيتم الضغط على الصوره التى قمت بختيارها")
-                        .setCancelable(false)
-                        .setPositiveButton("نعم", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                Utils.makeAlertToastEmotions(getApplicationContext(), ("\uD83D\uDC4D"), 3000);
-                                dialog.cancel();
+                new SweetAlertDialog(X_RayActivity.this, SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+                        .setTitleText("مسح الصوره")
+                        .setContentText("اذا كنت تريد مسح صوره بيتم الضغط على الصوره التى قمت بختيارها")
+                        .setConfirmText("تم")
+                        .setCustomImage(R.drawable.camera4)
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                Utils.makeAlertToastEmotions(getApplicationContext(), ("\uD83D\uDC4D") , 3000);
+                                sDialog.dismiss();
                             }
-                        }).setNegativeButton("لا", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Utils.makeAlertToastEmotions(getApplicationContext(), ("\uD83D\uDC4D") , 3000);
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog alert = builder.create();
-                alert.setTitle("مسح الصوره");
-                alert.setIcon(R.drawable.deletee_icon);
-                alert.show();
+                        })
+                        .show();
             }
         });
     }
@@ -330,6 +325,7 @@ public class X_RayActivity extends AppCompatActivity implements View.OnClickList
                     AlertDialog.Builder builder = new AlertDialog.Builder(X_RayActivity.this);
                     builder.setTitle(getString(R.string.add_photo));
                     builder.setItems(new CharSequence[]{getString(R.string.choose_photo), getString(R.string.take_photo), getString(R.string.cancle_photo)}, onDialogClickWithImagee);
+                    builder.setIcon(R.drawable.camera4);
                     AlertDialog alert = builder.create();
                     alert.show();
                 } else {

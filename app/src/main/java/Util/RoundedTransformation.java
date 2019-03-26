@@ -12,7 +12,7 @@ import com.squareup.picasso.Transformation;
 
 public class RoundedTransformation implements Transformation {
     private final int BORDER_COLOR = Color.WHITE;
-    private final int BORDER_RADIUS = 0;
+    private final int BORDER_RADIUS = 10;
     @Override
     public Bitmap transform (Bitmap source) {
         int size = Math.min (source.getWidth (), source.getHeight ());
