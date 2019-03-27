@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
-import android.widget.Toast;
 
 public class NetworkChangeReceiver extends BroadcastReceiver {
 
@@ -27,7 +26,6 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
                     if (info[i].getState() == NetworkInfo.State.CONNECTED) {
                         if (!isConnected) {
                             Log.v(LOG_TAG, "Now you are connected to Internet!");
-                            Toast.makeText(context, "Internet availablle via Broadcast receiver", Toast.LENGTH_SHORT).show();
                             isConnected = true;
                         }
                         return true;
@@ -36,7 +34,6 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
             }
         }
         Log.v(LOG_TAG, "You are not connected to Internet!");
-        Toast.makeText(context, "Internet NOT availablle via Broadcast receiver", Toast.LENGTH_SHORT).show();
         isConnected = false;
         return false;
     }

@@ -12,10 +12,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.taishi.flipprogressdialog.FlipProgressDialog;
 import java.util.Locale;
 import Util.Utils;
@@ -34,7 +34,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     public static final String KEY_PASS = "password";
     private static long back_pressed;
     private static final int TIME_DELAY = 2000;
-    public static ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +41,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         setContentView(R.layout.activity_login);
         usernameET = findViewById(R.id.username);
         passwordET = findViewById(R.id.paasword);
-        progressBar = findViewById(R.id.progress_bar);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         final Locale locale = new Locale("en");
         final Resources resources = this.getResources();
@@ -62,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         LogBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressBar.setVisibility(View.VISIBLE);
+                progress();
                 email = usernameET.getText().toString().trim();
                 password = passwordET.getText().toString().trim();
                 if (!edEmail().isEmpty() && !edPassword().isEmpty()) {
@@ -73,7 +71,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
                 if (CheckEmpty(email, password)) {
                     CheckInternetConnection();
                 } else {
-                    progressBar.setVisibility(View.GONE);
                     Toast.makeText(LoginActivity.this, "تأكد من كتابة البيانات بطريقة صحيحة", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -107,12 +104,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
             try {
                 loginPresenter.RequestLogin(email, password);
             } catch (NumberFormatException e) {
-                progressBar.setVisibility(View.GONE);
                 Log.w("NumberException", e.getMessage());
                 passwordET.setError("تأكد من ادخال القيمة بطريقة صحيحةً");
             }
         } else {
-            progressBar.setVisibility(View.GONE);
             showErrorMessage("من فضلك تأكد من الإتصال بالإنترنت");
         }
     }
@@ -136,6 +131,16 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         }
     }
 
+    private void progress(){
+        KProgressHUD.create(LoginActivity.this)
+                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                .setLabel("Please wait")
+                .setCancellable(true)
+                .setAnimationSpeed(2)
+                .setDimAmount(0.5f)
+                .show();
+    }
+
     @Override
     public void showUserNameError(int resId) {
         usernameET.setError(getString(resId));
@@ -148,7 +153,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
 
     @Override
     public void showLoader() {
-//        progressDialog.show(getFragmentManager(), "l");
     }
     @Override
     public String edEmail() {

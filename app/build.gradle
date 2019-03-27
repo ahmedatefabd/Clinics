@@ -74,6 +74,8 @@ dependencies {
     implementation 'com.github.huzenan:EasyTransition:v1.0.0'
     implementation 'com.github.mohammadatif:Animatoo:master'
 
+    implementation 'com.kaopiz:kprogresshud:1.2.0'
+
     //Testing
     implementation "androidx.legacy:legacy-support-v4:$last_version"
     testImplementation 'junit:junit:4.12'
