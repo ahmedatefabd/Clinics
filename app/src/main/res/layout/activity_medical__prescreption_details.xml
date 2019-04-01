@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,8 +8,6 @@
     tools:context=".sheet_TreatmentDetails.sheet_TreatmentDetailsActivity"
     android:fitsSystemWindows="true">
 
-
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
@@ -18,8 +15,6 @@
         android:background="#32A5B4"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
-
-
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
@@ -89,21 +84,6 @@
                     android:drawableRight="@drawable/date"
                     />
 
-                <!--<TextView-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:layout_width="0dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:maxLines="1"-->
-                    <!--android:text="Report Number"-->
-                    <!--android:textAppearance="@style/TextAppearance.AppCompat.Headline"-->
-                    <!--android:textColor="#000"-->
-                    <!--android:padding="8dp"-->
-                    <!--android:textSize="14sp"-->
-                    <!--android:textStyle="bold"-->
-                    <!--/>-->
-
-
-
             </LinearLayout>
 
             <TextView
@@ -126,49 +106,6 @@
                 android:layout_marginBottom="4dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"/>
-
-
-            <!--<androidx.cardview.widget.CardView-->
-                <!--android:id="@+id/about_card"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:clickable="true"-->
-                <!--android:layout_marginTop="20dp"-->
-                <!--android:foreground="?android:attr/selectableItemBackground"-->
-                <!--app:cardCornerRadius="6dp"-->
-                <!--app:cardElevation="4sp"-->
-                <!--app:cardUseCompatPadding="true">-->
-
-
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:orientation="vertical"-->
-                    <!--android:paddingBottom="7dp"-->
-                    <!--android:paddingLeft="7dp"-->
-                    <!--android:paddingRight="7dp"-->
-                    <!--android:paddingTop="4dp">-->
-
-                    <!--<TextView-->
-                        <!--style="@android:style/TextAppearance.Medium"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:includeFontPadding="false"-->
-                        <!--android:lines="1"-->
-                        <!--android:textStyle="bold"-->
-                        <!--android:text="About Report:" />-->
-
-                    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:text="hjibjbyubjhbjhbhbhbhbnbnmbnmbmnbmhjibjbyubjhbjhbhbhbhbnbnmbnmbmnbm&ndash;&gt;-->
-<!--&lt;!&ndash;hjibjbyubjhbjhbhbhbhbnbnmbnmbmnbmhjibjbyubjhbjhbhbhbhbnbnmbnmbmnbmhjibjbyubjhbjhbhbhbhbnbnmbnmbmnbm&ndash;&gt;-->
-<!--&lt;!&ndash;hjibjbyubjhbjhbhbhbhbnbnmbnmbmnbmhjibjbyubjhbjhbhbhbhbnbnmbnmbmnbmhjibjbyubjhbjhbhbhbhbnbnmbnmbmnbm&ndash;&gt;-->
-<!--&lt;!&ndash;" />&ndash;&gt;-->
-
-                   <!---->
-                <!--</LinearLayout>-->
-            <!--</androidx.cardview.widget.CardView>-->
 
         </LinearLayout>
 
