@@ -5,10 +5,15 @@ import android.view.View;
 import com.example.ragab.clinics.Home.HomeActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.List;
 import java.util.Map;
 import APIClient.ApiInterface;
 import APIClient.ServicesConnection;
 import Model.ResponseBookingItem;
+import Model.Response_Labs;
+import Model.Response_Sheet_Treatment;
+import Model.Response_XRay;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -86,6 +91,22 @@ public class LoginPresenterImp implements LoginPresenter, ApiInterface {
     public Call<ResponseBookingItem> getBookingHistory(Map<String, String> queryParameters) {
         return null;
     }
+
+    @Override
+    public Call<Response_Sheet_Treatment> getSheetTreatment(Map<String, String> queryParameters) {
+        return null;
+    }
+
+    @Override
+    public Call<Response_XRay> getSheetX_Ray(Map<String, String> queryParameters) {
+        return null;
+    }
+
+    @Override
+    public Call<Response_Labs> getSheetLabs(Map<String, String> queryParameters) {
+        return null;
+    }
+
 
     @Override
     public void setView(LoginActivity loginView) {

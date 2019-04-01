@@ -14,6 +14,4 @@ public interface oldRequestView {
     void ShimmerRecycler();
     void errorMessage();
     void control();
-
-
 }

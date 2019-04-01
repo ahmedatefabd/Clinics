@@ -9,13 +9,13 @@ import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.example.ragab.clinics.Labs.LabsActivity;
 import com.example.ragab.clinics.Login.LoginActivity;
 import com.example.ragab.clinics.contact.ContactActivity;
-import com.example.ragab.clinics.labs.LabsActivity;
-import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionActivity;
+import com.example.ragab.clinics.sheet_Treatment.sheet_TreatmentActivity;
 import com.example.ragab.clinics.newRequest.newRequestActivity;
 import com.example.ragab.clinics.oldRequest.oldRequestActivity;
-import com.example.ragab.clinics.x_Ray.X_RayActivity;
+import com.example.ragab.clinics.x_Rays.X_RaysActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -125,11 +125,11 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                                             loadingFragment(fragment[0]);
                                             break;
                                         case R.id.reportMenu:
-                                            startActivity(new Intent(HomeActivity.this, medicalPrescreptionActivity.class));
+                                            startActivity(new Intent(HomeActivity.this, sheet_TreatmentActivity.class));
                                             Animatoo.animateZoom(HomeActivity.this);
                                             break;
                                         case R.id.xRayMenu:
-                                            startActivity(new Intent(HomeActivity.this, X_RayActivity.class));
+                                            startActivity(new Intent(HomeActivity.this, X_RaysActivity.class));
                                             Animatoo.animateZoom(HomeActivity.this);
                                             break;
                                         case R.id.labsMenu:

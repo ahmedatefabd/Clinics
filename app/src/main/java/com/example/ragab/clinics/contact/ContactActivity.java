@@ -18,7 +18,6 @@ import android.widget.ImageView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
-import com.example.ragab.clinics.medical_Prescreption.medicalPrescreptionActivity;
 
 import java.util.ArrayList;
 import java.util.Locale;

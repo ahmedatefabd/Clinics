@@ -1,5 +1,4 @@
 package com.example.ragab.clinics.oldRequest;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,17 +6,19 @@ import APIClient.ApiInterface;
 import APIClient.ServicesConnection;
 import Model.BookingAll_Items;
 import Model.ResponseBookingItem;
+import Model.Response_Labs;
+import Model.Response_Sheet_Treatment;
+import Model.Response_XRay;
 import ModelDB.BookingAll_ItemsDB;
 import Util.Constant;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 import static com.example.ragab.clinics.oldRequest.oldRequestActivity.roomDataBase;
 
 public class oldRequestPresentImp implements oldRequestPresenter, ApiInterface {
+
     oldRequestView oldRequestView;
-    List<BookingAll_Items> bookingAll_items = new ArrayList<>();
 
     @Override
     public Call<String> login(String body, String content_type) {
@@ -61,6 +62,21 @@ public class oldRequestPresentImp implements oldRequestPresenter, ApiInterface {
                 System.out.print(toString());
             }
         });
+        return null;
+    }
+
+    @Override
+    public Call<Response_Sheet_Treatment> getSheetTreatment(Map<String, String> queryParameters) {
+        return null;
+    }
+
+    @Override
+    public Call<Response_XRay> getSheetX_Ray(Map<String, String> queryParameters) {
+        return null;
+    }
+
+    @Override
+    public Call<Response_Labs> getSheetLabs(Map<String, String> queryParameters) {
         return null;
     }
 

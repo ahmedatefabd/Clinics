@@ -8,10 +8,10 @@
     android:orientation="vertical"
     android:background="#32A5B4"
     android:layoutDirection="rtl"
-    tools:context=".medical_Prescreption.medicalPrescreptionActivity">
+    tools:context=".sheet_Treatment.sheet_TreatmentActivity">
 
     <include
-        android:id="@+id/medical_Prescreption_Toolbar"
+        android:id="@+id/sheetTreatment_Toolbar"
         layout="@layout/app_bar_layout_medical_prescreption"
         />
 
@@ -26,13 +26,15 @@
             android:backgroundTint="#32A5B4"/>
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewmedical_Prescreption_Toolbar"
+    <com.cooltechworks.views.shimmer.ShimmerRecyclerView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="#32A5B4"
+        android:layout_height="match_parent"
+        android:id="@+id/shimmerRecyclerSheetTreatment"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="4dp"
-        android:layout_weight="1"/>
+        android:background="#32A5B4"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"/>
+
 
 </LinearLayout>

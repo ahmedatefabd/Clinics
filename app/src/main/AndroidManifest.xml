@@ -16,13 +16,15 @@
         android:roundIcon="@drawable/doctor"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".aboutDoctor.AboutDoctorActivity"></activity>
-
-        <activity android:name=".medical_PrescreptionDetails.medical_PrescreptionDetailsActivity" />
-
-        <activity android:name=".x_Ray.X_RayActivity" />
-        <activity android:name=".labs.LabsActivity" />
-        <activity android:name=".medical_Prescreption.medicalPrescreptionActivity" />
+        <activity android:name=".x_Rays_Details.X_Rays_Details_Activity"></activity>
+        <activity android:name=".labs_Details.Labs_Details_Activity" />
+        <activity android:name=".x_Rays.X_RaysActivity" />
+        <activity android:name=".Labs.LabsActivity" />
+        <activity android:name=".aboutDoctor.AboutDoctorActivity" />
+        <activity android:name=".sheet_TreatmentDetails.sheet_TreatmentDetailsActivity" />
+        <activity android:name=".Upload_X_Ray.Upload_X_RayActivity" />
+        <activity android:name=".UploadLabs.UploadLabsActivity" />
+        <activity android:name=".sheet_Treatment.sheet_TreatmentActivity" />
         <activity android:name=".contact.ContactActivity" />
         <activity android:name=".detailsClinic.DetailsClinicActivity" />
         <activity android:name=".newRequest.newRequestActivity" />

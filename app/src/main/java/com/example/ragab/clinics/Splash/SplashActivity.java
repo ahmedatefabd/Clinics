@@ -62,14 +62,6 @@ public class SplashActivity extends Activity {
                 .into(spalsh2);
     }
 
-    private void RefreshHome() {
-            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-            startActivity(intent);
-            finish();
-            Utils.makeAlertToast(getApplicationContext(), ("\uD83D\uDC49") + "  " + "   " + "  " + "يمكنك تغيير الخدمة من هنا", 3000);
-
-    }
-
     private void Local() {
         Locale locale = new Locale("ar");
         Locale.setDefault(locale);

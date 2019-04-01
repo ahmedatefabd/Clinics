@@ -44,7 +44,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:textColor="#32A5B4"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp" />
 
             <TextView
                 android:id="@+id/oldrequestTime"

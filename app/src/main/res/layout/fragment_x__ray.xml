@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layoutDirection="rtl"
     android:layout_height="match_parent"
-    tools:context=".x_Ray.x_RayFragment"
+    tools:context=".Upload_X_Ray.Upload_X_RayFragment"
     android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -116,7 +116,7 @@
 
     <include
         android:id="@+id/message_Toolbar"
-        layout="@layout/app_bar_layout_xray"
+        layout="@layout/app_bar_layout_xray_details"
         />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
