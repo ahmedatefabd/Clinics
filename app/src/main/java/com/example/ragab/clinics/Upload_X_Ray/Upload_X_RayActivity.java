@@ -342,4 +342,3 @@ public class Upload_X_RayActivity extends AppCompatActivity implements View.OnCl
     }
 }
 
-
