@@ -81,7 +81,7 @@ public class Upload_X_RayActivity extends AppCompatActivity implements View.OnCl
     private void Declare_controls() {
         addPicturee = findViewById(R.id.addpicture);
         selectedImagess = findViewById(R.id.show_selected_photo);
-        imgbar_xray = findViewById(R.id.imgbar_xray);
+        imgbar_xray = findViewById(R.id.addUploadXRays);
         image_Delet = findViewById(R.id.image_Delet);
 
         imgbar_xray.setOnClickListener(new View.OnClickListener() {

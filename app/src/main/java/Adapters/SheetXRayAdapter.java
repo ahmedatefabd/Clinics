@@ -1,12 +1,15 @@
 package Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ragab.clinics.R;
+import com.example.ragab.clinics.labs_Details.Labs_Details_Activity;
+import com.example.ragab.clinics.x_Rays_Details.X_Rays_Details_Activity;
 
 import java.util.List;
 
@@ -39,21 +42,25 @@ public class SheetXRayAdapter extends RecyclerView.Adapter<SheetXRayAdapter.Shee
         String string = sheetXRays.getCreatedWhen();
 
         if (string != null){
-            String[] parts = string.split("T", 2);
+//            String[] parts = string.split("T", 2);
+//
+//            String part1 = parts[0];
+//            String part2 = parts[1];
 
-            String part1 = parts[0];
-            String part2 = parts[1];
-
-            holder.xrayDate.setText("التاريخ:- "+ part1);
-            holder.xrayTime.setText("التوقيت:- " + part2);
+            holder.xrayDate.setText("التاريخ:- "+ string);
+//            holder.xrayTime.setText("التوقيت:- " + part2);
         }else {
             holder.xrayDate.setText("التاريخ:- "+ "----/--/--");
-            holder.xrayTime.setText("التوقيت:- " + "---/--");
+//            holder.xrayTime.setText("التوقيت:- " + "---/--");
         }
-
-
-
         holder.xraytName.setText("الاسم:- " + sheetXRays.getSheetName());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mContext.startActivity(new Intent(mContext, X_Rays_Details_Activity.class));
+            }
+        });
     }
 
     @Override

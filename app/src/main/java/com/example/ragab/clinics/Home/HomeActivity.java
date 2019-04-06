@@ -180,6 +180,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 })
                 .show();
     }
+
     private void Message() {
         new SweetAlertDialog(HomeActivity.this, SweetAlertDialog.BUTTON_CONFIRM)
                 .setContentText("هل أنت متأكدأنك تريد تسجيل الخروج؟")

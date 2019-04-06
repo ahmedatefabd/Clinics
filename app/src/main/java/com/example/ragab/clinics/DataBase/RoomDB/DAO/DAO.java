@@ -1,4 +1,4 @@
-package com.example.ragab.clinics.DataBase.RoomDB;
+package com.example.ragab.clinics.DataBase.RoomDB.DAO;
 import java.util.List;
 import ModelDB.BookingAll_ItemsDB;
 import androidx.room.Dao;

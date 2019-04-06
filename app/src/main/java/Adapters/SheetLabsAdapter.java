@@ -1,10 +1,13 @@
 package Adapters;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.ragab.clinics.R;
+import com.example.ragab.clinics.labs_Details.Labs_Details_Activity;
+
 import java.util.List;
 import Model.Sheet_Labs;
 import androidx.annotation.NonNull;
@@ -36,21 +39,18 @@ public class SheetLabsAdapter extends RecyclerView.Adapter<SheetLabsAdapter.Shee
         String string = sheetLabs.getCreatedWhen();
 
         if (string != null){
-            String[] parts = string.split("T", 2);
-
-            String part1 = parts[0];
-            String part2 = parts[1];
-
-            holder.labsDate.setText("التاريخ:- "+ part1);
-            holder.labsTime.setText("التوقيت:- " + part2);
+            holder.labsDate.setText("التاريخ:- "+ string);
         }else {
             holder.labsDate.setText("التاريخ:- "+ "----/--/--");
-            holder.labsTime.setText("التوقيت:- " + "---/--");
         }
-
-
-
         holder.labstName.setText("الاسم:- " + sheetLabs.getSheetName());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mContext.startActivity(new Intent(mContext, Labs_Details_Activity.class));
+            }
+        });
     }
 
     @Override

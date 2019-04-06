@@ -11,16 +11,16 @@ public class Treatment implements Parcelable {
     private String drugName;
     @SerializedName("from_date")
     @Expose
-    private Object fromDate;
+    private String fromDate;
     @SerializedName("how_long")
     @Expose
-    private Object howLong;
+    private String howLong;
     @SerializedName("dose")
     @Expose
-    private Object dose;
+    private String dose;
     @SerializedName("treatment_method")
     @Expose
-    private Object treatmentMethod;
+    private String treatmentMethod;
     @SerializedName("comments")
     @Expose
     private String comments;
@@ -50,35 +50,35 @@ public class Treatment implements Parcelable {
         this.drugName = drugName;
     }
 
-    public Object getFromDate() {
+    public String getFromDate() {
         return fromDate;
     }
 
-    public void setFromDate(Object fromDate) {
+    public void setFromDate(String fromDate) {
         this.fromDate = fromDate;
     }
 
-    public Object getHowLong() {
+    public String getHowLong() {
         return howLong;
     }
 
-    public void setHowLong(Object howLong) {
+    public void setHowLong(String howLong) {
         this.howLong = howLong;
     }
 
-    public Object getDose() {
+    public String getDose() {
         return dose;
     }
 
-    public void setDose(Object dose) {
+    public void setDose(String dose) {
         this.dose = dose;
     }
 
-    public Object getTreatmentMethod() {
+    public String getTreatmentMethod() {
         return treatmentMethod;
     }
 
-    public void setTreatmentMethod(Object treatmentMethod) {
+    public void setTreatmentMethod(String treatmentMethod) {
         this.treatmentMethod = treatmentMethod;
     }
 

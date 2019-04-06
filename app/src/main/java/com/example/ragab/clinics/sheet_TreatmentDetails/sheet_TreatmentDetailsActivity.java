@@ -2,6 +2,7 @@ package com.example.ragab.clinics.sheet_TreatmentDetails;
 import Adapters.SheetTreatmentDetailsAdapter;
 import Model.Sheet_Treatment;
 import Model.Treatment;
+import ModelDB.TreatmentDB;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -15,7 +16,14 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
 import com.example.ragab.clinics.R;
 import com.example.ragab.clinics.sheet_Treatment.sheet_TreatmentActivity;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.ragab.clinics.sheet_Treatment.sheet_TreatmentActivity.roomDataBaseSheet_Treatment;
 
 public class sheet_TreatmentDetailsActivity extends AppCompatActivity {
 
@@ -36,10 +44,12 @@ public class sheet_TreatmentDetailsActivity extends AppCompatActivity {
         treatmentName = findViewById(R.id.Name_SheetTreatmentDetails);
         treatmentDate = findViewById(R.id.Date_SheetTreatmentDetails);
 
+//        Intent intent = getIntent();
         Bundle bundle = getIntent().getExtras();
         Sheet_Treatment sheet_treatment = bundle.getParcelable("model");
         sHeetTreatment = sheet_treatment;
-        List<Treatment> treatmentList1 = bundle.getParcelableArrayList("sheet");
+       ArrayList<Treatment> treatmentList1 =bundle.getParcelableArrayList("sheet");
+//        List<TreatmentDB> treatmentList1 = roomDataBaseSheet_Treatment.operation().getAllTreatmentItems();
 
 //        Gson gson = new Gson();
 //        String gGson = getIntent().getStringExtra("sheet");
@@ -49,6 +59,9 @@ public class sheet_TreatmentDetailsActivity extends AppCompatActivity {
 
         treatmentDate.setText("التاريخ:- " + sHeetTreatment.getCreatedWhen());
         treatmentName.setText("الاسم:- " + sHeetTreatment.getSheetName());
+
+
+       // List<Treatment> treatmentList1 = new ArrayList<>();
 
         ShimmerRecycler(treatmentList1);
 

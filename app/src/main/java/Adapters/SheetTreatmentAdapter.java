@@ -1,13 +1,15 @@
 package Adapters;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.example.ragab.clinics.DataBase.RoomDB.RoomBD_Abstract.RoomDataBase_TreatmentDB;
 import com.example.ragab.clinics.R;
 import com.example.ragab.clinics.sheet_TreatmentDetails.sheet_TreatmentDetailsActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 import Model.Sheet_Treatment;
@@ -19,10 +21,12 @@ public class SheetTreatmentAdapter extends RecyclerView.Adapter<SheetTreatmentAd
 
     private Context mContext;
     private List<Sheet_Treatment> sheet_treatmentList;
+    private RoomDataBase_TreatmentDB dataBaseTreatmentDB;
 
-    public SheetTreatmentAdapter(Context mContext, List<Sheet_Treatment> sheet_treatmentList) {
+    public SheetTreatmentAdapter(Context mContext, List<Sheet_Treatment> sheet_treatmentList, RoomDataBase_TreatmentDB db) {
         this.mContext = mContext;
         this.sheet_treatmentList = sheet_treatmentList;
+        this.dataBaseTreatmentDB = db;
     }
 
     @NonNull
@@ -45,11 +49,16 @@ public class SheetTreatmentAdapter extends RecyclerView.Adapter<SheetTreatmentAd
             @Override
             public void onClick(View v) {
 //                Gson gson = new Gson();
-                List<Treatment> list = sheetTreatment.getTreatmentList();
+
                 Intent intent = new Intent(mContext, sheet_TreatmentDetailsActivity.class);
-                intent.putExtra("model", sheetTreatment);
-//                intent.putExtra("sheet", gson.toJson(sheet_treatmentList));
-                intent.putParcelableArrayListExtra("sheet", (ArrayList<? extends Parcelable>) list);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("model", sheetTreatment);
+                bundle.putParcelableArrayList("sheet", (ArrayList<Treatment>) sheetTreatment.getTreatmentList());
+                intent.putExtras(bundle);
+//                intent.putExtra("model", sheetTreatment);
+//                intent.putExtra("sheet", gson.toJson(list));
+//                intent.putParcelableArrayListExtra("sheet", (ArrayList<Treatment>) list);
+
                 mContext.startActivity(intent);
             }
         });

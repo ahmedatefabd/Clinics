@@ -25,14 +25,12 @@ public class sheet_TreatmentFragment extends Fragment {
     public sheet_TreatmentFragment() {
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_medical_prescreption, container, false);
         Local();
         recyclerView = view.findViewById(R.id.recyclerViewmedical_Prescreption_Toolbar);
         recycler();
-
         return view;
     }
 

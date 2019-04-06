@@ -1,44 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<LinearLayout-->
-    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--xmlns:tools="http://schemas.android.com/tools"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:orientation="vertical"-->
-    <!--android:background="#32A5B4"-->
-    <!--tools:context=".x_Rays_Details.X_Rays_Details_Activity">-->
-
-    <!--<include-->
-        <!--android:id="@+id/XRayDown_Toolbar"-->
-        <!--layout="@layout/app_bar_layout_xray_details"-->
-        <!--/>-->
-
-    <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="150dp"-->
-        <!--android:layout_marginTop="0dp">-->
-
-        <!--<ImageView-->
-            <!--android:id="@+id/XrayDownImg"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:src="@drawable/book5" />-->
-
-    <!--</RelativeLayout>-->
-
-    <!--<com.cooltechworks.views.shimmer.ShimmerRecyclerView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:id="@+id/recyclerXrayDown"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:layout_marginBottom="4dp"-->
-        <!--android:background="#32A5B4"-->
-        <!--android:layout_marginStart="4dp"-->
-        <!--android:layout_marginEnd="4dp"/>-->
-
-<!--</LinearLayout>-->
-
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -48,8 +8,6 @@
     tools:context=".x_Rays_Details.X_Rays_Details_Activity"
     android:fitsSystemWindows="true">
 
-
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
@@ -57,8 +15,6 @@
         android:background="#32A5B4"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
-
-
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
@@ -69,6 +25,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -109,17 +66,17 @@
                     />
 
                 <TextView
-                    android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/clock"
                     android:maxLines="1"
-                    android:text="Report Number"
+                    android:padding="8dp"
+                    android:text="25-10-2019"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     android:textColor="#000"
-                    android:padding="8dp"
                     android:textSize="14sp"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -130,13 +87,13 @@
                 android:gravity="center"
                 android:textColor="#000"
                 android:layout_marginTop="15dp"
-                android:text="Doctor Ahmed Elgaaly"
+                android:text="الاسم"
                 android:textSize="20sp" />
 
-            <com.cooltechworks.views.shimmer.ShimmerRecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/recyclerXrayDown"
+                android:id="@+id/recyclerXrayDedails"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="4dp"
                 android:layout_marginStart="4dp"

@@ -12,6 +12,7 @@ import java.util.List;
 
 import Model.Sheet_Treatment;
 import Model.Treatment;
+import ModelDB.TreatmentDB;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 

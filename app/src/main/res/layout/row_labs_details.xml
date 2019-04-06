@@ -29,6 +29,7 @@
             android:layout_margin="5dp">
 
             <TextView
+                android:id="@+id/Name_Labs_Details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/serviceproivdertitle"
@@ -46,6 +47,7 @@
                 android:layout_marginLeft="10dp" />
 
             <TextView
+                android:id="@+id/Description_Labs_Details"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -65,6 +67,7 @@
 
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/addLabs"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:text="إضافة التحاليل +  "

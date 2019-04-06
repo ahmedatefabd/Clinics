@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -20,7 +21,7 @@ public class Sheet_Treatment implements Parcelable {
     private String createdWhen;
     @SerializedName("treatments")
     @Expose
-    private List<Treatment> treatmentList = null;
+    private ArrayList<Treatment> treatmentList = null;
 
     protected Sheet_Treatment(Parcel in) {
         sheetName = in.readString();
@@ -55,11 +56,11 @@ public class Sheet_Treatment implements Parcelable {
         this.createdWhen = createdWhen;
     }
 
-    public List<Treatment> getTreatmentList() {
+    public ArrayList<Treatment> getTreatmentList() {
         return treatmentList;
     }
 
-    public void setTreatmentList(List<Treatment> treatmentList) {
+    public void setTreatmentList(ArrayList<Treatment> treatmentList) {
         this.treatmentList = treatmentList;
     }
 
@@ -72,6 +73,6 @@ public class Sheet_Treatment implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(sheetName);
         dest.writeString(createdWhen);
-        dest.writeTypedList(treatmentList);
+        dest.writeList(treatmentList);
     }
 }

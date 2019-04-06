@@ -1,8 +1,6 @@
 package com.example.ragab.clinics.sheet_Treatment;
 import Adapters.SheetTreatmentAdapter;
-import Adapters.medical_PrescreptionAdapter;
 import Model.Sheet_Treatment;
-import Model.medical_Prescreption;
 import Util.NetworkChangeReceiver;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,6 +8,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 import android.content.Intent;
@@ -23,10 +22,11 @@ import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
+import com.example.ragab.clinics.DataBase.RoomDB.RoomBD_Abstract.RoomDataBase;
+import com.example.ragab.clinics.DataBase.RoomDB.RoomBD_Abstract.RoomDataBase_TreatmentDB;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import static android.os.Build.VERSION_CODES.M;
@@ -38,6 +38,7 @@ public class sheet_TreatmentActivity extends AppCompatActivity implements sheet_
     public static Toolbar toolbar;
     public sheet_TreatmentPresenter sheet_treatmentPresenter;
     private ImageView imgbarPrescreption;
+    public static RoomDataBase_TreatmentDB roomDataBaseSheet_Treatment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,8 @@ public class sheet_TreatmentActivity extends AppCompatActivity implements sheet_
         sheet_treatmentPresenter = new sheet_TreatmentImp();
         sheet_treatmentPresenter.setView(this);
         ShimmerRecycler();
+
+        roomDataBaseSheet_Treatment = Room.databaseBuilder(getApplicationContext(), RoomDataBase_TreatmentDB.class, "postsdb").allowMainThreadQueries().build();
 
         Local();
         controlToolbar();
@@ -160,7 +163,7 @@ public class sheet_TreatmentActivity extends AppCompatActivity implements sheet_
     @Override
     public void setSheet_treatmentList(List<Sheet_Treatment> sheet_treatmentList) {
 
-        adapter = new SheetTreatmentAdapter (this,  sheet_treatmentList);
+        adapter = new SheetTreatmentAdapter (this,  sheet_treatmentList, roomDataBaseSheet_Treatment);
         if (sheet_treatmentList.size() > 0) {
             shimmerRecyclerView.setAdapter(adapter);
         } else {

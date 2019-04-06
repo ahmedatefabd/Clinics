@@ -62,6 +62,7 @@
                 android:textSize="14sp"
                 android:layout_marginStart="30dp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 android:drawableRight="@drawable/clock"
                 />
             <TextView
@@ -72,7 +73,7 @@
                 android:layout_below="@+id/serviceproivdertitle"
                 android:maxLines="1"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:gravity="right"
                 android:text="dd-mm-yyyy"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
