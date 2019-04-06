@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 import cn.pedant.SweetAlert.SweetAlertDialog;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -19,14 +18,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
-import com.example.ragab.clinics.DataBase.RoomDB.RoomBD_Abstract.RoomDataBase;
 import com.example.ragab.clinics.DataBase.RoomDB.RoomBD_Abstract.RoomDataBase_TreatmentDB;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
-
 import java.util.List;
 import java.util.Locale;
 import static android.os.Build.VERSION_CODES.M;
@@ -46,21 +42,16 @@ public class sheet_TreatmentActivity extends AppCompatActivity implements sheet_
 
         setContentView(R.layout.activity_medical_prescreption);
         imgbarPrescreption = findViewById(R.id.imgbarPrescreption);
-
         sheet_treatmentPresenter = new sheet_TreatmentImp();
         sheet_treatmentPresenter.setView(this);
         ShimmerRecycler();
-
         roomDataBaseSheet_Treatment = Room.databaseBuilder(getApplicationContext(), RoomDataBase_TreatmentDB.class, "postsdb").allowMainThreadQueries().build();
-
         Local();
         controlToolbar();
-
         if (Build.VERSION.SDK_INT >= M) {
             getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.booking));
         }
 //        recycler();
-
         if(NetworkChangeReceiver.isNetworkAvailable(this)) {
 //            LoadData();
             sheet_treatmentPresenter.getSheetTreatment();
@@ -68,8 +59,6 @@ public class sheet_TreatmentActivity extends AppCompatActivity implements sheet_
             errorMessage();
             LoadDataOfflineRoom();
         }
-
-
 
         imgbarPrescreption.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,13 +96,11 @@ public class sheet_TreatmentActivity extends AppCompatActivity implements sheet_
     }
 
     private void ShimmerRecycler() {
-
         shimmerRecyclerView = findViewById(R.id.shimmerRecyclerSheetTreatment);
         shimmerRecyclerView.showShimmerAdapter();
         shimmerRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         shimmerRecyclerView.setItemAnimator(new DefaultItemAnimator());
     }
-
 
     private void controlToolbar() {
         toolbar = findViewById(R.id.sheetTreatment_Toolbar);

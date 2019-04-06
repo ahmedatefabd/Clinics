@@ -9,12 +9,10 @@ import com.example.ragab.clinics.R;
 import com.example.ragab.clinics.UploadLabs.UploadLabsActivity;
 import java.util.List;
 import Model.Labs;
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class LabsDetailsAdapter extends RecyclerView.Adapter<LabsDetailsAdapter.LabsDetailsHolder>{
-
     private Context mContext;
     private List<Labs> labsList;
 
@@ -23,19 +21,16 @@ public class LabsDetailsAdapter extends RecyclerView.Adapter<LabsDetailsAdapter.
         this.labsList = labsList1;
     }
 
-    @NonNull
     @Override
-    public LabsDetailsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public LabsDetailsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View row = LayoutInflater.from(mContext).inflate(R.layout.row_labs_details, parent, false);
         LabsDetailsHolder holder = new LabsDetailsHolder(row);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LabsDetailsHolder holder, int position) {
-
+    public void onBindViewHolder(LabsDetailsHolder holder, int position) {
 //        Labs labs = labsList.get(position);
-
         holder.name.setText("aaaaaaa");
         holder.description.setText("Ahmed Atef abd el_fattah");
         holder.button.setOnClickListener(new View.OnClickListener() {
@@ -52,14 +47,12 @@ public class LabsDetailsAdapter extends RecyclerView.Adapter<LabsDetailsAdapter.
     }
 
     public class LabsDetailsHolder extends RecyclerView.ViewHolder{
-
         private TextView name;
         private TextView description;
         private AppCompatButton button;
 
-        public LabsDetailsHolder(@NonNull View itemView) {
+        public LabsDetailsHolder(View itemView) {
             super(itemView);
-
             name = itemView.findViewById(R.id.Name_Labs_Details);
             description = itemView.findViewById(R.id.Description_Labs_Details);
             button = itemView.findViewById(R.id.addLabs);

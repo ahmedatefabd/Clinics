@@ -81,7 +81,6 @@ public class LabsPresenterImp implements LabsPresenter, ApiInterface {
 //                        roomDataBase.oper().addBookingItems(bookingAllItemsDB);
 //                    }
 
-
                     LabsActivity.shimmerRecyclerView.hideShimmerAdapter();
                     lLabsView.setSheet_labs(sheetLabs);
                 }

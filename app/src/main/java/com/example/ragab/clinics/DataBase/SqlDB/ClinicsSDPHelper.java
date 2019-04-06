@@ -4,7 +4,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class ClinicsSDPHelper extends SQLiteOpenHelper {
-
     public static final String DATA_BASE_NAME = "";
     public static final String TABLE_ = "";
 

@@ -1,5 +1,4 @@
 package com.example.ragab.clinics.Registration;
-import java.util.List;
 import java.util.Map;
 import APIClient.ApiInterface;
 import Model.ResponseBookingItem;

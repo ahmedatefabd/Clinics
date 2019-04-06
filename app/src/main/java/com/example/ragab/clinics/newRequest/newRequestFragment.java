@@ -1,8 +1,6 @@
 package com.example.ragab.clinics.newRequest;
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.os.Bundle;
-
 import Util.Utils;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -12,16 +10,13 @@ import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.example.ragab.clinics.R;
 import com.google.android.material.chip.Chip;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class newRequestFragment extends Fragment {
-
     private TextView dateOfBirthTV;
     int year, month, day;
     private LinearLayout DateBooking;
@@ -31,7 +26,6 @@ public class newRequestFragment extends Fragment {
     private Chip chip_2;
     private Chip chip_3;
     private Chip chip_4;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -99,5 +93,4 @@ public class newRequestFragment extends Fragment {
         SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
         dateOfBirthTV.setText(format1.format(ca.getTime()));
     }
-
 }

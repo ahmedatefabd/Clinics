@@ -9,7 +9,6 @@ import Model.Response_Labs;
 import Model.Response_Sheet_Treatment;
 import Model.Response_XRay;
 import Model.Sheet_Treatment;
-import Model.Treatment;
 import Util.Constant;
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -1,8 +1,6 @@
 package com.example.ragab.clinics.DataBase.RoomDB.RoomBD_Abstract;
 import android.content.Context;
-
 import com.example.ragab.clinics.DataBase.RoomDB.DAO.DAO;
-
 import ModelDB.BookingAll_ItemsDB;
 import androidx.room.Database;
 import androidx.room.Room;

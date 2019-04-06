@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class sheet_TreatmentFragment extends Fragment {
-
     private medical_PrescreptionAdapter adapter;
     private RecyclerView recyclerView;
     public static Toolbar toolbar;

@@ -1,17 +1,11 @@
 package Model;
-
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
-import java.util.List;
-
 
 public class Sheet_Treatment implements Parcelable {
-
 
     @SerializedName("sheet_name")
     @Expose
@@ -26,7 +20,6 @@ public class Sheet_Treatment implements Parcelable {
     protected Sheet_Treatment(Parcel in) {
         sheetName = in.readString();
     }
-
 
     public static final Creator<Sheet_Treatment> CREATOR = new Creator<Sheet_Treatment>() {
         @Override

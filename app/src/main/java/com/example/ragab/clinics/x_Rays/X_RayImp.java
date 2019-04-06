@@ -15,7 +15,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class X_RayImp implements X_RayPresenter, ApiInterface {
-
     X_RayView xX_rayView;
 
     @Override
@@ -74,7 +73,6 @@ public class X_RayImp implements X_RayPresenter, ApiInterface {
 //
 //                        roomDataBase.oper().addBookingItems(bookingAllItemsDB);
 //                    }
-
 
                     X_RaysActivity.shimmerRecyclerView.hideShimmerAdapter();
                     xX_rayView.setSheet_XRays(sheet_xRays);

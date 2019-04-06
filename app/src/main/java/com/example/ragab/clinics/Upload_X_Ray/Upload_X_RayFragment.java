@@ -11,7 +11,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import android.provider.MediaStore;
 import android.util.Base64;
@@ -24,7 +23,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.example.ragab.clinics.R;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -36,7 +34,6 @@ import androidx.core.content.ContextCompat;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class Upload_X_RayFragment extends Fragment implements View.OnClickListener {
-
     private Button addPicturee;
     private LinearLayout selectedImagess;
 //    private ImageView xrayImg;
@@ -66,7 +63,6 @@ public class Upload_X_RayFragment extends Fragment implements View.OnClickListen
 
     public Upload_X_RayFragment() {
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

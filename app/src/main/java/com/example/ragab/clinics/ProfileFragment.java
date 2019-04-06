@@ -5,12 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import static com.example.ragab.clinics.Home.HomeActivity.sharedPreferences;
 import static com.example.ragab.clinics.Login.LoginActivity.KEY_USERNAME;
 
 public class ProfileFragment extends BaseFragment {
-
     private TextView edit_firstname;
     private TextView edit_email;
     private TextView edit_mobilenumber;
@@ -18,7 +16,6 @@ public class ProfileFragment extends BaseFragment {
 
     public ProfileFragment() {
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,5 +30,4 @@ public class ProfileFragment extends BaseFragment {
         edit_mobilenumber.setText("01032400149");
         return view;
     }
-
 }

@@ -26,10 +26,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
-import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
 import com.example.ragab.clinics.labs_Details.Labs_Details_Activity;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -37,7 +35,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class UploadLabsActivity extends AppCompatActivity implements View.OnClickListener {
-
     private Button addPicturee;
     private LinearLayout selectedImagess;
     private ImageView imgbar_labs;

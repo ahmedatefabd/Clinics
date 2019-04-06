@@ -1,12 +1,9 @@
 package com.example.ragab.clinics.Login;
 import android.content.Intent;
 import android.util.Log;
-import android.view.View;
 import com.example.ragab.clinics.Home.HomeActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.List;
 import java.util.Map;
 import APIClient.ApiInterface;
 import APIClient.ServicesConnection;
@@ -20,7 +17,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginPresenterImp implements LoginPresenter, ApiInterface {
-
     LoginActivity loginView;
     int ResponseCode = -1;
 

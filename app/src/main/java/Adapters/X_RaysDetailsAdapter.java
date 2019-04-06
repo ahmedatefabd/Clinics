@@ -1,24 +1,18 @@
 package Adapters;
-
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.ragab.clinics.R;
 import com.example.ragab.clinics.Upload_X_Ray.Upload_X_RayActivity;
-
 import java.util.List;
-
 import Model.Xrays;
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class X_RaysDetailsAdapter extends RecyclerView.Adapter<X_RaysDetailsAdapter.X_RaysDetailsHolder>{
-
     private Context mContext;
     private List<Xrays> labsList;
 
@@ -27,17 +21,15 @@ public class X_RaysDetailsAdapter extends RecyclerView.Adapter<X_RaysDetailsAdap
         this.labsList = labsList1;
     }
 
-    @NonNull
     @Override
-    public X_RaysDetailsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public X_RaysDetailsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View row = LayoutInflater.from(mContext).inflate(R.layout.row_xrays_details, parent, false);
         X_RaysDetailsHolder holder = new X_RaysDetailsHolder(row);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull X_RaysDetailsHolder holder, int position) {
-
+    public void onBindViewHolder(X_RaysDetailsHolder holder, int position) {
         holder.nameXRays.setText("aaaaaaaaa");
         holder.nameFile.setText("aaaaaaaaa");
         holder.OldOrNew.setText("aaaaaaaaa");
@@ -49,7 +41,6 @@ public class X_RaysDetailsAdapter extends RecyclerView.Adapter<X_RaysDetailsAdap
                 mContext.startActivity(new Intent(mContext, Upload_X_RayActivity.class));
             }
         });
-
     }
 
     @Override
@@ -58,7 +49,6 @@ public class X_RaysDetailsAdapter extends RecyclerView.Adapter<X_RaysDetailsAdap
     }
 
     public class X_RaysDetailsHolder extends RecyclerView.ViewHolder{
-
         private TextView nameXRays;
         private TextView nameFile;
         private TextView OldOrNew;
@@ -66,9 +56,8 @@ public class X_RaysDetailsAdapter extends RecyclerView.Adapter<X_RaysDetailsAdap
         private TextView description;
         private AppCompatButton button;
 
-        public X_RaysDetailsHolder(@NonNull View itemView) {
+        public X_RaysDetailsHolder(View itemView) {
             super(itemView);
-
             nameXRays = itemView.findViewById(R.id.n1);
             nameFile = itemView.findViewById(R.id.n2);
             OldOrNew = itemView.findViewById(R.id.O_N);

@@ -23,7 +23,6 @@ import java.util.Locale;
 import static android.os.Build.VERSION_CODES.M;
 
 public class LabsActivity extends AppCompatActivity implements LabsView{
-
     public static Toolbar toolbar;
     public static ShimmerRecyclerView shimmerRecyclerView;
     private SheetLabsAdapter adapter;
@@ -45,7 +44,6 @@ public class LabsActivity extends AppCompatActivity implements LabsView{
             getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.booking));
         }
 //        recycler();
-
         if(NetworkChangeReceiver.isNetworkAvailable(this)) {
 //            LoadData();
             labsPresenter.getSheetLabs();
@@ -88,7 +86,6 @@ public class LabsActivity extends AppCompatActivity implements LabsView{
         shimmerRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         shimmerRecyclerView.setItemAnimator(new DefaultItemAnimator());
     }
-
 
     private void controlToolbar() {
         toolbar = findViewById(R.id.labsDown_Toolbar);

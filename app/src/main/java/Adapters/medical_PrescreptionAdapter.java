@@ -1,18 +1,11 @@
 package Adapters;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.content.Context;
-import android.widget.TextView;
-
-import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.R;
-import com.example.ragab.clinics.sheet_TreatmentDetails.sheet_TreatmentDetailsActivity;
-
 import java.util.List;
 import Model.medical_Prescreption;
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class medical_PrescreptionAdapter extends RecyclerView.Adapter<medical_PrescreptionAdapter.medical_PrescreptionHolder> {
@@ -26,17 +19,15 @@ public class medical_PrescreptionAdapter extends RecyclerView.Adapter<medical_Pr
 
     }
 
-    @NonNull
     @Override
-    public medical_PrescreptionHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public medical_PrescreptionHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View row = LayoutInflater.from(mContext).inflate(R.layout.row_sheet_treatment, parent, false);
         medical_PrescreptionHolder holder = new medical_PrescreptionHolder(row);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull medical_PrescreptionHolder holder, int position) {
-
+    public void onBindViewHolder(medical_PrescreptionHolder holder, int position) {
 //        holder.prescreptionName.setText("الدكتور احمد الجعلى");
 //        holder.prescreptiondate.setText("25/10/2019");
 //
@@ -59,11 +50,10 @@ public class medical_PrescreptionAdapter extends RecyclerView.Adapter<medical_Pr
     }
 
     public class medical_PrescreptionHolder extends RecyclerView.ViewHolder{
-
 //        protected TextView prescreptionName;
 //        protected TextView prescreptiondate;
 
-        public medical_PrescreptionHolder(@NonNull View itemView) {
+        public medical_PrescreptionHolder(View itemView) {
             super(itemView);
 //            this.prescreptionName = itemView.findViewById(R.id.prescreptionName);
 //            this.prescreptiondate = itemView.findViewById(R.id.prescreptiondate);

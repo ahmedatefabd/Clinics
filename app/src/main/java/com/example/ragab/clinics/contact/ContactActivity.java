@@ -6,7 +6,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -14,11 +13,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
-
 import java.util.ArrayList;
 import java.util.Locale;
 import static android.os.Build.VERSION_CODES.M;
@@ -35,12 +32,15 @@ public class ContactActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_contact);
         imgbarMessage = findViewById(R.id.imgbarMessage);
+
         Local();
         controlToolbar();
+
         recyclerView = findViewById(R.id.recyclerViewContact);
         if (Build.VERSION.SDK_INT >= M) {
             getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.booking));
         }
+
         recycler();
 
         imgbarMessage.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +61,6 @@ public class ContactActivity extends AppCompatActivity {
     }
 
     private void recycler() {
-
         adapter = new PrivateChatAdapter(ContactActivity.this, new ArrayList<ChatMessage>());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);

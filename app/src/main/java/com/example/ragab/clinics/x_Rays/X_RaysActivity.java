@@ -1,7 +1,5 @@
 package com.example.ragab.clinics.x_Rays;
-import Adapters.SheetLabsAdapter;
 import Adapters.SheetXRayAdapter;
-import Model.Sheet_Labs;
 import Model.Sheet_XRays;
 import Util.NetworkChangeReceiver;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,26 +8,21 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import cn.pedant.SweetAlert.SweetAlertDialog;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
 import com.example.ragab.clinics.Home.HomeActivity;
-import com.example.ragab.clinics.Labs.LabsActivity;
 import com.example.ragab.clinics.R;
 import java.util.List;
 import java.util.Locale;
-
 import static android.os.Build.VERSION_CODES.M;
 
 public class X_RaysActivity extends AppCompatActivity implements X_RayView {
-
     public static Toolbar toolbar;
     public static ShimmerRecyclerView shimmerRecyclerView;
     private SheetXRayAdapter adapter;
@@ -86,7 +79,6 @@ public class X_RaysActivity extends AppCompatActivity implements X_RayView {
     }
 
     private void ShimmerRecycler() {
-
         shimmerRecyclerView = findViewById(R.id.recyclerXrayDown);
         shimmerRecyclerView.showShimmerAdapter();
         shimmerRecyclerView.setLayoutManager(new LinearLayoutManager(this));
