@@ -1,9 +1,12 @@
 package Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Labs {
+public class Labs implements Parcelable {
 
     @SerializedName("lab_name")
     @Expose
@@ -29,6 +32,22 @@ public class Labs {
     @SerializedName("new_or_old")
     @Expose
     private Object newOrOld;
+
+    protected Labs(Parcel in) {
+        labName = in.readString();
+    }
+
+    public static final Creator<Labs> CREATOR = new Creator<Labs>() {
+        @Override
+        public Labs createFromParcel(Parcel in) {
+            return new Labs(in);
+        }
+
+        @Override
+        public Labs[] newArray(int size) {
+            return new Labs[size];
+        }
+    };
 
     public String getLabName() {
         return labName;
@@ -92,5 +111,15 @@ public class Labs {
 
     public void setNewOrOld(Object newOrOld) {
         this.newOrOld = newOrOld;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(labName);
     }
 }

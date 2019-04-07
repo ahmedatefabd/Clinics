@@ -26,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.example.ragab.clinics.Labs.LabsActivity;
 import com.example.ragab.clinics.R;
 import com.example.ragab.clinics.labs_Details.Labs_Details_Activity;
 import java.io.ByteArrayOutputStream;
@@ -87,8 +88,8 @@ public class UploadLabsActivity extends AppCompatActivity implements View.OnClic
         imgbar_labs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(UploadLabsActivity.this, Labs_Details_Activity.class));
-                Animatoo.animateSlideUp(UploadLabsActivity.this);
+                startActivity(new Intent(UploadLabsActivity.this, LabsActivity.class));
+                Animatoo.animateSlideRight(UploadLabsActivity.this);
                 finish();
             }
         });
@@ -341,8 +342,8 @@ public class UploadLabsActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(UploadLabsActivity.this, Labs_Details_Activity.class));
-        Animatoo.animateSlideDown(UploadLabsActivity.this);
+        startActivity(new Intent(UploadLabsActivity.this, LabsActivity.class));
+        Animatoo.animateSlideRight(UploadLabsActivity.this);
         finish();
     }
 }

@@ -1,8 +1,11 @@
 package Model;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BookingAll_Items {
+public class BookingAll_Items implements Parcelable {
 
     @SerializedName("id")
     @Expose
@@ -25,6 +28,47 @@ public class BookingAll_Items {
     @SerializedName("complaint_type")
     @Expose
     private Object complaintType;
+
+    protected BookingAll_Items(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            branchId = null;
+        } else {
+            branchId = in.readInt();
+        }
+        appointmentDate = in.readString();
+        if (in.readByte() == 0) {
+            cost = null;
+        } else {
+            cost = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            statusId = null;
+        } else {
+            statusId = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            typeId = null;
+        } else {
+            typeId = in.readInt();
+        }
+    }
+
+    public static final Creator<BookingAll_Items> CREATOR = new Creator<BookingAll_Items>() {
+        @Override
+        public BookingAll_Items createFromParcel(Parcel in) {
+            return new BookingAll_Items(in);
+        }
+
+        @Override
+        public BookingAll_Items[] newArray(int size) {
+            return new BookingAll_Items[size];
+        }
+    };
 
     public Integer getId() {
         return id;
@@ -82,4 +126,43 @@ public class BookingAll_Items {
         this.complaintType = complaintType;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(id);
+        }
+        if (branchId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(branchId);
+        }
+        dest.writeString(appointmentDate);
+        if (cost == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(cost);
+        }
+        if (statusId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(statusId);
+        }
+        if (typeId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(typeId);
+        }
+    }
 }

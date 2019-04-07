@@ -16,7 +16,7 @@
         android:textColor="#fff" />
 
     <ImageView
-        android:id="@+id/imgbar_xray"
+        android:id="@+id/imgbar_XRay_Details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"

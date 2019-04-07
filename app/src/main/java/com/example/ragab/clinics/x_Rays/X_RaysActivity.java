@@ -13,11 +13,15 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
+import com.example.ragab.clinics.x_Rays_Details.X_Rays_Details_Activity;
+
 import java.util.List;
 import java.util.Locale;
 import static android.os.Build.VERSION_CODES.M;
@@ -27,6 +31,7 @@ public class X_RaysActivity extends AppCompatActivity implements X_RayView {
     public static ShimmerRecyclerView shimmerRecyclerView;
     private SheetXRayAdapter adapter;
     private X_RayPresenter xRayPresenter;
+    private ImageView imgbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,9 +93,19 @@ public class X_RaysActivity extends AppCompatActivity implements X_RayView {
 
     private void controlToolbar() {
         toolbar = findViewById(R.id.XRayDown_Toolbar);
+        imgbar = findViewById(R.id.imgbar_xray);
         setSupportActionBar(toolbar);
         toolbar.setBackgroundColor(getResources().getColor(R.color.booking));
         getSupportActionBar().setTitle("");
+
+        imgbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(X_RaysActivity.this, HomeActivity.class));
+                Animatoo.animateSlideDown(X_RaysActivity.this);
+                finish();
+            }
+        });
     }
 
     private void Local() {

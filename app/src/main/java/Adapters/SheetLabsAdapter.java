@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.R;
 import com.example.ragab.clinics.labs_Details.Labs_Details_Activity;
 import java.util.List;
@@ -30,7 +32,7 @@ public class SheetLabsAdapter extends RecyclerView.Adapter<SheetLabsAdapter.Shee
     @Override
     public void onBindViewHolder(SheetLabsHolder holder, int position) {
 
-        Sheet_Labs sheetLabs = sheet_labsList.get(position);
+        final Sheet_Labs sheetLabs = sheet_labsList.get(position);
 
         String string = sheetLabs.getCreatedWhen();
 
@@ -45,6 +47,11 @@ public class SheetLabsAdapter extends RecyclerView.Adapter<SheetLabsAdapter.Shee
             @Override
             public void onClick(View v) {
                 mContext.startActivity(new Intent(mContext, Labs_Details_Activity.class));
+
+                Intent intent = new Intent(mContext, Labs_Details_Activity.class);
+                intent.putExtra("modelLabs", sheetLabs);
+                Animatoo.animateSlideLeft(mContext);
+                mContext.startActivity(intent);
             }
         });
     }

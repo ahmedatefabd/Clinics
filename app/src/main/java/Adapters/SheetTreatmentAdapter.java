@@ -6,8 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.DataBase.RoomDB.RoomBD_Abstract.RoomDataBase_TreatmentDB;
 import com.example.ragab.clinics.R;
+import com.example.ragab.clinics.labs_Details.Labs_Details_Activity;
 import com.example.ragab.clinics.sheet_TreatmentDetails.sheet_TreatmentDetailsActivity;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,21 +40,30 @@ public class SheetTreatmentAdapter extends RecyclerView.Adapter<SheetTreatmentAd
     public void onBindViewHolder(SheetTreatmentHolder holder, int position) {
 
         final Sheet_Treatment sheetTreatment = sheet_treatmentList.get(position);
-        holder.treatmentDate.setText("التاريخ:- " + sheetTreatment.getCreatedWhen());
+//        holder.treatmentDate.setText("التاريخ:- " + sheetTreatment.getCreatedWhen());
+
+        if (sheetTreatment.getCreatedWhen() == null){
+            holder.treatmentDate.setText("التاريخ:- " + "--/--/----");
+        }else {
+            holder.treatmentDate.setText("التاريخ:- " + sheetTreatment.getCreatedWhen());
+        }
+
         holder.treatmentName.setText("الاسم:- " + sheetTreatment.getSheetName());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                Gson gson = new Gson();
+                mContext.startActivity(new Intent(mContext, sheet_TreatmentDetailsActivity.class));
                 Intent intent = new Intent(mContext, sheet_TreatmentDetailsActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("model", sheetTreatment);
-                bundle.putParcelableArrayList("sheet", (ArrayList<Treatment>) sheetTreatment.getTreatmentList());
-                intent.putExtras(bundle);
+//                Bundle bundle = new Bundle();
+                intent.putExtra("model", sheetTreatment);
+//                bundle.putParcelableArrayList("sheet", (ArrayList<Treatment>) sheetTreatment.getTreatmentList());
+//                intent.putExtras(bundle);
 //                intent.putExtra("model", sheetTreatment);
 //                intent.putExtra("sheet", gson.toJson(list));
 //                intent.putParcelableArrayListExtra("sheet", (ArrayList<Treatment>) list);
+                Animatoo.animateSlideLeft(mContext);
                 mContext.startActivity(intent);
             }
         });

@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +17,7 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
 import com.example.ragab.clinics.R;
 import com.example.ragab.clinics.sheet_Treatment.sheet_TreatmentActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,13 +29,13 @@ public class sheet_TreatmentDetailsActivity extends AppCompatActivity {
     private TextView treatmentName;
     private TextView treatmentDate;
     private SheetTreatmentDetailsAdapter adapter;
-    public static ShimmerRecyclerView shimmerRecyclerView;
+    public  RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_medical__prescreption_details);
+        setContentView(R.layout.activity_sheet_treatment_details);
 
         treatmentName = findViewById(R.id.Name_SheetTreatmentDetails);
         treatmentDate = findViewById(R.id.Date_SheetTreatmentDetails);
@@ -41,7 +44,7 @@ public class sheet_TreatmentDetailsActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         Sheet_Treatment sheet_treatment = bundle.getParcelable("model");
         sHeetTreatment = sheet_treatment;
-       ArrayList<Treatment> treatmentList1 =bundle.getParcelableArrayList("sheet");
+//       ArrayList<Treatment> treatmentList1 =bundle.getParcelableArrayList("sheet");
 //        List<TreatmentDB> treatmentList1 = roomDataBaseSheet_Treatment.operation().getAllTreatmentItems();
 
 //        Gson gson = new Gson();
@@ -50,14 +53,20 @@ public class sheet_TreatmentDetailsActivity extends AppCompatActivity {
 //        }.getType();
 //        List<Treatment> treatmentList1 = gson.fromJson(gGson, type);
 
-        treatmentDate.setText("التاريخ:- " + sHeetTreatment.getCreatedWhen());
+        if (sHeetTreatment.getCreatedWhen() == null){
+            treatmentDate.setText("التاريخ:- " + "12-JAN-2019");
+        }else {
+            treatmentDate.setText("التاريخ:- " + sHeetTreatment.getCreatedWhen());
+        }
         treatmentName.setText("الاسم:- " + sHeetTreatment.getSheetName());
 
        // List<Treatment> treatmentList1 = new ArrayList<>();
 
-        ShimmerRecycler(treatmentList1);
+//        ShimmerRecycler(treatmentList1);
 
-        toolbar = findViewById(R.id.message_Toolbar);
+        recycler();
+
+        toolbar = findViewById(R.id.Sheet_Treatment_Details_Toolbar);
         imgbar = findViewById(R.id.imgbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
@@ -66,27 +75,30 @@ public class sheet_TreatmentDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(sheet_TreatmentDetailsActivity.this, sheet_TreatmentActivity.class));
-                Animatoo.animateSlideUp(sheet_TreatmentDetailsActivity.this);
+                Animatoo.animateSlideRight(sheet_TreatmentDetailsActivity.this);
                 finish();
             }
         });
     }
 
-    private void ShimmerRecycler(List<Treatment> treatmentList) {
+    private void recycler() {
 
-        shimmerRecyclerView = findViewById(R.id.ShimmerRecyclerTreatmentDetails);
-        shimmerRecyclerView.showShimmerAdapter();
-        shimmerRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        shimmerRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView = findViewById(R.id.RecyclerXraysDetails);
+//        shimmerRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        shimmerRecyclerView.setItemAnimator(new DefaultItemAnimator());
+//
+//        adapter = new SheetTreatmentDetailsAdapter (this, treatmentList);
+//            shimmerRecyclerView.setAdapter(adapter);
 
-        adapter = new SheetTreatmentDetailsAdapter (this, treatmentList);
-            shimmerRecyclerView.setAdapter(adapter);
+        adapter = new SheetTreatmentDetailsAdapter(this, new ArrayList<Treatment>());
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
     public void onBackPressed() {
         startActivity(new Intent(sheet_TreatmentDetailsActivity.this, sheet_TreatmentActivity.class));
-        Animatoo.animateSlideUp(sheet_TreatmentDetailsActivity.this);
+        Animatoo.animateSlideRight(sheet_TreatmentDetailsActivity.this);
         finish();
     }
 }

@@ -75,7 +75,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         toolbar = findViewById(R.id.Home_Toolbar);
         toolbar_title = findViewById(R.id.toolbar_title);
         toolbar.setBackgroundColor(getResources().getColor(R.color.booking));
-        toolbar_title.setText("الرئيسية");
+        toolbar_title.setText("العيادة");
     }
 
     @Override
@@ -98,7 +98,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         final Fragment[] fragment = {new Fragment()};
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    toolbar_title.setText("الرئيسية");
+                    toolbar_title.setText("العيادة");
                     fragment[0] = new HomeFragment_Work();
                     loadingFragment(fragment[0]);
                     Animatoo.animateZoom(HomeActivity.this);

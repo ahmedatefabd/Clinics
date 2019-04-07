@@ -47,6 +47,25 @@
                 android:layout_marginLeft="10dp" />
 
             <TextView
+                android:id="@+id/lab_Date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/serviceproivdertitle"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:drawableRight="@drawable/bluecircle"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginStart="20dp"
+                android:text="التاريخ "
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="#32A5B4"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
                 android:id="@+id/Description_Labs_Details"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
@@ -54,11 +73,11 @@
                 android:text="التفاصيل"
                 android:gravity="right"
                 android:drawableRight="@drawable/bluecircle"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:textColor="#32A5B4"
-                android:padding="10dp"
+                android:padding="4dp"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
                 android:textSize="18sp"

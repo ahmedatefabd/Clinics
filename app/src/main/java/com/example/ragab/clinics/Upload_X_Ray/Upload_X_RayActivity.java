@@ -28,6 +28,8 @@ import android.widget.Toast;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.R;
+import com.example.ragab.clinics.x_Rays.X_RaysActivity;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -87,8 +89,8 @@ public class Upload_X_RayActivity extends AppCompatActivity implements View.OnCl
         imgbar_xray.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Upload_X_RayActivity.this, HomeActivity.class));
-                Animatoo.animateSlideUp(Upload_X_RayActivity.this);
+                startActivity(new Intent(Upload_X_RayActivity.this, X_RaysActivity.class));
+                Animatoo.animateSlideRight(Upload_X_RayActivity.this);
                 finish();
             }
         });
@@ -337,8 +339,7 @@ public class Upload_X_RayActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onBackPressed() {
         startActivity(new Intent(Upload_X_RayActivity.this, HomeActivity.class));
-        Animatoo.animateSlideDown(Upload_X_RayActivity.this);
+        Animatoo.animateSlideRight(Upload_X_RayActivity.this);
         finish();
     }
 }
-

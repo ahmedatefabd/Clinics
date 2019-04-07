@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.R;
 import com.example.ragab.clinics.Upload_X_Ray.Upload_X_RayActivity;
 import java.util.List;
@@ -30,22 +32,23 @@ public class X_RaysDetailsAdapter extends RecyclerView.Adapter<X_RaysDetailsAdap
 
     @Override
     public void onBindViewHolder(X_RaysDetailsHolder holder, int position) {
-        holder.nameXRays.setText("aaaaaaaaa");
-        holder.nameFile.setText("aaaaaaaaa");
-        holder.OldOrNew.setText("aaaaaaaaa");
-        holder.NmaePlace.setText("aaaaaaaaa");
-        holder.description.setText("Ahmed Atef abd el_fattah");
+        holder.nameXRays.setText("الاسم:- " + "أشعة رباعية الابعاد - 40");
+        holder.nameFile.setText("اسم الملف:- " + "XYZ");
+        holder.OldOrNew.setText("جديد / قديم:- " + "N");
+        holder.NmaePlace.setText("المكان :- " + "الفا سكان");
+        holder.description.setText("تفاصيل المكان:- " + "مركز الحياة - برج الصفا الطبى بجوار مستشفى الصفا - 10 ميدان الحجاز");
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mContext.startActivity(new Intent(mContext, Upload_X_RayActivity.class));
+                Animatoo.animateSlideLeft(mContext);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return 20;
+        return 10;
     }
 
     public class X_RaysDetailsHolder extends RecyclerView.ViewHolder{
