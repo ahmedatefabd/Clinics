@@ -4,22 +4,19 @@ import Model.Sheet_Treatment;
 import Model.Treatment;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
-import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
 import com.example.ragab.clinics.R;
 import com.example.ragab.clinics.sheet_Treatment.sheet_TreatmentActivity;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class sheet_TreatmentDetailsActivity extends AppCompatActivity {
 
@@ -36,40 +33,41 @@ public class sheet_TreatmentDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_sheet_treatment_details);
-
         treatmentName = findViewById(R.id.Name_SheetTreatmentDetails);
         treatmentDate = findViewById(R.id.Date_SheetTreatmentDetails);
 
-//        Intent intent = getIntent();
         Bundle bundle = getIntent().getExtras();
         Sheet_Treatment sheet_treatment = bundle.getParcelable("model");
         sHeetTreatment = sheet_treatment;
-//       ArrayList<Treatment> treatmentList1 =bundle.getParcelableArrayList("sheet");
-//        List<TreatmentDB> treatmentList1 = roomDataBaseSheet_Treatment.operation().getAllTreatmentItems();
+       ArrayList<Treatment> treatmentList1 =bundle.getParcelableArrayList("listSheet");
 
-//        Gson gson = new Gson();
-//        String gGson = getIntent().getStringExtra("sheet");
-//        Type type = new TypeToken<List<Treatment>>() {
-//        }.getType();
-//        List<Treatment> treatmentList1 = gson.fromJson(gGson, type);
+        if (treatmentList1 == null) {
+            Toast.makeText(this, "null", Toast.LENGTH_LONG).show();
+        }else if (treatmentList1.size() == 0){
+            new SweetAlertDialog(sheet_TreatmentDetailsActivity.this, SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+                    .setTitleText("البيانات")
+                    .setContentText("لا توجد أى بيانات")
+                    .setConfirmText("تم")
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sDialog) {
+                            sDialog.dismiss();
+                        }
+                    })
+                    .show();
+        } else {
+            Toast.makeText(this, "List", Toast.LENGTH_LONG).show();
+            recycler(treatmentList1);
+        }
 
         if (sHeetTreatment.getCreatedWhen() == null){
-            treatmentDate.setText("التاريخ:- " + "12-JAN-2019");
+            treatmentDate.setText("التاريخ:- " + "--/--/----");
         }else {
             treatmentDate.setText("التاريخ:- " + sHeetTreatment.getCreatedWhen());
         }
         treatmentName.setText("الاسم:- " + sHeetTreatment.getSheetName());
 
-       // List<Treatment> treatmentList1 = new ArrayList<>();
-
-//        ShimmerRecycler(treatmentList1);
-
-        recycler();
-
-        toolbar = findViewById(R.id.Sheet_Treatment_Details_Toolbar);
-        imgbar = findViewById(R.id.imgbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("");
+       toolbarr();
 
         imgbar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,16 +79,16 @@ public class sheet_TreatmentDetailsActivity extends AppCompatActivity {
         });
     }
 
-    private void recycler() {
+    private void toolbarr() {
+        toolbar = findViewById(R.id.Sheet_Treatment_Details_Toolbar);
+        imgbar = findViewById(R.id.imgbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
+    }
 
+    private void recycler(ArrayList<Treatment> treatmentList1) {
         recyclerView = findViewById(R.id.RecyclerXraysDetails);
-//        shimmerRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        shimmerRecyclerView.setItemAnimator(new DefaultItemAnimator());
-//
-//        adapter = new SheetTreatmentDetailsAdapter (this, treatmentList);
-//            shimmerRecyclerView.setAdapter(adapter);
-
-        adapter = new SheetTreatmentDetailsAdapter(this, new ArrayList<Treatment>());
+        adapter = new SheetTreatmentDetailsAdapter(this, treatmentList1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }

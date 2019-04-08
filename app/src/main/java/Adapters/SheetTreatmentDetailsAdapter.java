@@ -27,22 +27,17 @@ public class SheetTreatmentDetailsAdapter extends RecyclerView.Adapter<SheetTrea
 
     @Override
     public void onBindViewHolder(SheetTreatmentDetailsHolder holder, int position) {
-//        Treatment treatment = treatmentList.get(position);
-
-        holder.treatmentNameDT.setText("اسم العلاج :- " + "Omega-3 Plus");
-        holder.treatmentDescriptionDT.setText("مواعيد العلاج :- " + "كبسوله يوميا");
-        holder.From_Date.setText("من تاريخ :- " + "12-JAN-2019");
-        holder.How_Date.setText("حتى تاريخ :- " + "30-JAN-2019");
-        holder.Treatment_method.setText("طريقه العلاج :- " + "كبسوله يوميا بعد الغداء على نصف كوب من الماء الرطب");
+        Treatment treatment = treatmentList.get(position);
+        holder.treatmentNameDT.setText("اسم العلاج :- " + treatment.getDrugName());
+        holder.treatmentDescriptionDT.setText("مواعيد العلاج :- " + treatment.getComments());
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        return treatmentList.size();
     }
 
     public class SheetTreatmentDetailsHolder extends RecyclerView.ViewHolder {
-
         public TextView treatmentNameDT;
         public TextView treatmentDescriptionDT;
         public TextView From_Date;

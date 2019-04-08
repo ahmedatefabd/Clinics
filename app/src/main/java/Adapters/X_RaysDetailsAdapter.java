@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.R;
 import com.example.ragab.clinics.Upload_X_Ray.Upload_X_RayActivity;
@@ -16,11 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class X_RaysDetailsAdapter extends RecyclerView.Adapter<X_RaysDetailsAdapter.X_RaysDetailsHolder>{
     private Context mContext;
-    private List<Xrays> labsList;
+    private List<Xrays> xrays;
 
-    public X_RaysDetailsAdapter(Context mContext, List<Xrays> labsList1) {
+    public X_RaysDetailsAdapter(Context mContext, List<Xrays> xraysList) {
         this.mContext = mContext;
-        this.labsList = labsList1;
+        this.xrays = xraysList;
     }
 
     @Override
@@ -32,11 +31,12 @@ public class X_RaysDetailsAdapter extends RecyclerView.Adapter<X_RaysDetailsAdap
 
     @Override
     public void onBindViewHolder(X_RaysDetailsHolder holder, int position) {
-        holder.nameXRays.setText("الاسم:- " + "أشعة رباعية الابعاد - 40");
-        holder.nameFile.setText("اسم الملف:- " + "XYZ");
-        holder.OldOrNew.setText("جديد / قديم:- " + "N");
-        holder.NmaePlace.setText("المكان :- " + "الفا سكان");
-        holder.description.setText("تفاصيل المكان:- " + "مركز الحياة - برج الصفا الطبى بجوار مستشفى الصفا - 10 ميدان الحجاز");
+        Xrays xrays1 = xrays.get(position);
+        holder.nameXRays.setText("الاسم:- " + xrays1.getXrayName());
+        holder.nameFile.setText("اسم الملف:- " + xrays1.getFileUrl());
+        holder.OldOrNew.setText("جديد / قديم:- " + xrays1.getNewOrOld());
+        holder.NmaePlace.setText("المكان :- " + xrays1.getPlaceName());
+        holder.description.setText("تفاصيل المكان:- " + xrays1.getComments());
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +48,7 @@ public class X_RaysDetailsAdapter extends RecyclerView.Adapter<X_RaysDetailsAdap
 
     @Override
     public int getItemCount() {
-        return 10;
+        return xrays.size();
     }
 
     public class X_RaysDetailsHolder extends RecyclerView.ViewHolder{

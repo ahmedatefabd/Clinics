@@ -1,15 +1,17 @@
 package Adapters;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.R;
 import com.example.ragab.clinics.labs_Details.Labs_Details_Activity;
+import java.util.ArrayList;
 import java.util.List;
+import Model.Labs;
 import Model.Sheet_Labs;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,25 +33,23 @@ public class SheetLabsAdapter extends RecyclerView.Adapter<SheetLabsAdapter.Shee
 
     @Override
     public void onBindViewHolder(SheetLabsHolder holder, int position) {
-
         final Sheet_Labs sheetLabs = sheet_labsList.get(position);
-
         String string = sheetLabs.getCreatedWhen();
-
         if (string != null){
             holder.labsDate.setText("التاريخ:- "+ string);
         }else {
             holder.labsDate.setText("التاريخ:- "+ "----/--/--");
         }
         holder.labstName.setText("الاسم:- " + sheetLabs.getSheetName());
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mContext.startActivity(new Intent(mContext, Labs_Details_Activity.class));
-
                 Intent intent = new Intent(mContext, Labs_Details_Activity.class);
-                intent.putExtra("modelLabs", sheetLabs);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("modelLabs", sheetLabs);
+                bundle.putParcelableArrayList("listLabs", (ArrayList<Labs>) sheetLabs.getLabsList());
+                intent.putExtras(bundle);
                 Animatoo.animateSlideLeft(mContext);
                 mContext.startActivity(intent);
             }

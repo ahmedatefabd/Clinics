@@ -201,7 +201,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 })
                 .show();
     }
-
+    
     private void loadingFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.message, fragment);

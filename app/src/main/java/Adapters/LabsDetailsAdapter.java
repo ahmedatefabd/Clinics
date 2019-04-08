@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.R;
 import com.example.ragab.clinics.UploadLabs.UploadLabsActivity;
@@ -32,11 +31,10 @@ public class LabsDetailsAdapter extends RecyclerView.Adapter<LabsDetailsAdapter.
 
     @Override
     public void onBindViewHolder(LabsDetailsHolder holder, int position) {
-//        Labs labs = labsList.get(position);
-
-        holder.name.setText("الاسم:- " + "CMV IgM");
-        holder.Lab_Date.setText("التاريخ:- " + "12-JAN-2019");
-        holder.description.setText("الوصف :- " + "في اي وقت");
+        Labs labs = labsList.get(position);
+        holder.name.setText("الاسم:- " + labs.getLabName());
+        holder.Lab_Date.setText("جديد / قديم:- " + labs.getNewOrOld());
+        holder.description.setText("الوصف :- " + labs.getComments());
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +46,7 @@ public class LabsDetailsAdapter extends RecyclerView.Adapter<LabsDetailsAdapter.
 
     @Override
     public int getItemCount() {
-        return 10;
+        return labsList.size();
     }
 
     public class LabsDetailsHolder extends RecyclerView.ViewHolder{
@@ -65,5 +63,4 @@ public class LabsDetailsAdapter extends RecyclerView.Adapter<LabsDetailsAdapter.
             button = itemView.findViewById(R.id.addLabs);
         }
     }
-
 }

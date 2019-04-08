@@ -13,28 +13,35 @@ public class Labs implements Parcelable {
     private String labName;
     @SerializedName("comments")
     @Expose
-    private Object comments;
+    private String comments;
     @SerializedName("rate")
     @Expose
-    private Object rate;
+    private String rate;
     @SerializedName("lab_date")
     @Expose
-    private Object labDate;
+    private String labDate;
     @SerializedName("file_url")
     @Expose
-    private Object fileUrl;
+    private String fileUrl;
     @SerializedName("min")
     @Expose
-    private Object min;
+    private String min;
     @SerializedName("max")
     @Expose
-    private Object max;
+    private String max;
     @SerializedName("new_or_old")
     @Expose
-    private Object newOrOld;
+    private String newOrOld;
 
     protected Labs(Parcel in) {
         labName = in.readString();
+        comments = in.readString();
+        rate = in.readString();
+        labDate = in.readString();
+        fileUrl = in.readString();
+        min = in.readString();
+        max = in.readString();
+        newOrOld = in.readString();
     }
 
     public static final Creator<Labs> CREATOR = new Creator<Labs>() {
@@ -57,59 +64,59 @@ public class Labs implements Parcelable {
         this.labName = labName;
     }
 
-    public Object getComments() {
+    public String getComments() {
         return comments;
     }
 
-    public void setComments(Object comments) {
+    public void setComments(String comments) {
         this.comments = comments;
     }
 
-    public Object getRate() {
+    public String getRate() {
         return rate;
     }
 
-    public void setRate(Object rate) {
+    public void setRate(String rate) {
         this.rate = rate;
     }
 
-    public Object getLabDate() {
+    public String getLabDate() {
         return labDate;
     }
 
-    public void setLabDate(Object labDate) {
+    public void setLabDate(String labDate) {
         this.labDate = labDate;
     }
 
-    public Object getFileUrl() {
+    public String getFileUrl() {
         return fileUrl;
     }
 
-    public void setFileUrl(Object fileUrl) {
+    public void setFileUrl(String fileUrl) {
         this.fileUrl = fileUrl;
     }
 
-    public Object getMin() {
+    public String getMin() {
         return min;
     }
 
-    public void setMin(Object min) {
+    public void setMin(String min) {
         this.min = min;
     }
 
-    public Object getMax() {
+    public String getMax() {
         return max;
     }
 
-    public void setMax(Object max) {
+    public void setMax(String max) {
         this.max = max;
     }
 
-    public Object getNewOrOld() {
+    public String getNewOrOld() {
         return newOrOld;
     }
 
-    public void setNewOrOld(Object newOrOld) {
+    public void setNewOrOld(String newOrOld) {
         this.newOrOld = newOrOld;
     }
 
@@ -121,5 +128,12 @@ public class Labs implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(labName);
+        dest.writeString(comments);
+        dest.writeString(rate);
+        dest.writeString(labDate);
+        dest.writeString(fileUrl);
+        dest.writeString(min);
+        dest.writeString(max);
+        dest.writeString(newOrOld);
     }
 }

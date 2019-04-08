@@ -7,12 +7,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.Labs.LabsActivity;
@@ -40,13 +42,34 @@ public class X_Rays_Details_Activity extends AppCompatActivity {
         name_XRayDetails = findViewById(R.id.Name_XRayDetails);
         date_XRayDetails = findViewById(R.id.Date_XRayDetails);
 
-        adapter = new X_RaysDetailsAdapter(X_Rays_Details_Activity.this, new ArrayList<Xrays>());
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
+
 
         Bundle bundle = getIntent().getExtras();
         Sheet_XRays sHheetXRays = bundle.getParcelable("modelXRay");
         sheet_xRays = sHheetXRays;
+        ArrayList<Xrays> xraysArrayList =bundle.getParcelableArrayList("listXray");
+
+        if (xraysArrayList == null){
+            Toast.makeText(this, "null", Toast.LENGTH_LONG).show();
+        }else if (xraysArrayList.size() == 0){
+            new SweetAlertDialog(X_Rays_Details_Activity.this, SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+                    .setTitleText("البيانات")
+                    .setContentText("لا توجد أى بيانات")
+                    .setConfirmText("تم")
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sDialog) {
+                            sDialog.dismiss();
+                        }
+                    })
+                    .show();
+        } else {
+//            Toast.makeText(this, "List", Toast.LENGTH_LONG).show();
+            adapter = new X_RaysDetailsAdapter(X_Rays_Details_Activity.this, xraysArrayList);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setAdapter(adapter);
+        }
+
 
         name_XRayDetails.setText("الاسم:- " + sheet_xRays.getSheetName());
         date_XRayDetails.setText("التاريخ:- " + sheet_xRays.getCreatedWhen());
