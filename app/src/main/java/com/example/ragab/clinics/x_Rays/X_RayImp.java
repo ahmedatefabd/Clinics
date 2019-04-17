@@ -93,4 +93,8 @@ public class X_RayImp implements X_RayPresenter, ApiInterface {
         return null;
     }
 
+    @Override
+    public Call<String> Booking(String body, String content_type) {
+        return null;
+    }
 }

@@ -46,10 +46,11 @@
                 android:textColorHint="#000"
                 android:maxLines="1"
                 android:textColor="#32A5B4"
+                android:padding="5dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:drawableRight="@drawable/user"
-                android:background="@android:drawable/editbox_background_normal"
+                android:background="@drawable/background_row3"
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:textCursorDrawable="@drawable/cursoercolor"
@@ -118,8 +119,9 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColorHint="#000"
+            android:padding="5dp"
             android:textCursorDrawable="@drawable/cursoercolor"
-            android:background="@android:drawable/editbox_background_normal"
+            android:background="@drawable/background_row3"
             />
 
         <TextView
@@ -184,9 +186,10 @@
             android:textColor="#32A5B4"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:padding="5dp"
             android:inputType="textEmailAddress"
             android:textCursorDrawable="@drawable/cursoercolor"
-            android:background="@android:drawable/editbox_background_normal"
+            android:background="@drawable/background_row3"
             />
 
         <Button

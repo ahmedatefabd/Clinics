@@ -18,7 +18,7 @@ import static com.example.ragab.clinics.oldRequest.oldRequestActivity.roomDataBa
 
 public class oldRequestPresentImp implements oldRequestPresenter, ApiInterface {
 
-    oldRequestView oldRequestView;
+    oldRequestActivity oldRequestView;
 
     @Override
     public Call<String> login(String body, String content_type) {
@@ -38,7 +38,7 @@ public class oldRequestPresentImp implements oldRequestPresenter, ApiInterface {
                         //SingleTon
                         BookingAll_ItemsDB bookingAllItemsDB =
                                 BookingAll_ItemsDB.getInstance(bookingAll_items.get(i).getId()
-                                        , bookingAll_items.get(i).getBranchId()
+                                        ,bookingAll_items.get(i).getBranchId()
                                         ,bookingAll_items.get(i).getAppointmentDate()
                                         ,bookingAll_items.get(i).getCost()
                                         ,bookingAll_items.get(i).getStatusId()
@@ -55,6 +55,7 @@ public class oldRequestPresentImp implements oldRequestPresenter, ApiInterface {
                     }
                     oldRequestActivity.shimmerRecyclerView.hideShimmerAdapter();
                     oldRequestView.setBookingRequestsHistoryList(bookingAll_items);
+
                 }
             }
             @Override
@@ -81,7 +82,12 @@ public class oldRequestPresentImp implements oldRequestPresenter, ApiInterface {
     }
 
     @Override
-    public void setView(oldRequestView oldRequestView) {
+    public Call<String> Booking(String body, String content_type) {
+        return null;
+    }
+
+    @Override
+    public void setView(oldRequestActivity oldRequestView) {
         this.oldRequestView = oldRequestView;
     }
 

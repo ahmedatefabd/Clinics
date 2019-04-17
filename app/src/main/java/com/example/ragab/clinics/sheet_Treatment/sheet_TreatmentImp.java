@@ -71,4 +71,9 @@ public class sheet_TreatmentImp implements sheet_TreatmentPresenter, ApiInterfac
     public Call<Response_Labs> getSheetLabs(Map<String, String> queryParameters) {
         return null;
     }
+
+    @Override
+    public Call<String> Booking(String body, String content_type) {
+        return null;
+    }
 }

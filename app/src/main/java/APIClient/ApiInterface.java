@@ -26,4 +26,7 @@ public interface ApiInterface {
 
     @POST("clinic/sheet_labs")
     Call<Response_Labs> getSheetLabs(@QueryMap Map<String , String> queryParameters);
+
+    @POST("clinic/booking")
+    Call<String> Booking(@Body String body, @Header("Content-Type") String content_type);
 }

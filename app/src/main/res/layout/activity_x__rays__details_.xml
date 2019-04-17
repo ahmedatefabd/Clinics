@@ -65,7 +65,7 @@
                     android:text="الاسم"
                     android:padding="8dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:textColor="#32A5B4"
+                    android:textColor="#0D6472"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="20dp" />
@@ -78,7 +78,7 @@
                     android:maxLines="1"
                     android:text="25-10-2019"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:textColor="#32A5B4"
+                    android:textColor="#0D6472"
                     android:padding="8dp"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -104,12 +104,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/meal_image_order"
         android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_height="130dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/aa"
         app:layout_anchor="@id/app_bar"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         app:layout_anchorGravity="bottom|center"
         android:visibility="visible"/>
 

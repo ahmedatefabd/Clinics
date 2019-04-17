@@ -4,7 +4,6 @@ public interface LoginView {
     void showUserNameError(int resId);
     void showPasswordError(int resId);
     void showLoader();
-//    void hideLoader();
     String edEmail();
     String edPassword();
     void showalert(String Message);

@@ -36,7 +36,7 @@ public class HomeFragment_Work extends Fragment {
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), newRequestActivity.class));
 //                startActivity(new Intent(getActivity(), AboutDoctorActivity.class));
-                Animatoo.animateZoom(getActivity());
+                Animatoo.animateSlideLeft(getActivity());
             }
         });
 
@@ -44,7 +44,7 @@ public class HomeFragment_Work extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), oldRequestActivity.class));
-                Animatoo.animateZoom(getActivity());
+                Animatoo.animateSlideRight(getActivity());
             }
         });
 

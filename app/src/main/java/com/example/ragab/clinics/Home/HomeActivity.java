@@ -88,7 +88,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
             finish();
             System.exit(0);
         }else {
-            Utils.makeToast(getApplicationContext(), "للخروج من التطبيق اضغط مرة أخرى ", 3000);
+            Utils.makeToast(getApplicationContext(), "للخروج من التطبيق اضغط مرة  أخرى ", 3000);
         }
         back_pressed = System.currentTimeMillis();
     }

@@ -12,9 +12,12 @@
         android:layout_height="wrap_content"
         android:text="التحاليل الطبية"
         android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/button_round_bookingg"
+        android:textColor="#0D6472"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="#fff" />
+         />
 
     <ImageView
         android:id="@+id/imgbar_labsDown"
@@ -22,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:layout_marginLeft="20dp"
+        android:padding="8dp"
         app:srcCompat="@drawable/back"/>
 
 </androidx.appcompat.widget.Toolbar>

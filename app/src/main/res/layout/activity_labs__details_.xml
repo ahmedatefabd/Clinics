@@ -63,7 +63,7 @@
                     android:text="الاسم"
                     android:padding="8dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:textColor="#32A5B4"
+                    android:textColor="#0D6472"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginLeft="20dp"
@@ -77,7 +77,7 @@
                     android:maxLines="1"
                     android:text="25-10-2019"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:textColor="#32A5B4"
+                    android:textColor="#0D6472"
                     android:padding="8dp"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -99,19 +99,17 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/meal_image_order"
         android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_height="130dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
         android:src="@drawable/lab28"
-        app:layout_anchor="@id/app_bar"
-        android:layout_marginTop="10dp"
-        app:layout_anchorGravity="bottom|center"
         android:visibility="visible"
-        />
+        app:layout_anchor="@+id/app_bar"
+        app:layout_anchorGravity="bottom|center" />
 
     <include
         android:id="@+id/Labs_Details_Toolbar"

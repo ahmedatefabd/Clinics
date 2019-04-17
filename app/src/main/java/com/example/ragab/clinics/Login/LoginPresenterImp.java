@@ -21,6 +21,11 @@ public class LoginPresenterImp implements LoginPresenter, ApiInterface {
     int ResponseCode = -1;
 
     @Override
+    public void setView(LoginActivity loginView) {
+        this.loginView = loginView;
+    }
+
+    @Override
     public int RequestLogin(String UserName, String Password) {
         loginView.showLoader();
         String RegRequestBody = "{";
@@ -103,9 +108,11 @@ public class LoginPresenterImp implements LoginPresenter, ApiInterface {
         return null;
     }
 
-
     @Override
-    public void setView(LoginActivity loginView) {
-        this.loginView = loginView;
+    public Call<String> Booking(String body, String content_type) {
+        return null;
     }
+
+
+
 }

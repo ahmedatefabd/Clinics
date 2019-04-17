@@ -33,5 +33,10 @@ public class HomePresentImp implements HomePresenter, ApiInterface {
         return null;
     }
 
+    @Override
+    public Call<String> Booking(String body, String content_type) {
+        return null;
+    }
+
 
 }

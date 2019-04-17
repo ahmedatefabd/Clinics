@@ -23,6 +23,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         >
         <ImageView
             android:layout_width="match_parent"
@@ -41,15 +42,18 @@
         <EditText
             android:id="@+id/patientName"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:hint="@string/patientName"
             android:textColorHint="#0D6472"
             android:layout_marginLeft="10dp"
             android:drawableRight="@drawable/user"
             android:singleLine="true"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
             android:layout_marginRight="10dp"
-            android:background="@android:drawable/editbox_background_normal"
+            android:background="@drawable/background_row3"
+            android:padding="5dp"
             android:maxLines="1"
             android:textSize="24sp"
             android:textColor="#0D6472"
@@ -57,20 +61,20 @@
             />
 
         <EditText
-        android:id="@+id/patientMobail"
+        android:id="@+id/patientDetails"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
-        android:hint="@string/mobilenumber"
-        android:drawableRight="@drawable/mobile"
+        android:hint="حالتك المرضية"
         android:textColorHint="#0D6472"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="10dp"
-        android:background="@android:drawable/editbox_background_normal"
+        android:background="@drawable/background_row3"
         android:phoneNumber="true"
         android:maxLines="1"
         android:singleLine="true"
-        android:gravity="right"
+        android:gravity="center"
         android:textColor="#0D6472"
         android:textDirection="rtl"
             android:textSize="24sp"
@@ -94,6 +98,7 @@
             android:textSize="24sp"
             android:textColor="#0D6472"
             android:textDirection="rtl"
+            android:visibility="gone"
             />
     </LinearLayout>
 
@@ -107,6 +112,7 @@
         android:layout_marginRight="20dp"
         android:dividerPadding="30dp"
         android:layoutDirection="rtl"
+        android:visibility="gone"
         android:orientation="horizontal">
         <RadioButton
             android:id="@+id/radioFemale"
@@ -156,6 +162,7 @@
                 android:gravity="center_vertical"
                 android:hint="@string/DateOfBooking"
                 android:maxLines="1"
+                android:layout_marginTop="15dp"
                 android:textColor="#fff"
                 android:textColorHint="#fff"
                 android:textDirection="rtl"
@@ -170,7 +177,6 @@
                 android:layout_gravity="center"
                 android:textSize="16sp"
                 android:textColor="#fff" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -178,6 +184,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
+        android:visibility="gone"
         android:orientation="vertical">
         <com.google.android.material.chip.Chip
         android:id="@+id/chip1"
@@ -209,13 +216,15 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/sendbook"
+            android:id="@+id/sendbooking"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
             android:layout_gravity="bottom|center"
             android:background="@drawable/button_round_bookingg"
             android:textColor="#0D6472"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
             android:textSize="24sp"
             android:textStyle="bold"
             android:text="@string/patientRegist" />

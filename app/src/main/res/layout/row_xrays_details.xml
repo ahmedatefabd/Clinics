@@ -6,16 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/background_row"
-    android:layout_marginBottom="5dp"
-    cardview:cardCornerRadius="10dp"
-    cardview:cardElevation="5dp"
+    cardview:cardCornerRadius="6dp"
+    cardview:cardElevation="3dp"
     android:layoutDirection="rtl"
     cardview:cardUseCompatPadding="true">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="wrap_content"
         android:layout_margin="4dp">
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageAllUser"
             android:layout_width="85dp"
@@ -23,6 +24,7 @@
             android:layout_gravity="center"
             android:src="@drawable/report2"
             android:visibility="gone"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,12 +38,12 @@
                 android:layout_below="@+id/serviceproivdertitle"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:drawableRight="@drawable/bluecircle"
+                android:drawableRight="@drawable/greencircle"
+                android:textColor="#000"
                 android:gravity="right"
                 android:maxLines="1"
                 android:text="اسم الاشعه"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="#32A5B4"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_marginLeft="10dp" />
@@ -54,16 +56,17 @@
                 android:maxLines="1"
                 android:text="اسم الملف"
                 android:gravity="right"
-                android:drawableRight="@drawable/bluecircle"
+                android:drawableRight="@drawable/greencircle"
+                android:textColor="#000"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="#32A5B4"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 />
+
             <TextView
                 android:id="@+id/O_N"
                 android:layout_weight="1"
@@ -71,13 +74,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/serviceproivdertitle"
                 android:maxLines="1"
-                android:drawableRight="@drawable/bluecircle"
+                android:drawableRight="@drawable/greencircle"
+                android:textColor="#000"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="8dp"
                 android:gravity="right"
                 android:text="جديد / قديم"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="#32A5B4"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
                 android:textSize="14sp"
@@ -93,15 +96,16 @@
                 android:text="اسم المكان"
                 android:gravity="right"
                 android:layout_marginStart="20dp"
-                android:drawableRight="@drawable/bluecircle"
+                android:drawableRight="@drawable/greencircle"
+                android:textColor="#000"
                 android:layout_marginTop="8dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="#32A5B4"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 />
+
             <TextView
                 android:id="@+id/DE"
                 android:layout_weight="1"
@@ -111,10 +115,10 @@
                 android:layout_marginTop="8dp"
                 android:gravity="right"
                 android:layout_marginStart="25dp"
-                android:drawableRight="@drawable/bluecircle"
+                android:drawableRight="@drawable/greencircle"
+                android:textColor="#000"
                 android:text="تفاصيل عن المكان"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="#32A5B4"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
                 android:textSize="14sp"
@@ -128,14 +132,15 @@
                 android:layout_height="35dp"
                 android:layout_marginTop="10dp"
                 android:text="إضافة اشعه+  "
-                android:textColor="#fff"
+                android:textColor="#ffffff"
                 android:padding="4dp"
                 android:background="@drawable/background_row"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 />
 
         </LinearLayout>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

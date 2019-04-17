@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="top"
     android:layoutDirection="rtl"
     android:layout_gravity="center"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
@@ -13,6 +13,7 @@
     android:background="#32A5B4">
 
     <RelativeLayout
+        android:layout_marginTop="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
@@ -28,6 +29,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/background_row"
         android:layout_gravity="center"
+        android:layout_marginTop="30dp"
         cardview:cardCornerRadius="10dp"
         cardview:cardElevation="5dp"
         android:layoutDirection="rtl"
@@ -95,6 +97,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="15dp"
+        android:layout_marginTop="45dp"
         android:layout_marginLeft="15dp"
         android:orientation="horizontal">
 
@@ -114,15 +117,20 @@
                     android:id="@+id/doctor2"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/doc3" />
+                    android:src="@drawable/doc3"
+                    android:visibility="gone"/>
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:text="@string/newRequest"
-                    android:padding="10dp"
-                    android:textSize="14sp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/button_round_bookingg"
+                    android:textSize="18sp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
                     android:textStyle="bold"
-                    android:textColor="#fff"
+                    android:drawableRight="@drawable/right"
+                    android:textColor="#0D6472"
                     android:gravity="center" />
             </LinearLayout>
         </RelativeLayout>
@@ -143,15 +151,20 @@
                     android:id="@+id/doctor3"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/report6" />
+                    android:src="@drawable/report6"
+                    android:visibility="gone"/>
                 <TextView
+                    android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
                     android:text="@string/oldRequest"
-                    android:padding="10dp"
-                    android:textSize="12dp"
+                    android:textSize="18dp"
+                    android:drawableLeft="@drawable/left"
+                    android:background="@drawable/button_round_bookingg"
                     android:textStyle="bold"
-                    android:textColor="#fff"
+                    android:textColor="#0D6472"
                     android:gravity="center" />
             </LinearLayout>
         </RelativeLayout>

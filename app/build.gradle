@@ -61,7 +61,7 @@ dependencies {
     //Design
     implementation 'com.taishi-y:flipprogressdialog:0.1.0'
 
-    //flipprogressdialog
+    //circleimageview
     implementation 'de.hdodenhof:circleimageview:3.0.0'
 
     //DialogSheet

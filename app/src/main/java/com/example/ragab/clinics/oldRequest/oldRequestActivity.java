@@ -77,7 +77,7 @@ public class oldRequestActivity extends AppCompatActivity implements oldRequestV
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(oldRequestActivity.this, HomeActivity.class));
-                Animatoo.animateSlideUp(oldRequestActivity.this);
+                Animatoo.animateSlideLeft(oldRequestActivity.this);
                 finish();
             }
         });
@@ -198,7 +198,7 @@ public class oldRequestActivity extends AppCompatActivity implements oldRequestV
     @Override
     public void onBackPressed() {
         startActivity(new Intent(oldRequestActivity.this, HomeActivity.class));
-        Animatoo.animateSlideUp(oldRequestActivity.this);
+        Animatoo.animateSlideLeft(oldRequestActivity.this);
         finish();
     }
 }

@@ -33,4 +33,9 @@ public class RegistrationPresenterImp implements RegistrationPresenter, ApiInter
         return null;
     }
 
+    @Override
+    public Call<String> Booking(String body, String content_type) {
+        return null;
+    }
+
 }
