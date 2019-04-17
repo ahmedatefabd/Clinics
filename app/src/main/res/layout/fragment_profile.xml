@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     android:background="#32A5B4"
     android:orientation="vertical"
-    android:gravity="center"
+    android:gravity="top"
     android:layoutDirection="rtl"
     tools:context=".ProfileFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -38,7 +39,7 @@
             <TextView
                 android:id="@+id/edit_firstname"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_marginTop="5dp"
@@ -103,7 +104,7 @@
         <TextView
             android:id="@+id/edit_mobilenumber"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:hint="@string/mobilenumber"
@@ -171,7 +172,7 @@
         <TextView
             android:id="@+id/edit_email"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:hint="@string/email"

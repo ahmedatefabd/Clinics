@@ -59,11 +59,14 @@ public class HomeFragment_Work extends Fragment {
                 .transform(new RoundedTransformation())
                 .resize(1000, 1000)
                 .into(doctor3);
+
         Picasso.get()
                 .load(R.drawable.doc2)
                 .transform(new RoundedTransformation())
                 .resize(500, 500)
                 .into(doc);
+
         return view;
+
     }
 }
