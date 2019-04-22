@@ -1,5 +1,9 @@
 package com.example.ragab.clinics.newRequest;
 import android.util.Log;
+import android.view.View;
+
+import com.kaopiz.kprogresshud.KProgressHUD;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.Map;
@@ -13,11 +17,11 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import static com.example.ragab.clinics.newRequest.newRequestActivity.PatientName;
+//import static com.example.ragab.clinics.newRequest.newRequestActivity.PatientName;
 import static com.example.ragab.clinics.newRequest.newRequestActivity.patientDetails;
+import static com.example.ragab.clinics.newRequest.newRequestActivity.progressBar;
 
 public class newRequestImp implements newRequestPresenter, ApiInterface {
-
     newRequestActivity newRequestActivity1;
     int ResponseCode = -1;
 
@@ -27,39 +31,40 @@ public class newRequestImp implements newRequestPresenter, ApiInterface {
     }
 
     @Override
-    public int RequestBooking(String p_branch_name, String p_patient_id, String p_appointment_date, String p_complaint_type, String p_clinic_id) {
+//    public int RequestBooking(String p_branch_name, String p_patient_id, String p_appointment_date, String p_complaint_type, String p_clinic_id) {
+    public int RequestBooking(String p_patient_id, String p_appointment_date, String p_complaint_type, String p_clinic_id) {
 
         String RegRequestBody = "{";
 
 
-        if (p_branch_name.equals("")) {
-            RegRequestBody += "\"P_BRANCH_NAME\":null ,";
-        } else
-            RegRequestBody += "\"P_BRANCH_NAME\":\"" + p_branch_name + "\" ,";
+//        if (p_branch_name.equals("")) {
+//            RegRequestBody += "\"P_BRANCH_NAME\":null ,";
+//        } else
+//            RegRequestBody += "\"P_BRANCH_NAME\":\"" + p_branch_name + "\" ,";
 
 
         if (p_patient_id.equals("")) {
-            RegRequestBody += "\"P_PATIENT_ID\":null ,";
+            RegRequestBody += "\"p_patient_id\":null ,";
         } else
-            RegRequestBody += "\"P_PATIENT_ID\":\"" + p_patient_id + "\" ,";
+            RegRequestBody += "\"p_patient_id\":\"" + p_patient_id + "\" ,";
 
 
         if (p_appointment_date.equals("")) {
-            RegRequestBody += "\"P_aPPOINTMENT\":null ,";
+            RegRequestBody += "\"p_appointment_date\":null ,";
         } else
-            RegRequestBody += "\"P_aPPOINTMENT\":\"" + p_appointment_date + "\" ,";
+            RegRequestBody += "\"p_appointment_date\":\"" + p_appointment_date + "\" ,";
 
 
         if (p_complaint_type.equals("")) {
-            RegRequestBody += "\"P_COMPLAINT_TYPE\":null ,";
+            RegRequestBody += "\"p_complaint_type\":null ,";
         } else
-            RegRequestBody += "\"P_COMPLAINT_TYPE\":\"" + p_complaint_type + "\" ,";
+            RegRequestBody += "\"p_complaint_type\":\"" + p_complaint_type + "\" ,";
 
 
         if (p_clinic_id.equals("")) {
-            RegRequestBody += "\"P_CLINIC_ID\":null ,";
+            RegRequestBody += "\"p_clinic_id\":null ,";
         } else
-            RegRequestBody += "\"P_CLINIC_ID\":\"" + p_clinic_id + "\"";
+            RegRequestBody += "\"p_clinic_id\":\"" + p_clinic_id + "\"";
 
 
         RegRequestBody += "}";
@@ -84,6 +89,7 @@ public class newRequestImp implements newRequestPresenter, ApiInterface {
                         ResponseCode = responCodeObj.getInt("RESULT");
                         if (ResponseCode < 0) {
                             if (ResponseCode < 0) {
+                                newRequestActivity1.progressBar.setVisibility(View.GONE);
                                 new SweetAlertDialog(newRequestActivity1, SweetAlertDialog.ERROR_TYPE)
                                         .setTitleText("خطأ")
                                         .setContentText("فشلت العملية")
@@ -92,10 +98,13 @@ public class newRequestImp implements newRequestPresenter, ApiInterface {
                                             @Override
                                             public void onClick(SweetAlertDialog sDialog) {
                                                 sDialog.dismiss();
+//                                                KProgressHUD.create(newRequestActivity1).dismiss();
+                                                newRequestActivity1.progressBar.setVisibility(View.GONE);
                                             }
                                         }).show();
                             }
                         } else {
+                            newRequestActivity1.progressBar.setVisibility(View.GONE);
                             new SweetAlertDialog(newRequestActivity1, SweetAlertDialog.SUCCESS_TYPE)
                                     .setTitleText("شكراًً")
                                     .setContentText("تم تلقى طلبكم وسيتم التواصل معكم قريبا")
@@ -103,15 +112,22 @@ public class newRequestImp implements newRequestPresenter, ApiInterface {
                                     .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                         @Override
                                         public void onClick(SweetAlertDialog sDialog) {
+
                                             sDialog.dismiss();
-                                            PatientName.setText(null);
+//                                            PatientName.setText(null);
+//                                            KProgressHUD.create(newRequestActivity1).dismiss();
+//                                            newRequestActivity1.NoProgress();
+                                            newRequestActivity1.progressBar.setVisibility(View.GONE);
                                             patientDetails.setText(null);
+
                                         }
                                     })
                                     .show();
+
                         }
                     } catch (JSONException e) {
                         newRequestActivity1.showalert("حدث خطأ في الاتصال , من فضلك أعد المحاولة");
+                        newRequestActivity1.progressBar.setVisibility(View.GONE);
                     }
                 }
             }
@@ -119,6 +135,7 @@ public class newRequestImp implements newRequestPresenter, ApiInterface {
             public void onFailure(Call<String> call, Throwable t) {
                 System.out.print(toString());
                 newRequestActivity1.showalert("حدث خطأ في الاتصال , من فضلك أعد المحاولة وتأكد من الاتصال بالانترنت");
+                newRequestActivity1.progressBar.setVisibility(View.GONE);
             }
         });
         return null;

@@ -16,6 +16,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,8 @@ import com.example.ragab.clinics.Home.HomeActivity;
 import com.example.ragab.clinics.Login.LoginActivity;
 import com.example.ragab.clinics.R;
 import com.google.android.material.chip.Chip;
+import com.kaopiz.kprogresshud.KProgressHUD;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -31,10 +34,12 @@ import java.util.Locale;
 public class newRequestActivity extends AppCompatActivity implements newRequestView{
     private TextView dateOfBirthTV, check;
     int year, month, day;
+    public static ProgressBar progressBar;
 //    private LinearLayout DateBooking;
     public static Toolbar toolbar;
     public static TextView toolbar_title;
-    public static EditText PatientName, patientDetails;
+//    public static EditText PatientName, patientDetails;
+    public static EditText patientDetails;
     private AppCompatButton Sendbooking ;
     public static SharedPreferences sharedPreferences_newRequestActivity ;
     public static SharedPreferences.Editor editor_newRequestActivity;
@@ -54,9 +59,11 @@ public class newRequestActivity extends AppCompatActivity implements newRequestV
         setContentView(R.layout.activity_new_request);
         controlToolbar();
         imgbarBooking = findViewById(R.id.imgbarBooking);
-        PatientName = findViewById(R.id.patientName);
+//        PatientName = findViewById(R.id.patientName);
+        patientDetails = findViewById(R.id.patientDetails);
         patientDetails = findViewById(R.id.patientDetails);
         Sendbooking = findViewById(R.id.sendbooking);
+        progressBar = findViewById(R.id.progressBar);
 
         sharedPreferences_newRequestActivity = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         editor_newRequestActivity = sharedPreferences_newRequestActivity.edit();
@@ -75,11 +82,14 @@ public class newRequestActivity extends AppCompatActivity implements newRequestV
         Sendbooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                P_Branch_Name = PatientName.getText().toString().trim();
+//                progress();
+                progressBar.setVisibility(View.VISIBLE);
+//                P_Branch_Name = PatientName.getText().toString().trim();
                 P_Complaint_Type = patientDetails.getText().toString().trim();
                 P_Appointment_Date = dateOfBirthTV.getText().toString().trim();
 
-                if (CheckEmpty(P_Branch_Name, P_Complaint_Type, P_Appointment_Date)) {
+//                if (CheckEmpty(P_Branch_Name, P_Complaint_Type, P_Appointment_Date)) {
+                if (CheckEmpty(P_Complaint_Type, P_Appointment_Date)) {
                     CheckInternetConnection();
                 } else {
                     Toast.makeText(newRequestActivity.this, "تأكد من كتابة البيانات بطريقة صحيحة", Toast.LENGTH_SHORT).show();
@@ -147,16 +157,31 @@ public class newRequestActivity extends AppCompatActivity implements newRequestV
 //        });
     }
 
-    private boolean CheckEmpty(String p_branch_name, String p_complaint_type, String P_Appointment_Date) {
-        if (p_branch_name.isEmpty()) {
-            PatientName.setError("الاسم لا يمكن أن يكون فارغاً");
-            return false;
-        } else if (p_complaint_type.isEmpty()) {
+    private void progress(){
+        KProgressHUD.create(newRequestActivity.this)
+                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                .setLabel("Please wait")
+                .setCancellable(true)
+                .setAnimationSpeed(2)
+                .setDimAmount(0.5f)
+                .show();
+    }
+
+//    private boolean CheckEmpty(String p_branch_name, String p_complaint_type, String P_Appointment_Date) {
+    private boolean CheckEmpty(String p_complaint_type, String P_Appointment_Date) {
+//        if (p_branch_name.isEmpty()) {
+//            PatientName.setError("الاسم لا يمكن أن يكون فارغاً");
+//            return false;
+//        }else
+
+        if (p_complaint_type.isEmpty()) {
             patientDetails.setError("الحاله المرضيه لا يمكن أن تكون فارغاً");
+            progressBar.setVisibility(View.GONE);
             return false;
 
         } else if (P_Appointment_Date.isEmpty()) {
             dateOfBirthTV.setError("من فضلك أدخل التاريخ");
+            progressBar.setVisibility(View.GONE);
             return false;
 
         } else {
@@ -167,12 +192,14 @@ public class newRequestActivity extends AppCompatActivity implements newRequestV
 
     private void CheckInternetConnection() {
         P_Patient_Id = String.valueOf(Utils.getID(newRequestActivity.this));
-        P_Clinic_Id = "2";
+        P_Clinic_Id = "0";
 
         if (Utils.isInternetOn(newRequestActivity.this)) {
-                nNewRequestImp.RequestBooking(P_Branch_Name, P_Patient_Id, P_Appointment_Date, P_Complaint_Type, P_Clinic_Id);
+//                nNewRequestImp.RequestBooking(P_Branch_Name, P_Patient_Id, P_Appointment_Date, P_Complaint_Type, P_Clinic_Id);
+                nNewRequestImp.RequestBooking(P_Patient_Id, P_Appointment_Date, P_Complaint_Type, P_Clinic_Id);
         } else {
             showErrorMessage("من فضلك تأكد من الإتصال بالإنترنت");
+            progressBar.setVisibility(View.GONE);
         }
     }
 

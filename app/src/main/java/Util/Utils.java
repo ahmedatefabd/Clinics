@@ -116,8 +116,9 @@ public class Utils {
         return ((!name.isEmpty() || !pass.isEmpty()));
     }
     public static int getID(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(LoginActivity.PREF_NAME, MODE_PRIVATE);
         int id = -1;
-        int restored_id = sharedPreferences.getInt("id", 0);
+        int restored_id = prefs.getInt("id", 0);
         if (restored_id != -1) {
             return restored_id;
         } else

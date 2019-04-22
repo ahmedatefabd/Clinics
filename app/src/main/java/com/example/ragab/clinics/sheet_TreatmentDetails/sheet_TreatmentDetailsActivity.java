@@ -19,7 +19,6 @@ import com.example.ragab.clinics.sheet_Treatment.sheet_TreatmentActivity;
 import java.util.ArrayList;
 
 public class sheet_TreatmentDetailsActivity extends AppCompatActivity {
-
     private Toolbar toolbar;
     private ImageView imgbar;
     private Sheet_Treatment sHeetTreatment;
