@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ragab.clinics.R;
 import com.example.ragab.clinics.UploadLabs.UploadLabsActivity;
@@ -33,7 +35,19 @@ public class LabsDetailsAdapter extends RecyclerView.Adapter<LabsDetailsAdapter.
     public void onBindViewHolder(LabsDetailsHolder holder, int position) {
         Labs labs = labsList.get(position);
         holder.name.setText("الاسم:- " + labs.getLabName());
-        holder.Lab_Date.setText("جديد / قديم:- " + labs.getNewOrOld());
+
+        String s = labs.getNewOrOld();
+        String a = "N";
+
+        if (s == null) {
+            holder.Lab_Date.setText("حجز :- " + "قديم");
+        }else {
+            if (s.equals(a))
+                holder.Lab_Date.setText("حجز :- " + "جديد");
+            else
+                holder.Lab_Date.setText("حجز :- " + "قديم");
+        }
+
         holder.description.setText("الوصف :- " + labs.getComments());
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -36,9 +36,9 @@ public class SheetXRayAdapter extends RecyclerView.Adapter<SheetXRayAdapter.Shee
         final Sheet_XRays sheetXRays = sheet_xRaysList.get(position);
         String string = sheetXRays.getCreatedWhen();
         if (string != null){
-            holder.xrayDate.setText("التاريخ:- "+ string);
+            holder.xrayDate.setText(string);
         }else {
-            holder.xrayDate.setText("التاريخ:- "+ "----/--/--");
+            holder.xrayDate.setText("----/--/--");
         }
         holder.xraytName.setText("الاسم:- " + sheetXRays.getSheetName());
         holder.itemView.setOnClickListener(new View.OnClickListener() {

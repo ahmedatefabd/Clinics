@@ -61,13 +61,14 @@ public class Labs_Details_Activity extends AppCompatActivity {
         }
 
         name_LabsDetails.setText("الاسم:- " + SHheet_Labs.getSheetName());
-        date_LabsDetails.setText("التاريخ:- " + SHheet_Labs.getCreatedWhen());
+        date_LabsDetails.setText(SHheet_Labs.getCreatedWhen());
 
         if (SHheet_Labs.getCreatedWhen() == null){
-            date_LabsDetails.setText("التاريخ:- " + "--/--/----");
+            date_LabsDetails.setText("--/--/----");
         }else {
-            date_LabsDetails.setText("التاريخ:- " + SHheet_Labs.getCreatedWhen());
+            date_LabsDetails.setText(SHheet_Labs.getCreatedWhen());
         }
+
 
         Toolbarr();
 

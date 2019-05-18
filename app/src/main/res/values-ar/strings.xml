@@ -3,7 +3,7 @@
     <string name="user_name_hint">الاسم أو الإيميل</string>
     <string name="password">كلمة المرور</string>
     <string name="registration">تسجيل مستخدم جديد</string>
-    <string name="patientRegist">أحجز</string>
+    <string name="patientRegist">إحجز</string>
     <string name="newRequest"> حجز جديد</string>
     <string name="oldRequest">الحجوزات السابقه</string>
     <string name="login">تسجيل دخول</string>

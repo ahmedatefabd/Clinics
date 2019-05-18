@@ -1,7 +1,10 @@
 package com.example.ragab.clinics.newRequest;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.example.ragab.clinics.Home.HomeActivity;
 import com.kaopiz.kprogresshud.KProgressHUD;
 
 import org.json.JSONException;
@@ -98,7 +101,6 @@ public class newRequestImp implements newRequestPresenter, ApiInterface {
                                             @Override
                                             public void onClick(SweetAlertDialog sDialog) {
                                                 sDialog.dismiss();
-//                                                KProgressHUD.create(newRequestActivity1).dismiss();
                                                 newRequestActivity1.progressBar.setVisibility(View.GONE);
                                             }
                                         }).show();
@@ -112,14 +114,12 @@ public class newRequestImp implements newRequestPresenter, ApiInterface {
                                     .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                         @Override
                                         public void onClick(SweetAlertDialog sDialog) {
-
                                             sDialog.dismiss();
-//                                            PatientName.setText(null);
-//                                            KProgressHUD.create(newRequestActivity1).dismiss();
-//                                            newRequestActivity1.NoProgress();
                                             newRequestActivity1.progressBar.setVisibility(View.GONE);
                                             patientDetails.setText(null);
-
+                                            newRequestActivity1.startActivity(new Intent(newRequestActivity1, HomeActivity.class));
+                                            Animatoo.animateSlideDown(newRequestActivity1);
+                                            newRequestActivity1.finish();
                                         }
                                     })
                                     .show();

@@ -42,6 +42,8 @@
                 android:textColor="#000"
                 android:gravity="right"
                 android:maxLines="1"
+                android:drawablePadding="8dp"
+
                 android:text="اسم الاشعه"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:textSize="16sp"
@@ -58,7 +60,7 @@
                 android:gravity="right"
                 android:drawableRight="@drawable/greencircle"
                 android:textColor="#000"
-                android:layout_marginStart="10dp"
+                android:drawablePadding="8dp"
                 android:layout_marginTop="8dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:layout_marginLeft="5dp"
@@ -76,9 +78,9 @@
                 android:maxLines="1"
                 android:drawableRight="@drawable/greencircle"
                 android:textColor="#000"
-                android:layout_marginStart="15dp"
                 android:layout_marginTop="8dp"
                 android:gravity="right"
+                android:drawablePadding="8dp"
                 android:text="جديد / قديم"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:layout_marginLeft="5dp"
@@ -95,7 +97,6 @@
                 android:maxLines="1"
                 android:text="اسم المكان"
                 android:gravity="right"
-                android:layout_marginStart="20dp"
                 android:drawableRight="@drawable/greencircle"
                 android:textColor="#000"
                 android:layout_marginTop="8dp"
@@ -103,6 +104,8 @@
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
                 android:textSize="14sp"
+                android:drawablePadding="8dp"
+
                 android:textStyle="bold"
                 />
 
@@ -114,7 +117,6 @@
                 android:layout_below="@+id/serviceproivdertitle"
                 android:layout_marginTop="8dp"
                 android:gravity="right"
-                android:layout_marginStart="25dp"
                 android:drawableRight="@drawable/greencircle"
                 android:textColor="#000"
                 android:text="تفاصيل عن المكان"
@@ -122,6 +124,8 @@
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_vertical"
                 android:textSize="14sp"
+                android:drawablePadding="8dp"
+
                 android:textStyle="bold"
                 />
 
@@ -134,6 +138,8 @@
                 android:text="إضافة اشعه+  "
                 android:textColor="#ffffff"
                 android:padding="4dp"
+                android:layout_marginStart="75dp"
+                android:layout_marginEnd="75dp"
                 android:background="@drawable/background_row"
                 android:textSize="20sp"
                 android:textStyle="bold"

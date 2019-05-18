@@ -36,13 +36,11 @@ public class X_Rays_Details_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_x__rays__details_);
 
+        setContentView(R.layout.activity_x__rays__details_);
         recyclerView = findViewById(R.id.recyclerXrayDedails);
         name_XRayDetails = findViewById(R.id.Name_XRayDetails);
         date_XRayDetails = findViewById(R.id.Date_XRayDetails);
-
-
 
         Bundle bundle = getIntent().getExtras();
         Sheet_XRays sHheetXRays = bundle.getParcelable("modelXRay");
@@ -64,21 +62,17 @@ public class X_Rays_Details_Activity extends AppCompatActivity {
                     })
                     .show();
         } else {
-//            Toast.makeText(this, "List", Toast.LENGTH_LONG).show();
             adapter = new X_RaysDetailsAdapter(X_Rays_Details_Activity.this, xraysArrayList);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setAdapter(adapter);
         }
 
-
         name_XRayDetails.setText("الاسم:- " + sheet_xRays.getSheetName());
-        date_XRayDetails.setText("التاريخ:- " + sheet_xRays.getCreatedWhen());
-
-
+        date_XRayDetails.setText(sheet_xRays.getCreatedWhen());
         if (sheet_xRays.getCreatedWhen() == null){
-            date_XRayDetails.setText("التاريخ:- " + "--/--/----");
+            date_XRayDetails.setText("--/--/----");
         }else {
-            date_XRayDetails.setText("التاريخ:- " + sheet_xRays.getCreatedWhen());
+            date_XRayDetails.setText(sheet_xRays.getCreatedWhen());
         }
 
         toolbar = findViewById(R.id.XRay_Details_Toolbar);

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     tools:context=".sheet_TreatmentDetails.sheet_TreatmentDetailsActivity"
     android:fitsSystemWindows="true">
 
@@ -40,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_marginTop="200sp"
+            android:layout_marginTop="50sp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -61,6 +62,7 @@
                     android:drawableRight="@drawable/bluecircle"
                     android:gravity="right"
                     android:maxLines="1"
+                    android:drawablePadding="4dp"
                     android:layout_marginStart="20dp"
                     android:text="الاسم"
                     android:padding="8dp"
@@ -79,6 +81,8 @@
                     android:text="25-10-2019"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     android:textColor="#0D6472"
+                    android:drawablePadding="8dp"
+                    android:gravity="right"
                     android:padding="8dp"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -123,7 +127,7 @@
         app:layout_anchor="@id/app_bar"
         android:layout_marginTop="100dp"
         app:layout_anchorGravity="bottom|center"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
 
     <include
         android:id="@+id/Sheet_Treatment_Details_Toolbar"

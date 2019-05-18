@@ -55,16 +55,16 @@ public class sheet_TreatmentDetailsActivity extends AppCompatActivity {
                     })
                     .show();
         } else {
-            Toast.makeText(this, "List", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "List", Toast.LENGTH_LONG).show();
             recycler(treatmentList1);
         }
 
         if (sHeetTreatment.getCreatedWhen() == null){
-            treatmentDate.setText("التاريخ:- " + "--/--/----");
+            treatmentDate.setText("--/--/----");
         }else {
-            treatmentDate.setText("التاريخ:- " + sHeetTreatment.getCreatedWhen());
+            treatmentDate.setText(sHeetTreatment.getCreatedWhen());
         }
-        treatmentName.setText("الاسم:- " + sHeetTreatment.getSheetName());
+        treatmentName.setText("الاسم :- " + sHeetTreatment.getSheetName());
 
        toolbarr();
 

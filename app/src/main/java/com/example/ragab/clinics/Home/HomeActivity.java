@@ -178,6 +178,13 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                         finish();
                     }
                 })
+                .setCancelText("لا")
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                        sweetAlertDialog.dismiss();
+                    }
+                })
                 .show();
     }
 

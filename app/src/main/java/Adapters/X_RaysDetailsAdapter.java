@@ -32,11 +32,36 @@ public class X_RaysDetailsAdapter extends RecyclerView.Adapter<X_RaysDetailsAdap
     @Override
     public void onBindViewHolder(X_RaysDetailsHolder holder, int position) {
         Xrays xrays1 = xrays.get(position);
-        holder.nameXRays.setText("الاسم:- " + xrays1.getXrayName());
-        holder.nameFile.setText("اسم الملف:- " + xrays1.getFileUrl());
-        holder.OldOrNew.setText("جديد / قديم:- " + xrays1.getNewOrOld());
-        holder.NmaePlace.setText("المكان :- " + xrays1.getPlaceName());
-        holder.description.setText("تفاصيل المكان:- " + xrays1.getComments());
+        holder.nameXRays.setText("الاسم :- " + xrays1.getXrayName());
+
+        String s = xrays1.getNewOrOld();
+        String a = "N";
+
+        if (s == null)
+        {
+            holder.OldOrNew.setText("حجز :- " + "------");
+        }else {
+            if (s.equals(a)) {
+                holder.OldOrNew.setText("حجز :- " + "جديد");
+            }else
+                holder.OldOrNew.setText("حجز :- " + "قديم");
+        }
+
+        if (xrays1.getFileUrl() == null)
+            holder.NmaePlace.setText("اسم الملف :- " + "------");
+        else
+            holder.nameFile.setText("اسم الملف:- " + xrays1.getFileUrl());
+
+        if (xrays1.getPlaceName() == null)
+            holder.NmaePlace.setText("المكان :- " + "------");
+        else
+            holder.NmaePlace.setText("المكان :- " + xrays1.getPlaceName());
+
+        if (xrays1.getComments() == null)
+            holder.NmaePlace.setText("تفاصيل المكان :- " + "------");
+        else
+            holder.description.setText("تفاصيل المكان :- " + xrays1.getComments());
+
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

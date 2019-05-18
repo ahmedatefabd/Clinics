@@ -23,7 +23,7 @@
             android:layout_width="85dp"
             android:layout_height="85dp"
             android:layout_gravity="center"
-            android:src="@drawable/lab28"/>
+            android:src="@drawable/l4"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,6 +41,7 @@
                 android:drawableRight="@drawable/greencircle"
                 android:gravity="right"
                 android:maxLines="1"
+                android:drawablePadding="8dp"
                 android:layout_marginStart="20dp"
                 android:text="الاسم"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
@@ -76,8 +77,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/serviceproivdertitle"
                 android:maxLines="1"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="15dp"
+                android:drawablePadding="8dp"
                 android:gravity="right"
                 android:text="dd-mm-yyyy"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"

@@ -39,9 +39,9 @@ public class SheetTreatmentAdapter extends RecyclerView.Adapter<SheetTreatmentAd
 
         final Sheet_Treatment sheetTreatment = sheet_treatmentList.get(position);
         if (sheetTreatment.getCreatedWhen() == null){
-            holder.treatmentDate.setText("التاريخ:- " + "--/--/----");
+            holder.treatmentDate.setText("--/--/----");
         }else {
-            holder.treatmentDate.setText("التاريخ:- " + sheetTreatment.getCreatedWhen());
+            holder.treatmentDate.setText(sheetTreatment.getCreatedWhen());
         }
         holder.treatmentName.setText("الاسم:- " + sheetTreatment.getSheetName());
 

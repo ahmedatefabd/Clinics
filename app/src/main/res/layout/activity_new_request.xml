@@ -67,8 +67,8 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:hint="حالتك المرضية"
-            android:textColorHint="#0D6472"
+            android:hint="حالتك المرضية ....."
+            android:textColorHint="#697B80"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="10dp"
@@ -78,7 +78,7 @@
             android:gravity="center"
             android:textColor="#0D6472"
             android:textDirection="rtl"
-            android:textSize="24sp"
+            android:textSize="20sp"
             />
 
         <EditText

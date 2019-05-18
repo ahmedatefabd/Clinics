@@ -7,7 +7,7 @@
     android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="طلبات الحجز السابقة"
         android:layout_gravity="center"

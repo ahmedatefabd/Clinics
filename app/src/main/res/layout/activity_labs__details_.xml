@@ -4,8 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#F5F5F5"
     android:layout_height="match_parent"
-    tools:context=".x_Rays_Details.X_Rays_Details_Activity"
+    tools:context=".labs_Details.Labs_Details_Activity"
     android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -39,7 +40,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="50dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -63,6 +64,7 @@
                     android:maxLines="1"
                     android:layout_marginStart="20dp"
                     android:text="الاسم"
+                    android:drawablePadding="8dp"
                     android:padding="8dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     android:textColor="#0D6472"
@@ -78,9 +80,11 @@
                     android:layout_height="wrap_content"
                     android:maxLines="1"
                     android:text="25-10-2019"
+                    android:drawablePadding="8dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     android:textColor="#0D6472"
                     android:padding="8dp"
+                    android:gravity="right"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:drawableRight="@drawable/date"
@@ -111,7 +115,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="100dp"
         android:src="@drawable/lab28"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_anchor="@+id/app_bar"
         app:layout_anchorGravity="bottom|center" />
 

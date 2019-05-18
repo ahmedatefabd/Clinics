@@ -16,7 +16,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginPresenterImp implements LoginPresenter, ApiInterface {
+public class  LoginPresenterImp implements LoginPresenter, ApiInterface {
     LoginActivity loginView;
     int ResponseCode = -1;
 

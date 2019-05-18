@@ -36,9 +36,9 @@ public class SheetLabsAdapter extends RecyclerView.Adapter<SheetLabsAdapter.Shee
         final Sheet_Labs sheetLabs = sheet_labsList.get(position);
         String string = sheetLabs.getCreatedWhen();
         if (string != null){
-            holder.labsDate.setText("التاريخ:- "+ string);
+            holder.labsDate.setText(string);
         }else {
-            holder.labsDate.setText("التاريخ:- "+ "----/--/--");
+            holder.labsDate.setText("----/--/--");
         }
         holder.labstName.setText("الاسم:- " + sheetLabs.getSheetName());
         holder.itemView.setOnClickListener(new View.OnClickListener() {

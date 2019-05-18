@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/background_row"
     cardview:cardCornerRadius="6dp"
     cardview:cardElevation="3dp"
+    app:cardCornerRadius="4dp"
+    app:cardUseCompatPadding="true"
+    android:clickable="true"
     android:layoutDirection="rtl"
-    cardview:cardUseCompatPadding="true">
+    cardview:cardUseCompatPadding="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:ignore="NamespaceTypo">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,6 +47,7 @@
                 android:drawableRight="@drawable/greencircle"
                 android:gravity="right"
                 android:maxLines="1"
+                android:drawablePadding="8dp"
                 android:layout_marginStart="20dp"
                 android:text="الاسم"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
@@ -77,9 +83,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/serviceproivdertitle"
                 android:maxLines="1"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="15dp"
                 android:gravity="right"
+                android:drawablePadding="8dp"
                 android:text="dd-mm-yyyy"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:textColor="#000"

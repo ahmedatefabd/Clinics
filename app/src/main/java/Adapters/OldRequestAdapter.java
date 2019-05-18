@@ -1,12 +1,16 @@
 package Adapters;
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.ragab.clinics.R;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import Model.BookingAll_Items;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class OldRequestAdapter extends RecyclerView.Adapter<OldRequestAdapter.OldRequestHolder> {
@@ -25,6 +29,7 @@ public class OldRequestAdapter extends RecyclerView.Adapter<OldRequestAdapter.Ol
         return holder;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(OldRequestHolder holder, int position) {
         final BookingAll_Items bookingAllItems = bookingAll_items.get(position);
@@ -32,8 +37,10 @@ public class OldRequestAdapter extends RecyclerView.Adapter<OldRequestAdapter.Ol
         String[] parts = string.split("T", 2);
         String part1 = parts[0];
         String part2 = parts[1];
-        holder.RequestDate.setText("التاريخ:- "+part1);
-        holder.RequestTime.setText("التوقيت:- " + part2);
+        holder.RequestDate.setText(part1);
+        String time = part2.replace(":00Z","");
+        String result = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm")).format(DateTimeFormatter.ofPattern("hh:mm a"));
+        holder.RequestTime.setText(result);
         holder.Requeststatues.setText("تكلفه الحجز:- " +String.valueOf(bookingAllItems.getCost()));
     }
 
