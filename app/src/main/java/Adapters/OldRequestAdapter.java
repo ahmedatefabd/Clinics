@@ -6,8 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.ragab.clinics.R;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import Model.BookingAll_Items;
 import androidx.annotation.RequiresApi;
@@ -39,8 +43,16 @@ public class OldRequestAdapter extends RecyclerView.Adapter<OldRequestAdapter.Ol
         String part2 = parts[1];
         holder.RequestDate.setText(part1);
         String time = part2.replace(":00Z","");
-        String result = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm")).format(DateTimeFormatter.ofPattern("hh:mm a"));
-        holder.RequestTime.setText(result);
+//        String result = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm")).format(DateTimeFormatter.ofPattern("hh:mm a"));
+        try {
+            final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+            final Date dateObj = sdf.parse(time);
+            time = new SimpleDateFormat("hh:mm a").format(dateObj);
+            holder.RequestTime.setText(time);
+        } catch (final ParseException e) {
+            e.printStackTrace();
+        }
+
         holder.Requeststatues.setText("تكلفه الحجز:- " +String.valueOf(bookingAllItems.getCost()));
     }
 

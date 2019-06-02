@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.ragab.clinics">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,12 +11,13 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@drawable/doctor"
         android:label="@string/app_name"
         android:roundIcon="@drawable/doctor"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup">
         <activity android:name=".x_Rays_Details.X_Rays_Details_Activity"></activity>
         <activity android:name=".labs_Details.Labs_Details_Activity" />
         <activity android:name=".x_Rays.X_RaysActivity" />

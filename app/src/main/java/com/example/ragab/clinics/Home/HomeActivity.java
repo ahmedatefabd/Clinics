@@ -97,12 +97,12 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         final Fragment[] fragment = {new Fragment()};
             switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    toolbar_title.setText("العيادة");
-                    fragment[0] = new HomeFragment_Work();
-                    loadingFragment(fragment[0]);
-                    Animatoo.animateZoom(HomeActivity.this);
-                    return true;
+//                case R.id.navigation_home:
+//                    toolbar_title.setText("العيادة");
+//                    fragment[0] = new HomeFragment_Work();
+//                    loadingFragment(fragment[0]);
+//                    Animatoo.animateZoom(HomeActivity.this);
+//                    return true;
                 case R.id.navigation_profile:
                     toolbar_title.setText("الشخصية");
                     fragment[0] = new ProfileFragment();
@@ -112,8 +112,11 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                     logoutMessage();
                     return true;
                 case R.id.navigation_menu:
+                    toolbar_title.setText("العيادة");
+                    fragment[0] = new HomeFragment_Work();
+                    loadingFragment(fragment[0]);
+                    Animatoo.animateZoom(HomeActivity.this);
                     SheetMenu.with(this)
-                            .setTitle("اختار")
                             .setMenu(R.menu.menu)
                             .setAutoCancel(true)
                             .setClick(new MenuItem.OnMenuItemClickListener() {
@@ -174,6 +177,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                         editor.apply();
                         editor.remove("id");
                         editor.apply();
+//                        Utils.RemoveUserID(HomeActivity.this);
                         startActivity(new Intent(HomeActivity.this, LoginActivity.class));
                         finish();
                     }

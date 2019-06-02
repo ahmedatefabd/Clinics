@@ -46,7 +46,6 @@ public class sheet_TreatmentImp implements sheet_TreatmentPresenter, ApiInterfac
         QueryCall.enqueue(new Callback<Response_Sheet_Treatment>() {
             @Override
             public void onResponse(Call<Response_Sheet_Treatment> call, Response<Response_Sheet_Treatment> response) {
-
                 List<Sheet_Treatment> sheetTreatmentList = response.body().getSheet_treatmentList();
                 if (response.isSuccessful()) {
                     sheet_TreatmentActivity.shimmerRecyclerView.hideShimmerAdapter();
@@ -58,7 +57,6 @@ public class sheet_TreatmentImp implements sheet_TreatmentPresenter, ApiInterfac
                 System.out.print(toString());
             }
         });
-
         return null;
     }
 

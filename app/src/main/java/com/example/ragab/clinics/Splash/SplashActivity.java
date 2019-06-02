@@ -93,14 +93,8 @@ public class SplashActivity extends Activity {
                             } else {
                                 i = new Intent(SplashActivity.this, HomeActivity.class);
                                 finish();
-//                                RefreshHome();
                             }
                             startActivity(i);
-
-                            finish();
-                            startActivity(i);
-
-                            finish();
                         } catch (Exception e) {
                         }
                     }

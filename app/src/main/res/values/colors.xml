@@ -8,4 +8,5 @@
     <color name="statusbar">#b5e3ff</color>
     <color name="Withe">#fff</color>
     <color name="red">#FA2727</color>
+    <item name="white" type="color">#ffffff</item>
 </resources>

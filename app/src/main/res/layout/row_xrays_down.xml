@@ -17,6 +17,7 @@
         android:orientation="horizontal"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:background="@drawable/menuback"
         android:layout_margin="4dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
