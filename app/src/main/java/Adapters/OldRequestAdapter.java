@@ -43,7 +43,6 @@ public class OldRequestAdapter extends RecyclerView.Adapter<OldRequestAdapter.Ol
         String part2 = parts[1];
         holder.RequestDate.setText(part1);
         String time = part2.replace(":00Z","");
-//        String result = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm")).format(DateTimeFormatter.ofPattern("hh:mm a"));
         try {
             final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
             final Date dateObj = sdf.parse(time);

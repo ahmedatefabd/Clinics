@@ -51,9 +51,7 @@ public class sheet_TreatmentActivity extends AppCompatActivity implements sheet_
         if (Build.VERSION.SDK_INT >= M) {
             getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.booking));
         }
-//        recycler();
         if(NetworkChangeReceiver.isNetworkAvailable(this)) {
-//            LoadData();
             sheet_treatmentPresenter.getSheetTreatment();
         }else {
             errorMessage();
